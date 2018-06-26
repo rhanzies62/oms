@@ -15,7 +15,7 @@ namespace OMS.Core.Entities
         public int ID { get; set; }
 
         [Required, StringLength(25)]
-        public string Address { get; set; }
+        public int AddressID { get; set; }
         [Required]
         public decimal TotalPrice { get; set; }
         [Required]
@@ -24,15 +24,18 @@ namespace OMS.Core.Entities
         [Required]
         public int CustomerID { get; set; }
 
-        public int? UserID { get; set; }
+        public int UserID { get; set; }
 
         public User User { get; set; }
         public Customer Customer { get; set; }
-
+        public Address Address { get; set; }
         [Required]
         public string CreatedBy { get; set; }
+        [Required]
         public DateTime CreatedDate { get; set; }
+        [Required]
         public string UpdatedBy { get; set; }
+        [Required]
         public DateTime UpdatedDate { get; set; }
 
         [ForeignKey("TransactionId")]

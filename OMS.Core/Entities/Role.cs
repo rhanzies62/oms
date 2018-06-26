@@ -24,8 +24,11 @@ namespace OMS.Core.Entities
 
         [Required]
         public string CreatedBy { get; set; }
+        [Required]
         public DateTime CreatedDate { get; set; }
+        [Required]
         public string UpdatedBy { get; set; }
+        [Required]
         public DateTime UpdatedDate { get; set; }
 
     }

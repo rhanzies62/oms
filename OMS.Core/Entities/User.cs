@@ -18,7 +18,7 @@ namespace OMS.Core.Entities
         [Required, StringLength(25)]
         public string LastName { get; set; }
         [Required, StringLength(25)]
-        public string Address { get; set; }
+        public int AddressID { get; set; }
         [Required]
         public int MobileNumber { get; set; }
         [Required, StringLength(25)]
@@ -26,10 +26,15 @@ namespace OMS.Core.Entities
         [Required]
         public Gender Gender { get; set; }
 
+        public Address address { get; set; }
+
         [Required]
         public string CreatedBy { get; set; }
+        [Required]
         public DateTime CreatedDate { get; set; }
+        [Required]
         public string UpdatedBy { get; set; }
+        [Required]
         public DateTime UpdatedDate { get; set; }
 
 
