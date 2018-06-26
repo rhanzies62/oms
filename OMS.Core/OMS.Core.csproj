@@ -58,6 +58,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Mapper\AutoMapperCoreConfiguration.cs" />
     <Compile Include="DTO\Response.cs" />
     <Compile Include="Interface\Repositories\ICRUDRepository.cs" />
     <Compile Include="Interface\Services\ITestService.cs" />
