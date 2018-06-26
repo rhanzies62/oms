@@ -13,10 +13,22 @@ namespace OMS.Core.Entities
     public enum Gender
     {
         [Description("Male")]
-        male,
+        Male,
         [Description("Female")]
-        female,
+        Female,
     }
-    public enum GEnd {
+    public enum AccountType
+    {
+        [Description("Admin")]
+        Admin,
+        [Description("Employee")]
+        Employee,
+    }
+    public enum Status
+    {
+        [Description("Active")]
+        Active,
+        [Description("Inactive")]
+        Inactive,
     }
 }

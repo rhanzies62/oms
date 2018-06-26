@@ -11,15 +11,17 @@ namespace OMS.Core.Entities
     public class Variant
     {
         [Key]
-        public int variantId { get; set; }
+        public int ID { get; set; }
 
-        [Required,MaxLength(25)]
-        public int variantName { get; set; }
-        public int variantDesc { get; set; }
+        [Required, StringLength(25)]
+        public string Name { get; set; }
+        [Required, StringLength(50)]
+        public string Description { get; set; }
 
-        [ForeignKey("variantRefId")]
-        public ICollection<Category> category { get; set; }
-        public ICollection<Product> product { get; set; }
+        [ForeignKey("VariantID")]
+        public ICollection<Category> Category { get; set; }
+        [ForeignKey("VariantID")]
+        public ICollection<Product> Product { get; set; }
 
     }
 }

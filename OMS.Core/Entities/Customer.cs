@@ -1,14 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace OMS.Core.Entities
 {
-    public class Employee : Account
+    public class Customer
     {
         [Key]
         public int ID { get; set; }
@@ -20,11 +19,9 @@ namespace OMS.Core.Entities
         [Required, StringLength(50)]
         public string Address { get; set; }
         [Required]
-        public Gender Gender { get; set; }
-        [Required]
-        public DateTime Birthdate { get; set; }
+        public int MobileNumber { get; set; }
 
-        [ForeignKey("EmployeeID")]
-        public ICollection<Order> Order { get; set; }
+        public int Tin { get; set; }
+        public string BusinessName { get; set; }
     }
 }

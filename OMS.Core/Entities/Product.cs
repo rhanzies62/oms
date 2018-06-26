@@ -11,21 +11,24 @@ namespace OMS.Core.Entities
     public class Product
     {   
         [Key]
-        public int productId { get; set; }
+        public int ID { get; set; }
 
-        [Required,MaxLength(25)]
-        public string productName { get; set; }
-        public decimal productPrice { get; set; }
-        public string productSize { get; set; }
+        [Required, StringLength(25)]
+        public string Name { get; set; }
+        [Required, StringLength(25)]
+        public string Description { get; set; }
+        [Required]
+        public decimal Price { get; set; }
 
-        public int categoryRefId { get; set; }
-        public Category category { get; set; }
+        public int CategoryID { get; set; }
+        public Category Category { get; set; }
 
-        public int variantRefId { get; set; }
-        public Variant variant { get; set; }
+        public int? VariantID { get; set; }
+
+        public Variant Variant { get; set; }
 
 
-        [ForeignKey("productRefId")]
-        public Order order { get; set; }
+        [ForeignKey("ProductID")]
+        public ICollection<Order> order { get; set; }
     }
 }

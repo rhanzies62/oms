@@ -10,15 +10,22 @@ namespace OMS.Core.Entities
     public class Order
     {
         [Key]
-        public int orderId { get; set; }
+        public int ID { get; set; }
 
         [Required]
-        public DateTime orderDate { get; set; }
-        public int orderQuan { get; set; }
-        public int productRefId { get; set; }
-        public int employeeRefId { get; set; }
+        public int Quantity { get; set; }
+        [Required]
+        public int EmployeeID { get; set; }
+        [Required]
+        public int ProductID { get; set; }
+        [Required]
+        public DateTime Date { get; set; }
 
-        public Employee employee { get; set; }
-        public Product product { get; set; }
+        public int TransactionId { get; set; }
+
+        public Transaction Transaction { get; set; }
+        public Product Product { get; set; }
+        public Employee Employee { get; set; }
+
     }
 }
