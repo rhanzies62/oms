@@ -14,7 +14,7 @@ namespace OMS.Core.Entities
         [Key]
         public int ID { get; set; }
 
-        [Required, StringLength(25)]
+        [Required]
         public int AddressID { get; set; }
         [Required]
         public decimal TotalPrice { get; set; }
@@ -24,9 +24,10 @@ namespace OMS.Core.Entities
         [Required]
         public int CustomerID { get; set; }
 
+        [Required]
         public int UserID { get; set; }
-
         public User User { get; set; }
+
         public Customer Customer { get; set; }
         public Address Address { get; set; }
         [Required]

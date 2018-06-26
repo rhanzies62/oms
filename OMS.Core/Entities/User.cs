@@ -17,7 +17,7 @@ namespace OMS.Core.Entities
         public string FirstName { get; set; }
         [Required, StringLength(25)]
         public string LastName { get; set; }
-        [Required, StringLength(25)]
+        [Required]
         public int AddressID { get; set; }
         [Required]
         public int MobileNumber { get; set; }
@@ -26,7 +26,7 @@ namespace OMS.Core.Entities
         [Required]
         public Gender Gender { get; set; }
 
-        public Address address { get; set; }
+        public Address Address { get; set; }
 
         [Required]
         public string CreatedBy { get; set; }
@@ -40,5 +40,9 @@ namespace OMS.Core.Entities
 
         [ForeignKey("UserID")]
         public ICollection<Order> Order { get; set; }
+
+        [ForeignKey("UserID")]
+        public ICollection<Transaction> Transaction { get; set; }
+
     }
 }
