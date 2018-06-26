@@ -9,27 +9,18 @@ using System.Threading.Tasks;
 
 namespace OMS.Core.Entities
 {
-    public class Product:IAudit
-    {   
+    public class Role:IAudit
+    {
         [Key]
         public int ID { get; set; }
-
-        [Required, StringLength(25)]
+        [Required,MaxLength(20)]
         public string Name { get; set; }
-        [Required, StringLength(25)]
+        [Required,MaxLength(50)]
         public string Description { get; set; }
-        [Required]
-        public decimal Price { get; set; }
 
-        public int CategoryID { get; set; }
-        public Category Category { get; set; }
 
-        public int? VariantID { get; set; }
-
-        public Variant Variant { get; set; }
-
-        [ForeignKey("ProductID")]
-        public ICollection<Order> order { get; set; }
+        [ForeignKey("RoleID")]
+        public ICollection<Account> Account { get; set; }
 
         [Required]
         public string CreatedBy { get; set; }

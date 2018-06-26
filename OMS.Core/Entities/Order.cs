@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
+using OMS.Core.Interface.Entity;
 
 namespace OMS.Core.Entities
 {
-    public class Order
+    public class Order:IAudit
     {
         [Key]
         public int ID { get; set; }
@@ -15,7 +16,7 @@ namespace OMS.Core.Entities
         [Required]
         public int Quantity { get; set; }
         [Required]
-        public int EmployeeID { get; set; }
+        public int UserID { get; set; }
         [Required]
         public int ProductID { get; set; }
         [Required]
@@ -25,7 +26,13 @@ namespace OMS.Core.Entities
 
         public Transaction Transaction { get; set; }
         public Product Product { get; set; }
-        public Employee Employee { get; set; }
+        public User User { get; set; }
+
+        [Required]
+        public string CreatedBy { get; set; }
+        public DateTime CreatedDate { get; set; }
+        public string UpdatedBy { get; set; }
+        public DateTime UpdatedDate { get; set; }
 
     }
 }

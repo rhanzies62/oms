@@ -7,9 +7,6 @@ using System.Threading.Tasks;
 
 namespace OMS.Core.Entities
 {
-    public class Enums {
-
-    }
     public enum Gender
     {
         [Description("Male")]
@@ -17,18 +14,5 @@ namespace OMS.Core.Entities
         [Description("Female")]
         Female,
     }
-    public enum AccountType
-    {
-        [Description("Admin")]
-        Admin,
-        [Description("Employee")]
-        Employee,
-    }
-    public enum Status
-    {
-        [Description("Active")]
-        Active,
-        [Description("Inactive")]
-        Inactive,
-    }
+    
 }

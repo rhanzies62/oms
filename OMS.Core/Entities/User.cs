@@ -1,26 +1,37 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace OMS.Core.Entities
 {
-    public class Admin
+    public class User
     {
         [Key]
         public int ID { get; set; }
-        [Required,StringLength(25)]
+        [Required, StringLength(25)]
         public string FirstName { get; set; }
         [Required, StringLength(25)]
         public string LastName { get; set; }
-        [Required,StringLength(25)]
+        [Required, StringLength(25)]
         public string Address { get; set; }
         [Required]
         public int MobileNumber { get; set; }
-        [Required,StringLength(25)]
+        [Required, StringLength(25)]
         public string Email { get; set; }
+        [Required]
+        public Gender Gender { get; set; }
 
+        public string CreatedBy { get; set; }
+        public DateTime CreatedDate { get; set; }
+        public string UpdatedBy { get; set; }
+        public DateTime UpdatedDate { get; set; }
+
+
+        [ForeignKey("UserID")]
+        public ICollection<Order> Order { get; set; }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OMS.Core.Interface.Entity;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace OMS.Core.Entities
 {
-    public class Variant
+    public class Variant :IAudit
     {
         [Key]
         public int ID { get; set; }
@@ -22,6 +23,11 @@ namespace OMS.Core.Entities
         public ICollection<Category> Category { get; set; }
         [ForeignKey("VariantID")]
         public ICollection<Product> Product { get; set; }
+
+        public string CreatedBy { get; set; }
+        public DateTime CreatedDate { get; set; }
+        public string UpdatedBy { get; set; }
+        public DateTime UpdatedDate { get; set; }
 
     }
 }

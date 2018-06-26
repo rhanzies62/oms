@@ -9,33 +9,25 @@ using System.Threading.Tasks;
 
 namespace OMS.Core.Entities
 {
-    public class Product:IAudit
-    {   
+    public class Address :IAudit
+    {
         [Key]
         public int ID { get; set; }
-
+        [Required,StringLength(25)]
+        public string AddressLineOne { get; set; }
+        [StringLength(25)]
+        public string AddressLineTwo { get; set; }
         [Required, StringLength(25)]
-        public string Name { get; set; }
-        [Required, StringLength(25)]
-        public string Description { get; set; }
-        [Required]
-        public decimal Price { get; set; }
+        public string City { get; set; }
+        [StringLength(25)]
+        public string PostalCode { get; set; }
 
-        public int CategoryID { get; set; }
-        public Category Category { get; set; }
-
-        public int? VariantID { get; set; }
-
-        public Variant Variant { get; set; }
-
-        [ForeignKey("ProductID")]
-        public ICollection<Order> order { get; set; }
-
-        [Required]
         public string CreatedBy { get; set; }
         public DateTime CreatedDate { get; set; }
         public string UpdatedBy { get; set; }
         public DateTime UpdatedDate { get; set; }
 
+        [ForeignKey("AddressID")]
+        public ICollection<Order> Order { get; set; }
     }
 }
