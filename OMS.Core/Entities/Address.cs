@@ -22,6 +22,7 @@ namespace OMS.Core.Entities
         [StringLength(25)]
         public string PostalCode { get; set; }
 
+        [Required]
         public string CreatedBy { get; set; }
         public DateTime CreatedDate { get; set; }
         public string UpdatedBy { get; set; }

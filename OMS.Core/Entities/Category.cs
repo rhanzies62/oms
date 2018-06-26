@@ -30,6 +30,7 @@ namespace OMS.Core.Entities
         [ForeignKey("CategoryID")]
         public ICollection<Product> Product { get; set; }
 
+        [Required]
         public string CreatedBy { get; set; }
         public DateTime CreatedDate { get; set; }
         public string UpdatedBy { get; set; }

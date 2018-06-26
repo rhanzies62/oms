@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OMS.Core.Interface.Entity;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace OMS.Core.Entities
 {
-    public class User
+    public class User : IAudit
     {
         [Key]
         public int ID { get; set; }
@@ -25,6 +26,7 @@ namespace OMS.Core.Entities
         [Required]
         public Gender Gender { get; set; }
 
+        [Required]
         public string CreatedBy { get; set; }
         public DateTime CreatedDate { get; set; }
         public string UpdatedBy { get; set; }

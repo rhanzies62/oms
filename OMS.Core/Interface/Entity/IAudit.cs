@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace OMS.Core.Interface.Entity
 {
-    interface IAudit
+    public interface IAudit
     {
+        string CreatedBy { get; set; }
+        string UpdatedBy { get; set; }
+        DateTime CreatedDate { get; set; }
+        DateTime UpdatedDate { get; set; }
     }
 }
