@@ -58,7 +58,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-<<<<<<< HEAD
     <Compile Include="DTO\AddressDTO.cs" />
     <Compile Include="DTO\UserDTO.cs" />
     <Compile Include="DTO\CategoryDTO.cs" />
@@ -67,9 +66,7 @@
     <Compile Include="DTO\EnumsDTO.cs" />
     <Compile Include="DTO\OrderDTO.cs" />
     <Compile Include="DTO\ProductDTO.cs" />
-=======
     <Compile Include="Mapper\AutoMapperCoreConfiguration.cs" />
->>>>>>> Staging
     <Compile Include="DTO\Response.cs" />
     <Compile Include="DTO\TransactionDTO.cs" />
     <Compile Include="DTO\VariantDTO.cs" />
@@ -91,6 +88,7 @@
     <Compile Include="Interface\Services\IMapperService.cs" />
     <Compile Include="Interface\Services\IProductService.cs" />
     <Compile Include="Interface\Services\ITestService.cs" />
+    <Compile Include="Mapper\UserProfile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
