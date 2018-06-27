@@ -9,12 +9,11 @@ using System.Threading.Tasks;
 
 namespace OMS.Core.Mapper
 {
-    public class UserProfile : Profile
+    public class AddressProfile : Profile
     {
-        public UserProfile() {
-            CreateMap<UserViewModel, User>();
-            CreateMap<IEnumerable<UserViewModel>,IEnumerable<User>>();
-
+        public AddressProfile()
+        {
+            CreateMap<AddressViewModel, Address>();
         }
     }
 }

@@ -20,7 +20,7 @@ namespace OMS.Core.Entities
         [Required]
         public Role Role { get; set; }
         [Required]
-        public int Status { get; set; }
+        public Status Status { get; set; }
         [Required]
         public string Salt { get; set; }
         [Required]

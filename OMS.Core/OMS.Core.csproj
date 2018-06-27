@@ -58,18 +58,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DTO\AddressDTO.cs" />
-    <Compile Include="DTO\UserDTO.cs" />
-    <Compile Include="DTO\CategoryDTO.cs" />
-    <Compile Include="DTO\CustomerDTO.cs" />
-    <Compile Include="DTO\EmployeeDTO.cs" />
-    <Compile Include="DTO\EnumsDTO.cs" />
-    <Compile Include="DTO\OrderDTO.cs" />
-    <Compile Include="DTO\ProductDTO.cs" />
+    <Compile Include="DTO\AccountViewModel.cs" />
+    <Compile Include="DTO\AddressViewModel.cs" />
+    <Compile Include="DTO\RoleViewModel.cs" />
+    <Compile Include="DTO\UserViewModel.cs" />
+    <Compile Include="DTO\CategoryViewModel.cs" />
+    <Compile Include="DTO\CustomerViewModel.cs" />
+    <Compile Include="DTO\EmployeeViewModel.cs" />
+    <Compile Include="DTO\Enums.cs" />
+    <Compile Include="DTO\OrderViewModel.cs" />
+    <Compile Include="DTO\ProductViewModel.cs" />
+    <Compile Include="Mapper\AddressProfile.cs" />
     <Compile Include="Mapper\AutoMapperCoreConfiguration.cs" />
     <Compile Include="DTO\Response.cs" />
-    <Compile Include="DTO\TransactionDTO.cs" />
-    <Compile Include="DTO\VariantDTO.cs" />
+    <Compile Include="DTO\TransactionViewModel.cs" />
+    <Compile Include="DTO\VariantViewModel.cs" />
     <Compile Include="Entities\Account.cs" />
     <Compile Include="Entities\Address.cs" />
     <Compile Include="Entities\Category.cs" />
@@ -83,7 +86,6 @@
     <Compile Include="Entities\Variant.cs" />
     <Compile Include="Interface\Entity\IAudit.cs" />
     <Compile Include="Interface\Repositories\ICRUDRepository.cs" />
-    <Compile Include="Interface\Repositories\IProductRepository.cs" />
     <Compile Include="Interface\Services\IUserService.cs" />
     <Compile Include="Interface\Services\IMapperService.cs" />
     <Compile Include="Interface\Services\IProductService.cs" />

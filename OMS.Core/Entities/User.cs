@@ -37,6 +37,10 @@ namespace OMS.Core.Entities
         [Required]
         public DateTime UpdatedDate { get; set; }
 
+        [Required]
+        public int AccountID { get; set; }
+
+        public Account Account { get; set; }
 
         [ForeignKey("UserID")]
         public ICollection<Order> Order { get; set; }

@@ -12,7 +12,9 @@ namespace OMS.Core.Mapper
         public static void Configure()
         {
            AutoMapper.Mapper.Initialize(cfg => {
+               cfg.AddProfile<AddressProfile>();
                cfg.AddProfile<UserProfile>();
+
            });
         }
     }
