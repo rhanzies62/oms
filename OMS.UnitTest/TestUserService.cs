@@ -87,10 +87,10 @@ namespace OMS.UnitTest
             var stringDate = DateTime.Now.ToString(format);
             var convertedBack = DateTime.ParseExact(stringDate, format, CultureInfo.InvariantCulture);
 
-            user.ID = 3;
-            user.AddressID = 6;
+            user.ID = 1;
+            user.AddressID = 1;
             user.AccountID = 1;
-            user.FirstName = "kitt";
+            user.FirstName = "lorenz";
             user.LastName = "lname";
             user.MobileNumber = 09311212;
             user.CreatedBy = "lorenz";
