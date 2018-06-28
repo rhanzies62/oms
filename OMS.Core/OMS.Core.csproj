@@ -58,15 +58,41 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DTO\AddressDTO.cs" />
+    <Compile Include="DTO\UserDTO.cs" />
+    <Compile Include="DTO\CategoryDTO.cs" />
+    <Compile Include="DTO\CustomerDTO.cs" />
+    <Compile Include="DTO\EmployeeDTO.cs" />
+    <Compile Include="DTO\EnumsDTO.cs" />
+    <Compile Include="DTO\OrderDTO.cs" />
+    <Compile Include="DTO\ProductDTO.cs" />
     <Compile Include="Mapper\AutoMapperCoreConfiguration.cs" />
     <Compile Include="DTO\Response.cs" />
+    <Compile Include="DTO\TransactionDTO.cs" />
+    <Compile Include="DTO\VariantDTO.cs" />
+    <Compile Include="Entities\Account.cs" />
+    <Compile Include="Entities\Address.cs" />
+    <Compile Include="Entities\Category.cs" />
+    <Compile Include="Entities\Customer.cs" />
+    <Compile Include="Entities\Enums.cs" />
+    <Compile Include="Entities\Order.cs" />
+    <Compile Include="Entities\Product.cs" />
+    <Compile Include="Entities\Role.cs" />
+    <Compile Include="Entities\Transaction.cs" />
+    <Compile Include="Entities\User.cs" />
+    <Compile Include="Entities\Variant.cs" />
+    <Compile Include="Interface\Entity\IAudit.cs" />
     <Compile Include="Interface\Repositories\ICRUDRepository.cs" />
+    <Compile Include="Interface\Repositories\IProductRepository.cs" />
+    <Compile Include="Interface\Services\IUserService.cs" />
+    <Compile Include="Interface\Services\IMapperService.cs" />
+    <Compile Include="Interface\Services\IProductService.cs" />
     <Compile Include="Interface\Services\ITestService.cs" />
+    <Compile Include="Mapper\UserProfile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Common\" />
-    <Folder Include="Entities\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Coding Standard.txt" />
