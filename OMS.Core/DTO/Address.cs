@@ -22,7 +22,7 @@ namespace OMS.Core.DTO
         public string UpdatedBy { get; set; }
         public DateTime UpdatedDate { get; set; }
 
-        public ICollection<UserViewModel> User { get; set; }
-        public ICollection<TransactionViewModel> Transaction { get; set; }
+        public ICollection<User> User { get; set; }
+        //public ICollection<Tra> Transaction { get; set; }
     }
 }

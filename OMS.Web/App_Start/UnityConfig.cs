@@ -16,9 +16,6 @@ namespace OMS.Web
 			var container = new UnityContainer();
 
             container.RegisterType<ITestService, TestService>();
-            container.RegisterType(typeof(ICRUDRepository<>), typeof(CRUDRepository<>));
-            container.RegisterType<IMapperService,MapperService>();
-            container.RegisterType<IProductService, ProductService>();
 
             DependencyResolver.SetResolver(new Unity.Mvc5.UnityDependencyResolver(container));
             GlobalConfiguration.Configuration.DependencyResolver = new Unity.WebApi.UnityDependencyResolver(container);
