@@ -7,7 +7,7 @@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
-<body>
+<body background="Images/topanlogo.png">
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
@@ -26,7 +26,7 @@
 
 
             <div>
-                <ul class="nav navbar-nav">
+                <ul class="nav navbar-nav" bgcolor=" #66cc66">
                     <li>@Html.ActionLink("Variants", "Variants", "TopanAdmin")</li>
                     <li>@Html.ActionLink("Products", "Products", "TopanAdmin")</li>
                     <li>@Html.ActionLink("Employees", "Employees", "TopanAdmin")</li>
@@ -42,9 +42,9 @@
     <div class="container body-content">
         @RenderBody()
         <hr />
-        <footer>
+        @*<footer>
             <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
+        </footer>*@
     </div>
 
     @Scripts.Render("~/bundles/jquery")
