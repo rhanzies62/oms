@@ -23,13 +23,15 @@ namespace OMS.Core.Entities
 
         public int CategoryID { get; set; }
         public Category Category { get; set; }
+        [Required]
+        public Status Status { get; set; }
 
-        public int? VariantID { get; set; }
+        public int VariantID { get; set; }
 
         public Variant Variant { get; set; }
 
         [ForeignKey("ProductID")]
-        public ICollection<Order> order { get; set; }
+        public IEnumerable<Order> order { get; set; }
 
         [Required]
         public string CreatedBy { get; set; }

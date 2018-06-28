@@ -25,6 +25,8 @@ namespace OMS.Core.Entities
         public string Email { get; set; }
         [Required]
         public Gender Gender { get; set; }
+        [Required]
+        public Status Status { get; set; }
 
         public Address Address { get; set; }
 

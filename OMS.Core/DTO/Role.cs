@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace OMS.Core.DTO
 {
-    public class RoleViewModel
+    public class Role
     {
         public int ID { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
 
-        public ICollection<AccountViewModel> Account { get; set; }
+        public ICollection<Account> Account { get; set; }
 
         public string CreatedBy { get; set; }
         public DateTime CreatedDate { get; set; }

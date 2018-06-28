@@ -7,9 +7,21 @@ using OMS.Core.DTO;
 
 namespace OMS.Core.Interface.Services
 {
-    public interface IUserService<T> where T : class
+    public interface IUserService
     {
-        IEnumerable<UserViewModel> ListAdmins();
-        Response<UserViewModel> CreateUser(UserViewModel UserDTO);
+        IEnumerable<User> ListActiveUsers();
+        IEnumerable<User> ListInactiveUsers();
+
+        IEnumerable<User> ListUsersByRole(int id);
+
+        Response<User> CreateUser(User User);
+
+        Response<User> UpdateUser(User User);
+
+        Response<User> RemoveUser(int id);
+
+        User GetActiveUser(int id);
+        User GetInactiveUser(int id);
+
     }
 }

@@ -7,27 +7,27 @@ using System.Threading.Tasks;
 
 namespace OMS.Core.DTO
 {
-    public class User
+    public class Transaction
     {
         [Key]
         public int ID { get; set; }
-        [Required, StringLength(25)]
-        public string FirstName { get; set; }
-        [Required, StringLength(25)]
-        public string LastName { get; set; }
+
         [Required]
         public int AddressID { get; set; }
         [Required]
-        public int MobileNumber { get; set; }
-        [Required, StringLength(25)]
-        public string Email { get; set; }
+        public decimal TotalPrice { get; set; }
         [Required]
-        public Gender Gender { get; set; }
-        [Required]
-        public Status Status { get; set; }
+        public DateTime Date { get; set; }
 
+        [Required]
+        public int CustomerID { get; set; }
+
+        [Required]
+        public int UserID { get; set; }
+        public User User { get; set; }
+
+        public Customer Customer { get; set; }
         public Address Address { get; set; }
-
         [Required]
         public string CreatedBy { get; set; }
         [Required]
@@ -37,15 +37,7 @@ namespace OMS.Core.DTO
         [Required]
         public DateTime UpdatedDate { get; set; }
 
-        [Required]
-        public int AccountID { get; set; }
-
-        public Account Account { get; set; }
-
-        public IEnumerable<Order> Order { get; set; }
-
-
-        public IEnumerable<Transaction> Transaction { get; set; }
+        public IEnumerable<Order> order { get; set; }
 
     }
 }

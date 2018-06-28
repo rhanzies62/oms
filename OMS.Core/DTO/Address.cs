@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace OMS.Core.DTO
 {
-    public class AddressViewModel :IAudit
+    public class Address :IAudit
     {
         public int ID { get; set; }
         public string AddressLineOne { get; set; }
@@ -22,7 +22,7 @@ namespace OMS.Core.DTO
         public string UpdatedBy { get; set; }
         public DateTime UpdatedDate { get; set; }
 
-        public ICollection<UserViewModel> User { get; set; }
-        public ICollection<TransactionViewModel> Transaction { get; set; }
+        //public ICollection<UserViewModel> User { get; set; }
+        //public ICollection<TransactionViewModel> Transaction { get; set; }
     }
 }

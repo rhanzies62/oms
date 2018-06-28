@@ -6,6 +6,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DTO = OMS.Core.DTO;
+using Entities = OMS.Core.Entities;
 
 namespace OMS.Core.Mapper
 {
@@ -13,7 +15,7 @@ namespace OMS.Core.Mapper
     {
         public AddressProfile()
         {
-            CreateMap<AddressViewModel, Address>();
+            CreateMap<DTO.Address, Entities.Address>();
         }
     }
 }
