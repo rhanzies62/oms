@@ -14,8 +14,8 @@ namespace OMS.Service.Services
 {
     public class UserService : IUserService<UserViewModel>
     {
-        private ICRUDRepository<User> _userRepo;
 
+        private ICRUDRepository<User> _userRepo;
         public UserService()
         {
         }
@@ -41,6 +41,8 @@ namespace OMS.Service.Services
             }
             return response;
         }
+
+        
 
         public IEnumerable<UserViewModel> ListAdmins()
         {

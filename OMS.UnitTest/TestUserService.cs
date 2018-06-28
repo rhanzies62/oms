@@ -59,5 +59,6 @@ namespace OMS.UnitTest
 
             Response<UserViewModel> res = _service.CreateUser(user);
         }
+
     }
 }
