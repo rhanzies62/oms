@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace OMS.Core.DTO
 {
-    public class AddressViewModel :IAudit
+    public class Address :IAudit
     {
         public int ID { get; set; }
         public string AddressLineOne { get; set; }

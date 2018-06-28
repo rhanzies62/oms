@@ -13,7 +13,7 @@ namespace OMS.Core.Mapper
     {
         public AddressProfile()
         {
-            CreateMap<AddressViewModel, Address>();
+            CreateMap<Address, Address>();
         }
     }
 }

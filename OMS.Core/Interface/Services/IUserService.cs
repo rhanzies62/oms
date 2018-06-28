@@ -7,9 +7,9 @@ using OMS.Core.DTO;
 
 namespace OMS.Core.Interface.Services
 {
-    public interface IUserService<T> where T : class
+    public interface IUserService
     {
-        IEnumerable<UserViewModel> ListAdmins();
-        Response<UserViewModel> CreateUser(UserViewModel UserDTO);
+        IEnumerable<User> ListAdmins();
+        Response<User> CreateUser(User User);
     }
 }
