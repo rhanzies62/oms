@@ -73,6 +73,7 @@
     <Compile Include="DTO\Response.cs" />
     <Compile Include="DTO\TransactionViewModel.cs" />
     <Compile Include="DTO\VariantViewModel.cs" />
+    <Compile Include="Common\Cryptography.cs" />
     <Compile Include="Entities\Account.cs" />
     <Compile Include="Entities\Address.cs" />
     <Compile Include="Entities\Category.cs" />
@@ -93,9 +94,7 @@
     <Compile Include="Mapper\UserProfile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Common\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="Coding Standard.txt" />
   </ItemGroup>
