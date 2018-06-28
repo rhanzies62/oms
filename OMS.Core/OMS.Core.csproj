@@ -69,6 +69,9 @@
     <Compile Include="DTO\Transaction.cs" />
     <Compile Include="DTO\User.cs" />
     <Compile Include="DTO\Variant.cs" />
+    <Compile Include="Interface\Services\IAccountService.cs" />
+    <Compile Include="Interface\Services\IRoleService.cs" />
+    <Compile Include="Interface\Services\IVariant.cs" />
     <Compile Include="Mapper\AddressProfile.cs" />
     <Compile Include="Mapper\AutoMapperCoreConfiguration.cs" />
     <Compile Include="DTO\Response.cs" />

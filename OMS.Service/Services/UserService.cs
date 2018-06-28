@@ -58,13 +58,6 @@ namespace OMS.Service.Services
             return Mapper.Map<IEnumerable<Entities.User>, IEnumerable<DTO.User>>(_userRepo.GetList(u => u.Status.Equals(DTO.Status.Active)));
         }
 
-        public IEnumerable<DTO.User> ListUsersByRole(int id)
-        {
-            IEnumerable<DTO.User> response = new List<DTO.User>();
-            response = Mapper.Map<IEnumerable<Entities.User>,IEnumerable<DTO.User>>(_userRepo.GetAll(u => u.Account.RoleID == id));
-            return response;
-        }
-
         public IEnumerable<DTO.User> ListInactiveUsers()
         {
             return Mapper.Map<IEnumerable<Entities.User>, IEnumerable<DTO.User>>(_userRepo.GetList(u => u.Status.Equals(DTO.Status.Inactive)));

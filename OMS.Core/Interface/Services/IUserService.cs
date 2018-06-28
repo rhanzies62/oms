@@ -12,8 +12,6 @@ namespace OMS.Core.Interface.Services
         IEnumerable<User> ListActiveUsers();
         IEnumerable<User> ListInactiveUsers();
 
-        IEnumerable<User> ListUsersByRole(int id);
-
         Response<User> CreateUser(User User);
 
         Response<User> UpdateUser(User User);
