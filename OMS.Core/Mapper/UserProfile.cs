@@ -14,14 +14,9 @@ namespace OMS.Core.Mapper
     public class UserProfile : Profile
     {
         public UserProfile() {
-<<<<<<< HEAD
-            //CreateMap<DTO.se, User>();
 
-            
-=======
             CreateMap<DTO.User, Entities.User>();
             CreateMap<IEnumerable<DTO.User>,IEnumerable<Entities.User>>();
->>>>>>> Dev
         }
     }
 }
