@@ -1,16 +1,15 @@
-﻿using OMS.Core.Interface.Entity;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OMS.Core.Entities
+namespace OMS.Core.DTO
 {
-    public class Category : IAudit
+    public class Category
     {
+
         [Key]
         public int ID { get; set; }
 
@@ -24,11 +23,9 @@ namespace OMS.Core.Entities
 
         public Variant Variant { get; set; }
 
-        [ForeignKey("ParentCategoryId")]
-        public ICollection<Category> SubCategory { get; set; }
+        public IEnumerable<Category> SubCategory { get; set; }
 
-        [ForeignKey("CategoryID")]
-        public ICollection<Product> Product { get; set; }
+        public IEnumerable<Product> Product { get; set; }
 
         [Required]
         public string CreatedBy { get; set; }

@@ -1,15 +1,13 @@
-﻿using OMS.Core.Interface.Entity;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OMS.Core.Entities
+namespace OMS.Core.DTO
 {
-    public class User : IAudit
+    public class User
     {
         [Key]
         public int ID { get; set; }
@@ -44,11 +42,10 @@ namespace OMS.Core.Entities
 
         public Account Account { get; set; }
 
-        [ForeignKey("UserID")]
-        public ICollection<Order> Order { get; set; }
+        public IEnumerable<Order> Order { get; set; }
 
-        [ForeignKey("UserID")]
-        public ICollection<Transaction> Transaction { get; set; }
+
+        public IEnumerable<Transaction> Transaction { get; set; }
 
     }
 }

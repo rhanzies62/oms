@@ -13,6 +13,9 @@ namespace OMS.Repository
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            Database.SetInitializer<OMSContext>(null);
+            base.OnModelCreating(modelBuilder);
+
             modelBuilder.Entity<User>()
             .HasRequired(c => c.Address)
             .WithMany()
@@ -43,6 +46,7 @@ namespace OMS.Repository
         public DbSet<Transaction> Transactions { get; set; }
         public DbSet<Order> Orders { get; set; }
         public DbSet<Customer> Customers { get; set; }
+        public DbSet<Account> Accounts { get; set; }
 
 
     }

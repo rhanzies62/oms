@@ -7,27 +7,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OMS.Core.Entities
+namespace OMS.Core.DTO
 {
-    public class Account : IAudit
+    public class Address :IAudit
     {
         [Key]
         public int ID { get; set; }
+        [Required, StringLength(50)]
+        public string AddressLineOne { get; set; }
+        [StringLength(50)]
+        public string AddressLineTwo { get; set; }
         [Required, StringLength(25)]
-        public string UserName { get; set; }
-        [Required, StringLength(25)]
-        public string PasswordHash { get; set; }
-        [Required]
-        public Role Role { get; set; }
-        [Required]
-        public Status Status { get; set; }
-        [Required]
-        public string Salt { get; set; }
-        [Required]
-        public int RoleID { get; set; }
-
-        [ForeignKey("AccountID")]
-        public ICollection<User> User { get; set; }
+        public string City { get; set; }
+        [StringLength(10)]
+        public string PostalCode { get; set; }
 
         [Required]
         public string CreatedBy { get; set; }
@@ -37,5 +30,8 @@ namespace OMS.Core.Entities
         public string UpdatedBy { get; set; }
         [Required]
         public DateTime UpdatedDate { get; set; }
+       
+        public IEnumerable<User> User { get; set; }
+        public IEnumerable<Transaction> Transaction { get; set; }
     }
 }
