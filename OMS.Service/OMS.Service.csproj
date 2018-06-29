@@ -51,10 +51,12 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\AccountService.cs" />
+    <Compile Include="Services\CategoryService.cs" />
+    <Compile Include="Services\ProductService.cs" />
     <Compile Include="Services\RoleService.cs" />
     <Compile Include="Services\TestService.cs" />
     <Compile Include="Services\UserService.cs" />
-    <Compile Include="Services\Variant.cs" />
+    <Compile Include="Services\VariantService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

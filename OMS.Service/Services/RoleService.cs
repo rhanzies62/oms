@@ -16,14 +16,14 @@ namespace OMS.Service.Services
 {
     public class RoleService : IRoleService
     {
-        private ICRUDRepository<Entities.Role> _userRepo;
+        private ICRUDRepository<Entities.Role> _roleRepo;
         public RoleService()
         {
         }
 
-        public RoleService(ICRUDRepository<Entities.Role> userRepo)
+        public RoleService(ICRUDRepository<Entities.Role> roleRepo)
         {
-            _userRepo = userRepo;
+            _roleRepo = roleRepo;
             AutoMapperCoreConfiguration.Configure();
 
         }
@@ -33,7 +33,7 @@ namespace OMS.Service.Services
             Response<DTO.Role> response = new Response<DTO.Role>();
             try
             {
-                _userRepo.Add(Mapper.Map<DTO.Role, Entities.Role>(Role));
+                _roleRepo.Add(Mapper.Map<DTO.Role, Entities.Role>(Role));
                 response.Data = Role;
             }
             catch (Exception e)
@@ -46,12 +46,12 @@ namespace OMS.Service.Services
 
         public DTO.Role GetRole(int id)
         {
-            return Mapper.Map<Entities.Role, DTO.Role>(_userRepo.GetSingle(r => r.ID.Equals(id)));
+            return Mapper.Map<Entities.Role, DTO.Role>(_roleRepo.GetSingle(r => r.ID.Equals(id)));
         }
 
         public IEnumerable<DTO.Role> ListRoles()
         {
-            return Mapper.Map<IEnumerable<Entities.Role>, IEnumerable<DTO.Role>>(_userRepo.GetAll());
+            return Mapper.Map<IEnumerable<Entities.Role>, IEnumerable<DTO.Role>>(_roleRepo.GetAll());
         }
 
         public Response<DTO.Role> RemoveRole(int id)
@@ -59,8 +59,8 @@ namespace OMS.Service.Services
             Response<DTO.Role> response = new Response<DTO.Role>();
             try
             {
-                var role = _userRepo.GetSingle(u => u.ID.Equals(id));
-                _userRepo.Remove(role);
+                var role = _roleRepo.GetSingle(u => u.ID.Equals(id));
+                _roleRepo.Remove(role);
                 response.Data = Mapper.Map<Entities.Role, DTO.Role>(role);
             }
             catch (Exception e)
@@ -76,7 +76,7 @@ namespace OMS.Service.Services
             Response<DTO.Role> response = new Response<DTO.Role>();
             try
             {
-                _userRepo.Update(Mapper.Map<DTO.Role, Entities.Role>(Role));
+                _roleRepo.Update(Mapper.Map<DTO.Role, Entities.Role>(Role));
                 response.Data = Role;
             }
             catch (Exception e)

@@ -7,17 +7,17 @@ using OMS.Core.DTO;
 
 namespace OMS.Core.Interface.Services
 {
-    public interface IVariant
+    public interface IVariantService
     {
         IEnumerable<Variant> ListVariants();
 
-        Response<Variant> CreateVariants(User User);
+        Response<Variant> CreateVariants(Variant Variant);
 
-        Response<Variant> UpdateVariants(User User);
+        Response<Variant> UpdateVariants(Variant Variant);
 
         Response<Variant> RemoveVariants(int id);
 
-        User GetVariant(int id);
+        Variant GetVariant(int id);
 
     }
 }

@@ -23,5 +23,6 @@ namespace OMS.Core.Interface.Services
         Account GetActiveAccount(int id);
         Account GetInactiveAccount(int id);
 
+        Response<Account> LoginAccount(string user,string pass);
     }
 }
