@@ -58,7 +58,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Mapper\AddressProfile.cs" />
+    <Compile Include="DTO\User.cs" />
+    <Compile Include="Interface\Services\IUserService.cs" />
     <Compile Include="Mapper\AutoMapperCoreConfiguration.cs" />
     <Compile Include="DTO\Response.cs" />
     <Compile Include="Common\Cryptography.cs" />

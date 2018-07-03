@@ -26,6 +26,9 @@ namespace OMS.Core.Entities
         [Required]
         public Gender Gender { get; set; }
 
+        [Required]
+        public bool IsActive { get; set; }
+
         public Address Address { get; set; }
 
         [Required]
