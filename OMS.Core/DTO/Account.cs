@@ -12,7 +12,7 @@ namespace OMS.Core.DTO
     {
         [Required]
         public int ID { get; set; }
-            [Required, StringLength(25)]
+        [Required, StringLength(25)]
         public string UserName { get; set; }
         [Required, StringLength(25)]
         public string PasswordHash { get; set; }

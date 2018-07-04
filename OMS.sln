@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OMS.Service", "OMS.Service\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OMS.Web", "OMS.Web\OMS.Web.csproj", "{CA8391D7-954D-425A-9B3A-D6BEA7C6D6AF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OMS.UnitTest", "OMS.UnitTest\OMS.UnitTest.csproj", "{AC700971-3E76-49BB-80CC-B573F57EE826}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{CA8391D7-954D-425A-9B3A-D6BEA7C6D6AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CA8391D7-954D-425A-9B3A-D6BEA7C6D6AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CA8391D7-954D-425A-9B3A-D6BEA7C6D6AF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AC700971-3E76-49BB-80CC-B573F57EE826}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC700971-3E76-49BB-80CC-B573F57EE826}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC700971-3E76-49BB-80CC-B573F57EE826}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AC700971-3E76-49BB-80CC-B573F57EE826}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
