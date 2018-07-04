@@ -2,16 +2,15 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OMS.Core.Entities
+namespace OMS.Core.DTO
 {
     public class User : IAudit
     {
-        [Key]
+        [Required]
         public int ID { get; set; }
         [Required, StringLength(25)]
         public string FirstName { get; set; }
@@ -24,12 +23,11 @@ namespace OMS.Core.Entities
         [Required, StringLength(25)]
         public string Email { get; set; }
         [Required]
-        public Gender Gender { get; set; }
-
+        public Entities.Gender Gender { get; set; }
         [Required]
         public bool IsActive { get; set; }
 
-        public Address Address { get; set; }
+        //public Address Address { get; set; }
 
         [Required]
         public string CreatedBy { get; set; }
@@ -40,12 +38,13 @@ namespace OMS.Core.Entities
         [Required]
         public DateTime UpdatedDate { get; set; }
 
+        [Required]
+        public int AccountID { get; set; }
 
-        [ForeignKey("UserID")]
-        public ICollection<Order> Order { get; set; }
+        //public Account Account { get; set; }
+        //public IEnumerable<Order> Order { get; set; }
+        //public IEnumerable<Transaction> Transaction { get; set; }
 
-        [ForeignKey("UserID")]
-        public ICollection<Transaction> Transaction { get; set; }
 
     }
 }

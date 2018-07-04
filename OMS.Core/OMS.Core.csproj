@@ -58,6 +58,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DTO\User.cs" />
+    <Compile Include="Interface\Services\IUserService.cs" />
+    <Compile Include="Mapper\AutoMapperCoreConfiguration.cs" />
+    <Compile Include="DTO\Response.cs" />
     <Compile Include="Common\Cryptography.cs" />
     <Compile Include="Entities\Account.cs" />
     <Compile Include="Entities\Address.cs" />
@@ -71,8 +75,6 @@
     <Compile Include="Entities\User.cs" />
     <Compile Include="Entities\Variant.cs" />
     <Compile Include="Interface\Entity\IAudit.cs" />
-    <Compile Include="Mapper\AutoMapperCoreConfiguration.cs" />
-    <Compile Include="DTO\Response.cs" />
     <Compile Include="Interface\Repositories\ICRUDRepository.cs" />
     <Compile Include="Interface\Services\ITestService.cs" />
     <Compile Include="Mapper\UserProfile.cs" />
