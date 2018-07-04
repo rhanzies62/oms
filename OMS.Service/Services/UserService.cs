@@ -49,7 +49,7 @@ namespace OMS.Service.Services
             try
             {
                 Entities.User User = _userRepo.GetSingle(u=>u.ID.Equals(userID)); 
-                _userRepo.Add(User);
+                _userRepo.Remove(User);
                 user.Success = true;
                 user.Data = Mapper.Map<Entities.User,DTO.User>(User);
             }
