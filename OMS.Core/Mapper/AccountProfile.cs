@@ -11,12 +11,13 @@ using Entities = OMS.Core.Entities;
 
 namespace OMS.Core.Mapper
 {
-    public class UserProfile : Profile
+    public class AccountProfile : Profile
     {
-        public UserProfile() {
+        public AccountProfile()
+        {
+            CreateMap<DTO.Account, Entities.Account>();
+            CreateMap<IEnumerable<DTO.Account>, IEnumerable<Entities.Account>>();
 
-            CreateMap<DTO.User, Entities.User>();
-            CreateMap<IEnumerable<DTO.User>,IEnumerable<Entities.User>>();
         }
     }
 }

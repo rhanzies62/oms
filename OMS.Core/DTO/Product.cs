@@ -1,33 +1,34 @@
-﻿using OMS.Core.Interface.Entity;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OMS.Core.Entities
+namespace OMS.Core.DTO
 {
-    public class Account : IAudit
+    public class Product
     {
         [Key]
         public int ID { get; set; }
+
         [Required, StringLength(25)]
-        public string UserName { get; set; }
+        public string Name { get; set; }
         [Required, StringLength(25)]
-        public string PasswordHash { get; set; }
+        public string Description { get; set; }
         [Required]
-        public Role Role { get; set; }
+        public decimal Price { get; set; }
         [Required]
         public Status Status { get; set; }
-        [Required]
-        public string Salt { get; set; }
-        [Required]
-        public int RoleID { get; set; }
 
-        [ForeignKey("AccountID")]
-        public ICollection<User> User { get; set; }
+        public int CategoryID { get; set; }
+        public Category Category { get; set; }
+
+        public int VariantID { get; set; }
+
+        public Variant Variant { get; set; }
+
+        public IEnumerable<Order> order { get; set; }
 
         [Required]
         public string CreatedBy { get; set; }
@@ -37,5 +38,6 @@ namespace OMS.Core.Entities
         public string UpdatedBy { get; set; }
         [Required]
         public DateTime UpdatedDate { get; set; }
+
     }
 }

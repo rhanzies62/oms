@@ -259,6 +259,10 @@
       <Project>{60453b73-a854-48c0-92cc-8dd0ad095305}</Project>
       <Name>OMS.Core</Name>
     </ProjectReference>
+    <ProjectReference Include="..\OMS.Repository\OMS.Repository.csproj">
+      <Project>{e284f0ae-7065-46c6-969c-496208bed74e}</Project>
+      <Name>OMS.Repository</Name>
+    </ProjectReference>
     <ProjectReference Include="..\OMS.Service\OMS.Service.csproj">
       <Project>{c44b4ccd-d44b-47f0-a42e-c1c71d22e962}</Project>
       <Name>OMS.Service</Name>

@@ -9,13 +9,13 @@ using System.Threading.Tasks;
 
 namespace OMS.Core.Entities
 {
-    public class Address :IAudit
+    public class Address : IAudit
     {
         [Key]
         public int ID { get; set; }
-        [Required,StringLength(25)]
+        [Required,StringLength(50)]
         public string AddressLineOne { get; set; }
-        [StringLength(25)]
+        [StringLength(50)]
         public string AddressLineTwo { get; set; }
         [Required, StringLength(25)]
         public string City { get; set; }
