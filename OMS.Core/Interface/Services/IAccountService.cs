@@ -19,6 +19,8 @@ namespace OMS.Core.Interface.Services
 
         Account GetAccount(int AccountID);
 
-        Response<Account> ChangeAccountPassword(int AccountID,string AccountPassword,string AccountNewPassword);
+        Response<Account> ChangeAccountPassword(Account Account);
+
+        Response<Account> LoginAccount(string UserName,string Password);
     }
 }

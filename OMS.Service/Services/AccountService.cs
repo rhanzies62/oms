@@ -10,6 +10,7 @@ using OMS.Core.Interface.Repositories;
 using DTO = OMS.Core.DTO;
 using AutoMapper;
 using OMS.Core.Common;
+using OMS.Core.Resource;
 
 namespace OMS.Service.Services
 {
@@ -88,29 +89,45 @@ namespace OMS.Service.Services
             return account;
 
         }
-        public Response<Account> ChangeAccountPassword(int AccountID,string AccountPassword,string AccountNewPassword)
+        public Response<Account> ChangeAccountPassword(Account Account)
         {
             DTO.Response<DTO.Account> account = new DTO.Response<DTO.Account>();
             try
             {
-                Entities.Account Account = new Entities.Account();
-                Account = _accountRepo.GetSingle(a => a.ID.Equals(AccountID));
-                string HashedPassword = Cryptography.HashString(AccountPassword,Account.Salt);
-                if (HashedPassword.Equals(Account.PasswordHash))
-                {
                     Account.UpdatedDate = DateTime.UtcNow;
                     Account.Salt = Cryptography.CreateSalt();
-                    Account.PasswordHash = Cryptography.HashString(AccountNewPassword,Account.Salt);
-                    _accountRepo.Update((Account));
+                    Account.PasswordHash = Cryptography.HashString(Account.PasswordHash,Account.Salt);
+                    _accountRepo.Update(Mapper.Map<DTO.Account, Entities.Account>(Account));
+                    account.Success = true;
+                    account.Data = Account;
+                
+            }
+            catch (Exception e)
+            {
+                account.ErrorMessage = e.GetBaseException().Message;
+                account.Success = false;
+            }
+            return account;
+
+        }
+
+        public Response<Account> LoginAccount(string UserName, string Password)
+        {
+            DTO.Response<DTO.Account> account = new DTO.Response<DTO.Account>();
+            try
+            {
+                Entities.Account Account = _accountRepo.GetSingle(a => a.UserName.Equals(UserName));
+                Password = Cryptography.HashString(Password, Account.Salt);
+                if (Password.Equals(Account.PasswordHash))
+                {
                     account.Success = true;
                     account.Data = Mapper.Map<Entities.Account,DTO.Account>(Account);
                 }
                 else {
                     account.Success = false;
-                    account.ErrorMessage = "Incorrect Password";
+                    account.ErrorMessage = ErrorMessage.IncorrectPassword;
                 }
 
-                
             }
             catch (Exception e)
             {
