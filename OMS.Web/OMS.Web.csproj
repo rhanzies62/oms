@@ -25,6 +25,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -227,25 +228,23 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-     <Content Include="Views\Home\Index.cshtml" />
-  <Content Include="Views\TopanAdmin\Admin.cshtml" />
-  <Content Include="Views\TopanAdmin\CreateAdmin.cshtml" />
-  <Content Include="Views\TopanAdmin\CreateEmployees.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\TopanAdmin\Admin.cshtml" />
+    <Content Include="Views\TopanAdmin\CreateAdmin.cshtml" />
+    <Content Include="Views\TopanAdmin\CreateEmployees.cshtml" />
     <Content Include="Views\TopanAdmin\CreateProducts.cshtml" />
     <Content Include="Views\TopanAdmin\CreateVariants.cshtml" />
-  <Content Include="Views\TopanAdmin\Employees.cshtml" />
-  <Content Include="Views\TopanAdmin\Index.cshtml" />
-  <Content Include="Views\TopanAdmin\Orders.cshtml" />
+    <Content Include="Views\TopanAdmin\Employees.cshtml" />
+    <Content Include="Views\TopanAdmin\Index.cshtml" />
+    <Content Include="Views\TopanAdmin\Orders.cshtml" />
     <Content Include="Views\TopanAdmin\Products.cshtml" />
-  <Content Include="Views\TopanAdmin\Transactions.cshtml" />
-  <Content Include="Views\TopanAdmin\Variants.cshtml" />
-    
-    
-  
+    <Content Include="Views\TopanAdmin\Transactions.cshtml" />
+    <Content Include="Views\TopanAdmin\Variants.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
+    <Folder Include="Views\Images\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
