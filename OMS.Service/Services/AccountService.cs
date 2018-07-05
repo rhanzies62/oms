@@ -125,7 +125,7 @@ namespace OMS.Service.Services
                 }
                 else {
                     account.Success = false;
-                    account.ErrorMessage = ErrorMessage.IncorrectPassword;
+                    account.ErrorMessage = OMSResource.IncorrectPassword;
                 }
 
             }
