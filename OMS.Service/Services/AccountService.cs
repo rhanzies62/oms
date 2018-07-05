@@ -15,25 +15,27 @@ namespace OMS.Service.Services
 {
     public class AccountService : IAccountService
     {
-        private ICRUDRepository<Entities.Account> _accountRepo;
+        private readonly ICRUDRepository<Entities.Account> _accountRepo;
         public AccountService(ICRUDRepository<Entities.Account> accountRepo)
         {
             _accountRepo = accountRepo;
         }
         public Response<Account> CreateAccount(Account Account)
         {
+            Account.CreatedDate = DateTime.UtcNow;
+            Account.UpdatedDate = DateTime.UtcNow; 
             DTO.Response<DTO.Account> account = new DTO.Response<DTO.Account>();
             try
             {
-                Account.PasswordHash = Cryptography.HashPassword(Account.PasswordHash);
                 Account.Salt = Cryptography.CreateSalt();
+                Account.PasswordHash = Cryptography.HashString(Account.PasswordHash,Account.Salt);
                 _accountRepo.Add(Mapper.Map<DTO.Account, Entities.Account>(Account));
                 account.Success = true;
                 account.Data = Account;
             }
             catch (Exception e)
             {
-                account.ErrorMessage = e.Message;
+                account.ErrorMessage = e.GetBaseException().Message;
                 account.Success = false;
             }
             return account;
@@ -61,7 +63,7 @@ namespace OMS.Service.Services
             }
             catch (Exception e)
             {
-                account.ErrorMessage = e.Message;
+                account.ErrorMessage = e.GetBaseException().Message;
                 account.Success = false;
             }
             return account;
@@ -70,6 +72,7 @@ namespace OMS.Service.Services
 
         public Response<Account> UpdateAccount(Account Account)
         {
+            Account.UpdatedDate = DateTime.UtcNow;
             DTO.Response<DTO.Account> account = new DTO.Response<DTO.Account>();
             try
             {
@@ -79,7 +82,39 @@ namespace OMS.Service.Services
             }
             catch (Exception e)
             {
-                account.ErrorMessage = e.Message;
+                account.ErrorMessage = e.GetBaseException().Message;
+                account.Success = false;
+            }
+            return account;
+
+        }
+        public Response<Account> ChangeAccountPassword(int AccountID,string AccountPassword,string AccountNewPassword)
+        {
+            DTO.Response<DTO.Account> account = new DTO.Response<DTO.Account>();
+            try
+            {
+                Entities.Account Account = new Entities.Account();
+                Account = _accountRepo.GetSingle(a => a.ID.Equals(AccountID));
+                string HashedPassword = Cryptography.HashString(AccountPassword,Account.Salt);
+                if (HashedPassword.Equals(Account.PasswordHash))
+                {
+                    Account.UpdatedDate = DateTime.UtcNow;
+                    Account.Salt = Cryptography.CreateSalt();
+                    Account.PasswordHash = Cryptography.HashString(AccountNewPassword,Account.Salt);
+                    _accountRepo.Update((Account));
+                    account.Success = true;
+                    account.Data = Mapper.Map<Entities.Account,DTO.Account>(Account);
+                }
+                else {
+                    account.Success = false;
+                    account.ErrorMessage = "Incorrect Password";
+                }
+
+                
+            }
+            catch (Exception e)
+            {
+                account.ErrorMessage = e.GetBaseException().Message;
                 account.Success = false;
             }
             return account;
