@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using OMS.Core.DTO;
 
-namespace OMS.Core.Interface
+namespace OMS.Core.Interface.Services
 {
     public interface IRoleService
     {
@@ -17,7 +17,7 @@ namespace OMS.Core.Interface
 
         Response<Role> RemoveRole(int roleID);
 
-        Role GetRole(int roleID);
+        Role GetRoleByID(int roleID);
 
     }
 }

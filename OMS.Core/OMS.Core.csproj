@@ -60,7 +60,7 @@
   <ItemGroup>
     <Compile Include="DTO\Role.cs" />
     <Compile Include="DTO\User.cs" />
-    <Compile Include="Interface\IRoleService.cs" />
+    <Compile Include="Interface\Services\IRoleService.cs" />
     <Compile Include="Interface\Services\IUserService.cs" />
     <Compile Include="Mapper\AutoMapperCoreConfiguration.cs" />
     <Compile Include="DTO\Response.cs" />

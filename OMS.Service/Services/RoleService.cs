@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using Entities = OMS.Core.Entities;
 using DTO = OMS.Core.DTO;
 using AutoMapper;
+using OMS.Core.Interface.Services;
 
 namespace OMS.Service.Services
 {
@@ -24,20 +25,22 @@ namespace OMS.Service.Services
             DTO.Response<DTO.Role> role = new DTO.Response<DTO.Role>();
             try
             {
+                Role.CreatedDate = DateTime.UtcNow;
+                Role.UpdatedDate = DateTime.UtcNow;
                 _roleRepo.Add(Mapper.Map<DTO.Role, Entities.Role>(Role));
                 role.Success = true;
                 role.Data = Role;
             }
             catch (Exception e)
             {
-                role.ErrorMessage = e.Message;
+                role.ErrorMessage = e.GetBaseException().Message;
                 role.Success = false;
             }
             return role;
 
         }
 
-        public DTO.Role GetRole(int roleID)
+        public DTO.Role GetRoleByID(int roleID)
         {
             return Mapper.Map<Entities.Role, DTO.Role>(_roleRepo.GetSingle(u => u.ID.Equals(roleID)));
         }
@@ -68,6 +71,7 @@ namespace OMS.Service.Services
 
         public DTO.Response<DTO.Role> UpdateRole(DTO.Role Role)
         {
+            Role.UpdatedDate = DateTime.UtcNow;
             DTO.Response<DTO.Role> role = new DTO.Response<DTO.Role>();
             try
             {
