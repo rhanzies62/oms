@@ -19,7 +19,7 @@ namespace OMS.Core.Entities
         [Required, StringLength(30)]
         public string Description { get; set; }
 
-        public int VariantID { get; set; }
+        public int? VariantID { get; set; }
         public int? ParentCategoryId { get; set; }
 
         public Variant Variant { get; set; }
