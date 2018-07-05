@@ -58,7 +58,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DTO\Role.cs" />
     <Compile Include="DTO\User.cs" />
+    <Compile Include="Interface\Services\IRoleService.cs" />
     <Compile Include="Interface\Services\IUserService.cs" />
     <Compile Include="Mapper\AutoMapperCoreConfiguration.cs" />
     <Compile Include="DTO\Response.cs" />
@@ -77,6 +79,7 @@
     <Compile Include="Interface\Entity\IAudit.cs" />
     <Compile Include="Interface\Repositories\ICRUDRepository.cs" />
     <Compile Include="Interface\Services\ITestService.cs" />
+    <Compile Include="Mapper\RoleProfile.cs" />
     <Compile Include="Mapper\UserProfile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
