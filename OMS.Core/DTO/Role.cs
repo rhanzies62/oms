@@ -8,24 +8,17 @@ using System.Threading.Tasks;
 
 namespace OMS.Core.DTO
 {
-    public class Account : IAudit
+    public class Role : IAudit
     {
         [Required]
         public int ID { get; set; }
-        [Required, StringLength(25)]
-        public string UserName { get; set; }
-        [Required, StringLength(25)]
-        public string PasswordHash { get; set; }
-        public Role Role { get; set; }
-        [Required]
-        public int Status { get; set; }
-        [Required]
-        public string Salt { get; set; }
-        [Required]
-        public int RoleID { get; set; }
+        [Required, MaxLength(20)]
+        public string Name { get; set; }
+        [Required, MaxLength(50)]
+        public string Description { get; set; }
 
 
-        public IEnumerable<User> User { get; set; }
+        //public IEnumerable<Account> Account { get; set; }
 
         [Required]
         public string CreatedBy { get; set; }
@@ -35,7 +28,6 @@ namespace OMS.Core.DTO
         public string UpdatedBy { get; set; }
         [Required]
         public DateTime UpdatedDate { get; set; }
-
 
     }
 }
