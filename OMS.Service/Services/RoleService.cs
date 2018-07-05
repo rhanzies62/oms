@@ -14,7 +14,7 @@ namespace OMS.Service.Services
 {
     public class RoleService : IRoleService
     {
-        private ICRUDRepository<Entities.Role> _roleRepo;
+        private readonly ICRUDRepository<Entities.Role> _roleRepo;
         public RoleService(ICRUDRepository<Entities.Role> roleRepo)
         {
             _roleRepo = roleRepo;
