@@ -83,6 +83,7 @@
     <Compile Include="Interface\Services\ITestService.cs" />
     <Compile Include="Mapper\RoleProfile.cs" />
     <Compile Include="Mapper\UserProfile.cs" />
+    <Compile Include="Mapper\VariantProfile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

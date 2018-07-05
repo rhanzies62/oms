@@ -15,9 +15,9 @@ namespace OMS.Core.Interface.Services
 
         Response<Variant> UpdateVariant(Variant Variant);
 
-        Response<Variant> RemoveVariant(int variantID);
+        Response<Variant> RemoveVariant(int VariantID);
 
-        Variant GetVariantByVariantID(int variantID);
+        Variant GetVariantByVariantID(int VariantID);
 
     }
 }
