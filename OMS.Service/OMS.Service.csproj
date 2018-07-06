@@ -54,6 +54,7 @@
     <Compile Include="Services\RoleService.cs" />
     <Compile Include="Services\TestService.cs" />
     <Compile Include="Services\UserService.cs" />
+    <Compile Include="Services\VariantService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
