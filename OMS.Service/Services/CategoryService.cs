@@ -19,23 +19,23 @@ namespace OMS.Service.Services
             _categoryRepo = categoryRepo;
         }
 
-        public DTO.Response<DTO.Category> CreateCategory(DTO.Category Category)
+        public DTO.Response<DTO.Category> CreateCategory(DTO.Category category)
         {
-            DTO.Response<DTO.Category> category = new DTO.Response<DTO.Category>();
+            DTO.Response<DTO.Category> response = new DTO.Response<DTO.Category>();
             try
             {
-                Category.CreatedDate = DateTime.UtcNow;
-                Category.UpdatedDate = DateTime.UtcNow;
-                _categoryRepo.Add(Mapper.Map<DTO.Category, Entities.Category>(Category));
-                category.Success = true;
-                category.Data = Category;
+                category.CreatedDate = DateTime.UtcNow;
+                category.UpdatedDate = DateTime.UtcNow;
+                _categoryRepo.Add(Mapper.Map<DTO.Category, Entities.Category>(category));
+                response.Success = true;
+                response.Data = category;
             }
             catch (Exception e)
             {
-                category.ErrorMessage = e.GetBaseException().Message;
-                category.Success = false;
+                response.ErrorMessage = e.GetBaseException().Message;
+                response.Success = false;
             }
-            return category;
+            return response;
         }
 
         public DTO.Category GetCategoryByID(int categoryID)
@@ -48,50 +48,50 @@ namespace OMS.Service.Services
             return Mapper.Map<IEnumerable<Entities.Category>, IEnumerable<DTO.Category>>(_categoryRepo.GetAll());
         }
 
-        public IEnumerable<DTO.Category> ListCategoryByVariantID(int VariantID)
+        public IEnumerable<DTO.Category> ListCategoryByVariantID(int variantID)
         {
-            return Mapper.Map<IEnumerable<Entities.Category>, IEnumerable<DTO.Category>>(_categoryRepo.GetList(c => c.VariantID.Equals(VariantID)));
+            return Mapper.Map<IEnumerable<Entities.Category>, IEnumerable<DTO.Category>>(_categoryRepo.GetList(c => c.VariantID.Equals(variantID)));
         }
 
-        public IEnumerable<DTO.Category> ListSubCategoryByCategoryID(int CategoryID)
+        public IEnumerable<DTO.Category> ListSubCategoryByCategoryID(int categoryID)
         {
-            return Mapper.Map<IEnumerable<Entities.Category>, IEnumerable<DTO.Category>>(_categoryRepo.GetList(c => c.ParentCategoryId.Equals(CategoryID)));
+            return Mapper.Map<IEnumerable<Entities.Category>, IEnumerable<DTO.Category>>(_categoryRepo.GetList(c => c.ParentCategoryId.Equals(categoryID)));
         }
 
         public DTO.Response<DTO.Category> RemoveCategory(int categoryID)
         {
-            DTO.Response<DTO.Category> category = new DTO.Response<DTO.Category>();
+            DTO.Response<DTO.Category> response = new DTO.Response<DTO.Category>();
             try
             {
-                Entities.Category Category = _categoryRepo.GetSingle(u => u.ID.Equals(categoryID));
-                _categoryRepo.Remove(Category);
-                category.Success = true;
-                category.Data = Mapper.Map<Entities.Category, DTO.Category>(Category);
+                Entities.Category category = _categoryRepo.GetSingle(u => u.ID.Equals(categoryID));
+                _categoryRepo.Remove(category);
+                response.Success = true;
+                response.Data = Mapper.Map<Entities.Category, DTO.Category>(category);
             }
             catch (Exception e)
             {
-                category.ErrorMessage = e.GetBaseException().Message;
-                category.Success = false;
+                response.ErrorMessage = e.GetBaseException().Message;
+                response.Success = false;
             }
-            return category;
+            return response;
         }
 
-        public DTO.Response<DTO.Category> UpdateCategory(DTO.Category Category)
+        public DTO.Response<DTO.Category> UpdateCategory(DTO.Category category)
         {
-            Category.UpdatedDate = DateTime.UtcNow;
-            DTO.Response<DTO.Category> category = new DTO.Response<DTO.Category>();
+            category.UpdatedDate = DateTime.UtcNow;
+            DTO.Response<DTO.Category> response = new DTO.Response<DTO.Category>();
             try
             {
-                _categoryRepo.Update(Mapper.Map<DTO.Category, Entities.Category>(Category));
-                category.Success = true;
-                category.Data = Category;
+                _categoryRepo.Update(Mapper.Map<DTO.Category, Entities.Category>(category));
+                response.Success = true;
+                response.Data = category;
             }
             catch (Exception e)
             {
-                category.ErrorMessage = e.GetBaseException().Message;
-                category.Success = false;
+                response.ErrorMessage = e.GetBaseException().Message;
+                response.Success = false;
             }
-            return category;
+            return response;
         }
     }
 }

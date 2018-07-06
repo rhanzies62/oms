@@ -10,16 +10,16 @@ namespace OMS.Core.Interface.Services
     {
         IEnumerable<Category> ListCategories();
         
-        Response<Category> CreateCategory(Category Category);
+        Response<Category> CreateCategory(Category category);
 
-        Response<Category> UpdateCategory(Category Category);
+        Response<Category> UpdateCategory(Category category);
 
         Response<Category> RemoveCategory(int categoryID);
 
         Category GetCategoryByID(int categoryID);
 
-        IEnumerable<Category> ListCategoryByVariantID(int VariantID);
-        IEnumerable<Category> ListSubCategoryByCategoryID(int CategoryID);
+        IEnumerable<Category> ListCategoryByVariantID(int variantID);
+        IEnumerable<Category> ListSubCategoryByCategoryID(int categoryID);
 
     }
 }
