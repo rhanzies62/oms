@@ -25,6 +25,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -183,6 +184,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\UnityConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -211,6 +213,16 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
+    <Content Include="Views\css\bootstrap-grid.css" />
+    <Content Include="Views\css\bootstrap-grid.min.css" />
+    <Content Include="Views\css\bootstrap-reboot.css" />
+    <Content Include="Views\css\bootstrap-reboot.min.css" />
+    <Content Include="Views\css\bootstrap.css" />
+    <Content Include="Views\css\bootstrap.min.css" />
+    <Content Include="Views\js\bootstrap.bundle.js" />
+    <Content Include="Views\js\bootstrap.bundle.min.js" />
+    <Content Include="Views\js\bootstrap.js" />
+    <Content Include="Views\js\bootstrap.min.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -225,6 +237,20 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\_AdminLayout.cshtml" />
+    <Content Include="Views\Admin\Variants.cshtml" />
+    <Content Include="Views\Admin\CreateVariants.cshtml" />
+    <Content Include="Views\Home\ProductList.cshtml" />
+    <Content Include="Views\css\bootstrap-grid.css.map" />
+    <Content Include="Views\css\bootstrap-grid.min.css.map" />
+    <Content Include="Views\css\bootstrap-reboot.css.map" />
+    <Content Include="Views\css\bootstrap-reboot.min.css.map" />
+    <Content Include="Views\css\bootstrap.css.map" />
+    <Content Include="Views\css\bootstrap.min.css.map" />
+    <Content Include="Views\js\bootstrap.bundle.js.map" />
+    <Content Include="Views\js\bootstrap.bundle.min.js.map" />
+    <Content Include="Views\js\bootstrap.js.map" />
+    <Content Include="Views\js\bootstrap.min.js.map" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
