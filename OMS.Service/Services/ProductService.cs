@@ -19,29 +19,29 @@ namespace OMS.Service.Services
             _productRepo = productRepo;
         }
 
-        public DTO.Response<DTO.Product> CreateProduct(DTO.Product Product)
+        public DTO.Response<DTO.Product> CreateProduct(DTO.Product product)
         {
-            DTO.Response<DTO.Product> product = new DTO.Response<DTO.Product>();
+            DTO.Response<DTO.Product> response = new DTO.Response<DTO.Product>();
             try
             {
-                Product.CreatedDate = DateTime.UtcNow;
-                Product.UpdatedDate = DateTime.UtcNow;
-                _productRepo.Add(Mapper.Map<DTO.Product, Entities.Product>(Product));
-                product.Success = true;
-                product.Data = Product;
+                product.CreatedDate = DateTime.UtcNow;
+                product.UpdatedDate = DateTime.UtcNow;
+                _productRepo.Add(Mapper.Map<DTO.Product, Entities.Product>(product));
+                response.Success = true;
+                response.Data = product;
             }
             catch (Exception e)
             {
-                product.ErrorMessage = e.GetBaseException().Message;
-                product.Success = false;
+                response.ErrorMessage = e.GetBaseException().Message;
+                response.Success = false;
             }
-            return product;
+            return response;
 
         }
 
-        public DTO.Product GetProductByID(int ProductID)
+        public DTO.Product GetProductByID(int productID)
         {
-            return Mapper.Map<Entities.Product, DTO.Product>(_productRepo.GetSingle(u => u.ID.Equals(ProductID)));
+            return Mapper.Map<Entities.Product, DTO.Product>(_productRepo.GetSingle(u => u.ID.Equals(productID)));
         }
 
         public IEnumerable<DTO.Product> ListProducts()
@@ -49,50 +49,50 @@ namespace OMS.Service.Services
             return Mapper.Map<IEnumerable<Entities.Product>, IEnumerable<DTO.Product>>(_productRepo.GetAll());
         }
 
-        public IEnumerable<DTO.Product> ListProductsByCategory(int CategoryID)
+        public IEnumerable<DTO.Product> ListProductsByCategory(int categoryID)
         {
-            return Mapper.Map<IEnumerable<Entities.Product>, IEnumerable<DTO.Product>>(_productRepo.GetList(p => p.CategoryID.Equals(CategoryID)));
+            return Mapper.Map<IEnumerable<Entities.Product>, IEnumerable<DTO.Product>>(_productRepo.GetList(p => p.CategoryID.Equals(categoryID)));
         }
 
-        public IEnumerable<DTO.Product> ListProductsByVariantID(int VariantID)
+        public IEnumerable<DTO.Product> ListProductsByVariantID(int variantID)
         {
-            return Mapper.Map<IEnumerable<Entities.Product>, IEnumerable<DTO.Product>>(_productRepo.GetList(p=>p.VariantID.Equals(VariantID)));
+            return Mapper.Map<IEnumerable<Entities.Product>, IEnumerable<DTO.Product>>(_productRepo.GetList(p=>p.VariantID.Equals(variantID)));
         }
 
-        public DTO.Response<DTO.Product> RemoveProduct(int ProductID)
+        public DTO.Response<DTO.Product> RemoveProduct(int productID)
         {
-            DTO.Response<DTO.Product> product = new DTO.Response<DTO.Product>();
+            DTO.Response<DTO.Product> response = new DTO.Response<DTO.Product>();
             try
             {
-                Entities.Product Product = _productRepo.GetSingle(u => u.ID.Equals(ProductID));
-                _productRepo.Remove(Product);
-                product.Success = true;
-                product.Data = Mapper.Map<Entities.Product, DTO.Product>(Product);
+                Entities.Product product = _productRepo.GetSingle(u => u.ID.Equals(productID));
+                _productRepo.Remove(product);
+                response.Success = true;
+                response.Data = Mapper.Map<Entities.Product, DTO.Product>(product);
             }
             catch (Exception e)
             {
-                product.ErrorMessage = e.GetBaseException().Message;
-                product.Success = false;
+                response.ErrorMessage = e.GetBaseException().Message;
+                response.Success = false;
             }
-            return product;
+            return response;
         }
 
-        public DTO.Response<DTO.Product> UpdateProduct(DTO.Product Product)
+        public DTO.Response<DTO.Product> UpdateProduct(DTO.Product product)
         {
-            Product.UpdatedDate = DateTime.UtcNow;
-            DTO.Response<DTO.Product> product = new DTO.Response<DTO.Product>();
+            product.UpdatedDate = DateTime.UtcNow;
+            DTO.Response<DTO.Product> response = new DTO.Response<DTO.Product>();
             try
             {
-                _productRepo.Update(Mapper.Map<DTO.Product, Entities.Product>(Product));
-                product.Success = true;
-                product.Data = Product;
+                _productRepo.Update(Mapper.Map<DTO.Product, Entities.Product>(product));
+                response.Success = true;
+                response.Data = product;
             }
             catch (Exception e)
             {
-                product.ErrorMessage = e.GetBaseException().Message;
-                product.Success = false;
+                response.ErrorMessage = e.GetBaseException().Message;
+                response.Success = false;
             }
-            return product;
+            return response;
         }
     }
 }

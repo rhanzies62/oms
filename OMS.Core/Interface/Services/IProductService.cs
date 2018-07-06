@@ -11,16 +11,16 @@ namespace OMS.Core.Interface.Services
     {
         IEnumerable<Product> ListProducts();
 
-        Response<Product> CreateProduct(Product Product);
+        Response<Product> CreateProduct(Product product);
 
-        Response<Product> UpdateProduct(Product Product);
+        Response<Product> UpdateProduct(Product product);
 
-        Response<Product> RemoveProduct(int ProductID);
+        Response<Product> RemoveProduct(int productID);
 
-        Product GetProductByID(int ProductID);
+        Product GetProductByID(int productID);
 
-        IEnumerable<Product> ListProductsByVariantID(int VariantID);
+        IEnumerable<Product> ListProductsByVariantID(int variantID);
 
-        IEnumerable<Product> ListProductsByCategory(int CategoryID);
+        IEnumerable<Product> ListProductsByCategory(int categoryID);
     }
 }
