@@ -21,30 +21,30 @@ namespace OMS.Service.Services
         {
             _accountRepo = accountRepo;
         }
-        public Response<Account> CreateAccount(Account Account)
+        public Response<Account> CreateAccount(Account account)
         {
-            Account.CreatedDate = DateTime.UtcNow;
-            Account.UpdatedDate = DateTime.UtcNow; 
-            DTO.Response<DTO.Account> account = new DTO.Response<DTO.Account>();
+            account.CreatedDate = DateTime.UtcNow;
+            account.UpdatedDate = DateTime.UtcNow; 
+            DTO.Response<DTO.Account> response = new DTO.Response<DTO.Account>();
             try
             {
-                Account.Salt = Cryptography.CreateSalt();
-                Account.PasswordHash = Cryptography.HashString(Account.PasswordHash,Account.Salt);
-                _accountRepo.Add(Mapper.Map<DTO.Account, Entities.Account>(Account));
-                account.Success = true;
-                account.Data = Account;
+                account.Salt = Cryptography.CreateSalt();
+                account.PasswordHash = Cryptography.HashString(account.PasswordHash, account.Salt);
+                _accountRepo.Add(Mapper.Map<DTO.Account, Entities.Account>(account));
+                response.Success = true;
+                response.Data = account;
             }
             catch (Exception e)
             {
-                account.ErrorMessage = e.GetBaseException().Message;
-                account.Success = false;
+                response.ErrorMessage = e.GetBaseException().Message;
+                response.Success = false;
             }
-            return account;
+            return response;
         }
 
-        public Account GetAccount(int AccountID)
+        public Account GetAccount(int accountID)
         {
-            return Mapper.Map<Entities.Account, DTO.Account>(_accountRepo.GetSingle(u => u.ID.Equals(AccountID)));
+            return Mapper.Map<Entities.Account, DTO.Account>(_accountRepo.GetSingle(u => u.ID.Equals(accountID)));
         }
 
         public IEnumerable<Account> ListAccounts()
@@ -52,89 +52,102 @@ namespace OMS.Service.Services
             return Mapper.Map<IEnumerable<Entities.Account>, IEnumerable<DTO.Account>>(_accountRepo.GetAll());
         }
 
-        public Response<Account> RemoveAccount(int AccountID)
+        public Response<Account> RemoveAccount(int accountID)
         {
-            DTO.Response<DTO.Account> account = new DTO.Response<DTO.Account>();
+            DTO.Response<DTO.Account> response = new DTO.Response<DTO.Account>();
             try
             {
-                Entities.Account Account = _accountRepo.GetSingle(u => u.ID.Equals(AccountID));
-                _accountRepo.Remove(Account);
-                account.Success = true;
-                account.Data = Mapper.Map<Entities.Account, DTO.Account>(Account);
+                Entities.Account account = _accountRepo.GetSingle(u => u.ID.Equals(accountID));
+                _accountRepo.Remove(account);
+                response.Success = true;
+                response.Data = Mapper.Map<Entities.Account, DTO.Account>(account);
             }
             catch (Exception e)
             {
-                account.ErrorMessage = e.GetBaseException().Message;
-                account.Success = false;
+                response.ErrorMessage = e.GetBaseException().Message;
+                response.Success = false;
             }
-            return account;
+            return response;
 
         }
 
-        public Response<Account> UpdateAccount(Account Account)
+        public Response<Account> UpdateAccount(Account account)
         {
-            Account.UpdatedDate = DateTime.UtcNow;
-            DTO.Response<DTO.Account> account = new DTO.Response<DTO.Account>();
+            account.UpdatedDate = DateTime.UtcNow;
+            DTO.Response<DTO.Account> response = new DTO.Response<DTO.Account>();
             try
             {
-                _accountRepo.Update(Mapper.Map<DTO.Account, Entities.Account>(Account));
-                account.Success = true;
-                account.Data = Account;
+                _accountRepo.Update(Mapper.Map<DTO.Account, Entities.Account>(account));
+                response.Success = true;
+                response.Data = account;
             }
             catch (Exception e)
             {
-                account.ErrorMessage = e.GetBaseException().Message;
-                account.Success = false;
+                response.ErrorMessage = e.GetBaseException().Message;
+                response.Success = false;
             }
-            return account;
+            return response;
 
         }
-        public Response<Account> ChangeAccountPassword(Account Account)
+        public Response<Account> ChangeAccountPassword(Account account,string newPassword)
         {
-            DTO.Response<DTO.Account> account = new DTO.Response<DTO.Account>();
+            DTO.Response<DTO.Account> response = new DTO.Response<DTO.Account>();
             try
             {
-                    Account.UpdatedDate = DateTime.UtcNow;
-                    Account.Salt = Cryptography.CreateSalt();
-                    Account.PasswordHash = Cryptography.HashString(Account.PasswordHash,Account.Salt);
-                    _accountRepo.Update(Mapper.Map<DTO.Account, Entities.Account>(Account));
-                    account.Success = true;
-                    account.Data = Account;
-                
-            }
-            catch (Exception e)
-            {
-                account.ErrorMessage = e.GetBaseException().Message;
-                account.Success = false;
-            }
-            return account;
+                Entities.Account resultAccount = _accountRepo.GetSingle(a => a.UserName.Equals(account.UserName));
 
-        }
-
-        public Response<Account> LoginAccount(string UserName, string Password)
-        {
-            DTO.Response<DTO.Account> account = new DTO.Response<DTO.Account>();
-            try
-            {
-                Entities.Account Account = _accountRepo.GetSingle(a => a.UserName.Equals(UserName));
-                Password = Cryptography.HashString(Password, Account.Salt);
-                if (Password.Equals(Account.PasswordHash))
+                account.PasswordHash = Cryptography.HashString(account.PasswordHash, resultAccount.Salt);
+                if (account.PasswordHash.Equals(resultAccount.PasswordHash))
                 {
-                    account.Success = true;
-                    account.Data = Mapper.Map<Entities.Account,DTO.Account>(Account);
+                    account.UpdatedDate = DateTime.UtcNow;
+                    account.Salt = Cryptography.CreateSalt();
+                    account.PasswordHash = Cryptography.HashString(newPassword, account.Salt);
+                    _accountRepo.Update(Mapper.Map<DTO.Account, Entities.Account>(account));
+
+                    response.Success = true;
+                    response.Data = account;
+                }
+                else
+                {
+                    response.Success = false;
+                    response.ErrorMessage = OMSResource.IncorrectPassword;
+                }
+
+            }
+            catch (Exception e)
+            {
+                response.ErrorMessage = e.GetBaseException().Message;
+                response.Success = false;
+            }
+            return response;
+
+        }
+
+        public Response<Account> LoginAccount(Account account)
+        {
+            DTO.Response<DTO.Account> response = new DTO.Response<DTO.Account>();
+            try
+            {
+                Entities.Account resultAccount = _accountRepo.GetSingle(a => a.UserName.Equals(account.UserName));
+
+                account.PasswordHash = Cryptography.HashString(account.PasswordHash, resultAccount.Salt);
+                if (account.PasswordHash.Equals(resultAccount.PasswordHash))
+                {
+                    response.Success = true;
+                    response.Data = Mapper.Map<Entities.Account,DTO.Account>(resultAccount);
                 }
                 else {
-                    account.Success = false;
-                    account.ErrorMessage = OMSResource.IncorrectPassword;
+                    response.Success = false;
+                    response.ErrorMessage = OMSResource.IncorrectPassword;
                 }
 
             }
             catch (Exception e)
             {
-                account.ErrorMessage = e.GetBaseException().Message;
-                account.Success = false;
+                response.ErrorMessage = e.GetBaseException().Message;
+                response.Success = false;
             }
-            return account;
+            return response;
 
         }
     }

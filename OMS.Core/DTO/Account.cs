@@ -25,7 +25,7 @@ namespace OMS.Core.DTO
         public int RoleID { get; set; }
 
 
-        public IEnumerable<User> User { get; set; }
+        public User User { get; set; }
 
         [Required]
         public string CreatedBy { get; set; }

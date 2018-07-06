@@ -11,16 +11,16 @@ namespace OMS.Core.Interface.Services
     {
         IEnumerable<Account> ListAccounts();
 
-        Response<Account> CreateAccount(Account Account);
+        Response<Account> CreateAccount(Account account);
 
-        Response<Account> UpdateAccount(Account Account);
+        Response<Account> UpdateAccount(Account account);
 
-        Response<Account> RemoveAccount(int AccountID);
+        Response<Account> RemoveAccount(int accountID);
 
-        Account GetAccount(int AccountID);
+        Account GetAccount(int accountID);
 
-        Response<Account> ChangeAccountPassword(Account Account);
+        Response<Account> ChangeAccountPassword(Account account,string newPassword);
 
-        Response<Account> LoginAccount(string UserName,string Password);
+        Response<Account> LoginAccount(Account account);
     }
 }
