@@ -11,13 +11,13 @@ namespace OMS.Core.Interface.Services
     {
         IEnumerable<Variant> ListVariants();
 
-        Response<Variant> CreateVariant(Variant Variant);
+        Response<Variant> CreateVariant(Variant variant);
 
-        Response<Variant> UpdateVariant(Variant Variant);
+        Response<Variant> UpdateVariant(Variant variant);
 
-        Response<Variant> RemoveVariant(int VariantID);
+        Response<Variant> RemoveVariant(int variantID);
 
-        Variant GetVariantByVariantID(int VariantID);
+        Variant GetVariantByVariantID(int variantID);
 
     }
 }
