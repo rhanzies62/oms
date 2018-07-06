@@ -62,8 +62,10 @@
     <Compile Include="DTO\Role.cs" />
     <Compile Include="DTO\User.cs" />
     <Compile Include="Interface\Services\ICategoryService.cs" />
+    <Compile Include="DTO\Variant.cs" />
     <Compile Include="Interface\Services\IRoleService.cs" />
     <Compile Include="Interface\Services\IUserService.cs" />
+    <Compile Include="Interface\Services\IVariantService.cs" />
     <Compile Include="Mapper\AutoMapperCoreConfiguration.cs" />
     <Compile Include="DTO\Response.cs" />
     <Compile Include="Common\Cryptography.cs" />
@@ -84,6 +86,7 @@
     <Compile Include="Mapper\CategoryProfile.cs" />
     <Compile Include="Mapper\RoleProfile.cs" />
     <Compile Include="Mapper\UserProfile.cs" />
+    <Compile Include="Mapper\VariantProfile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />
