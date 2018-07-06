@@ -42,7 +42,7 @@ namespace OMS.Service.Services
             return response;
         }
 
-        public Account GetAccount(int accountID)
+        public Account GetAccountByID(int accountID)
         {
             return Mapper.Map<Entities.Account, DTO.Account>(_accountRepo.GetSingle(u => u.ID.Equals(accountID)));
         }

@@ -27,7 +27,7 @@ namespace OMS.Core.Entities
         public int RoleID { get; set; }
 
         [ForeignKey("AccountID")]
-        User User { get; set; }
+        public User User { get; set; }
 
         [Required]
         public string CreatedBy { get; set; }
