@@ -14,11 +14,8 @@ namespace OMS.Core.Mapper
            AutoMapper.Mapper.Initialize(cfg => {
                cfg.AddProfile<UserProfile>();
                cfg.AddProfile<RoleProfile>();
-<<<<<<< HEAD
                cfg.AddProfile<ProductProfile>();
-=======
                cfg.AddProfile<VariantProfile>();
->>>>>>> 0a7fef85fd3a3ef3757dec4506263b32e51a4bd0
            });
         }
     }
