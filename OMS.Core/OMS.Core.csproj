@@ -60,6 +60,8 @@
   <ItemGroup>
     <Compile Include="DTO\Product.cs" />
     <Compile Include="Interface\Services\IProductService.cs" />
+    <Compile Include="DTO\Category.cs" />
+    <Compile Include="Interface\Services\ICategoryService.cs" />
     <Compile Include="DTO\Account.cs" />
     <Compile Include="DTO\User.cs" />
     <Compile Include="Interface\Services\IAccountService.cs" />
@@ -86,6 +88,7 @@
     <Compile Include="Interface\Repositories\ICRUDRepository.cs" />
     <Compile Include="Interface\Services\ITestService.cs" />
     <Compile Include="Mapper\ProductProfile.cs" />
+    <Compile Include="Mapper\CategoryProfile.cs" />
     <Compile Include="Mapper\RoleProfile.cs" />
     <Compile Include="Mapper\UserProfile.cs" />
     <Compile Include="Mapper\VariantProfile.cs" />
