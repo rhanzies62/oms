@@ -219,10 +219,15 @@
     <Content Include="Views\css\bootstrap-reboot.min.css" />
     <Content Include="Views\css\bootstrap.css" />
     <Content Include="Views\css\bootstrap.min.css" />
+    <Content Include="Views\Image\topanlogo.png" />
     <Content Include="Views\js\bootstrap.bundle.js" />
     <Content Include="Views\js\bootstrap.bundle.min.js" />
     <Content Include="Views\js\bootstrap.js" />
     <Content Include="Views\js\bootstrap.min.js" />
+    <Content Include="Views\materialize\css\materialize.css" />
+    <Content Include="Views\materialize\css\materialize.min.css" />
+    <Content Include="Views\materialize\js\materialize.js" />
+    <Content Include="Views\materialize\js\materialize.min.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -251,6 +256,8 @@
     <Content Include="Views\js\bootstrap.bundle.min.js.map" />
     <Content Include="Views\js\bootstrap.js.map" />
     <Content Include="Views\js\bootstrap.min.js.map" />
+    <Content Include="Views\materialize\LICENSE" />
+    <Content Include="Views\materialize\README.md" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

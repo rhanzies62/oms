@@ -24,7 +24,7 @@ namespace OMS.Core.Entities
         public int CategoryID { get; set; }
         public Category Category { get; set; }
 
-        public int? VariantID { get; set; }
+        public int VariantID { get; set; }
 
         public Variant Variant { get; set; }
 
