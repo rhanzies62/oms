@@ -2,16 +2,15 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OMS.Core.Entities
+namespace OMS.Core.DTO
 {
-    public class Product:IAudit
-    {   
-        [Key]
+    public class Product : IAudit
+    {
+        [Required]
         public int ID { get; set; }
 
         [Required, StringLength(25)]
@@ -22,14 +21,13 @@ namespace OMS.Core.Entities
         public decimal Price { get; set; }
 
         public int CategoryID { get; set; }
-        public Category Category { get; set; }
+        //public Category Category { get; set; }
 
         public int VariantID { get; set; }
 
-        public Variant Variant { get; set; }
+        //public Variant Variant { get; set; }
 
-        [ForeignKey("ProductID")]
-        public ICollection<Order> order { get; set; }
+        //public IEnumerable<Order> order { get; set; }
 
         [Required]
         public string CreatedBy { get; set; }
