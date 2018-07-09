@@ -18,6 +18,6 @@ namespace OMS.Core.Interface.Services
         Response<User> RemoveUser(int userID);
 
         User GetUser(int userID,bool isActive);
-
+        
     }
 }

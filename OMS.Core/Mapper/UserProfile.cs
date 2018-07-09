@@ -12,7 +12,7 @@ namespace OMS.Core.Mapper
     public class UserProfile : Profile
     {
         public UserProfile() {
-            CreateMap<UserDTO, User>();
+            CreateMap<DTO.User, Entities.User>();
 
             
         }
