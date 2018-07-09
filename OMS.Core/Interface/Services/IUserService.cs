@@ -11,13 +11,12 @@ namespace OMS.Core.Interface.Services
     {
         IEnumerable<User> ListUsers(bool isActive);
 
-        Response<User> CreateUser(User User);
+        Response<User> CreateUser(User user);
 
-        Response<User> UpdateUser(User User);
+        Response<User> UpdateUser(User user);
 
         Response<User> RemoveUser(int userID);
 
-        User GetUser(int userID,bool isActive);
-
+        User GetUserByID(int userID,bool isActive);
     }
 }
