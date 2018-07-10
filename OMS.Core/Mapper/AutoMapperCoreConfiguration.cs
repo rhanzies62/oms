@@ -17,6 +17,7 @@ namespace OMS.Core.Mapper
                cfg.AddProfile<ProductProfile>();
                cfg.AddProfile<CategoryProfile>();
                cfg.AddProfile<VariantProfile>();
+               cfg.AddProfile<AddressProfile>();
            });
         }
     }
