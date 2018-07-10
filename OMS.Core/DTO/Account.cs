@@ -2,22 +2,20 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OMS.Core.Entities
+namespace OMS.Core.DTO
 {
     public class Account : IAudit
     {
-        [Key]
+        [Required]
         public int ID { get; set; }
         [Required, StringLength(25)]
         public string UserName { get; set; }
         [Required, StringLength(25)]
         public string PasswordHash { get; set; }
-        [Required]
         public Role Role { get; set; }
         [Required]
         public int Status { get; set; }
@@ -26,7 +24,7 @@ namespace OMS.Core.Entities
         [Required]
         public int RoleID { get; set; }
 
-        [ForeignKey("AccountID")]
+
         public User User { get; set; }
 
         [Required]
@@ -37,5 +35,7 @@ namespace OMS.Core.Entities
         public string UpdatedBy { get; set; }
         [Required]
         public DateTime UpdatedDate { get; set; }
+
+
     }
 }

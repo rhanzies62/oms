@@ -58,18 +58,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DTO\Product.cs" />
-    <Compile Include="Interface\Services\IProductService.cs" />
-    <Compile Include="DTO\Category.cs" />
-    <Compile Include="Interface\Services\ICategoryService.cs" />
     <Compile Include="DTO\Account.cs" />
     <Compile Include="DTO\User.cs" />
     <Compile Include="Interface\Services\IAccountService.cs" />
-    <Compile Include="DTO\Role.cs" />
-    <Compile Include="DTO\Variant.cs" />
-    <Compile Include="Interface\Services\IRoleService.cs" />
     <Compile Include="Interface\Services\IUserService.cs" />
-    <Compile Include="Interface\Services\IVariantService.cs" />
     <Compile Include="Mapper\AutoMapperCoreConfiguration.cs" />
     <Compile Include="DTO\Response.cs" />
     <Compile Include="Common\Cryptography.cs" />
@@ -87,24 +79,10 @@
     <Compile Include="Interface\Entity\IAudit.cs" />
     <Compile Include="Interface\Repositories\ICRUDRepository.cs" />
     <Compile Include="Interface\Services\ITestService.cs" />
-    <Compile Include="Mapper\ProductProfile.cs" />
-    <Compile Include="Mapper\CategoryProfile.cs" />
-    <Compile Include="Mapper\RoleProfile.cs" />
     <Compile Include="Mapper\UserProfile.cs" />
-    <Compile Include="Mapper\VariantProfile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Resource\OMSResource.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>OMSResource.resx</DependentUpon>
-    </Compile>
   </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Resource\OMSResource.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>OMSResource.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="Coding Standard.txt" />
   </ItemGroup>
