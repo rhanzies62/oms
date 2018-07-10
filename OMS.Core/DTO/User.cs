@@ -41,7 +41,7 @@ namespace OMS.Core.DTO
         [Required]
         public int AccountID { get; set; }
 
-        //public Account Account { get; set; }
+        public Account Account { get; set; }
         //public IEnumerable<Order> Order { get; set; }
         //public IEnumerable<Transaction> Transaction { get; set; }
 
