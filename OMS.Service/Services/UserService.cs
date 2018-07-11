@@ -17,22 +17,22 @@ namespace OMS.Service.Services
         {
             _userRepo = userRepo;
         }
-        public DTO.Response<DTO.User> CreateUser(DTO.User User)
+        public DTO.Response<DTO.User> CreateUser(DTO.User user)
         {
-            DTO.Response<DTO.User> user = new DTO.Response<DTO.User>();
+            DTO.Response<DTO.User> response = new DTO.Response<DTO.User>();
             try {
-                _userRepo.Add(Mapper.Map<DTO.User,Entities.User>(User));
-                user.Success = true;
-                user.Data = User;
+                _userRepo.Add(Mapper.Map<DTO.User,Entities.User>(user));
+                response.Success = true;
+                response.Data = user;
             }
             catch (Exception e) {
-                user.ErrorMessage = e.Message;
-                user.Success = false;
+                response.ErrorMessage = e.GetBaseException().Message;
+                response.Success = false;
             }
-            return user;
+            return response;
         }
 
-        public DTO.User GetUser(int userID, bool isActive)
+        public DTO.User GetUserByID(int userID, bool isActive)
         {
             
             return Mapper.Map<Entities.User,DTO.User>(_userRepo.GetSingle(u => u.ID.Equals(userID) && u.IsActive.Equals(isActive)));
@@ -55,27 +55,27 @@ namespace OMS.Service.Services
             }
             catch (Exception e)
             {
-                user.ErrorMessage = e.Message;
+                user.ErrorMessage = e.GetBaseException().Message;
                 user.Success = false;
             }
             return user;
         }
 
-        public DTO.Response<DTO.User> UpdateUser(DTO.User User)
+        public DTO.Response<DTO.User> UpdateUser(DTO.User user)
         {
-            DTO.Response<DTO.User> user = new DTO.Response<DTO.User>();
+            DTO.Response<DTO.User> response = new DTO.Response<DTO.User>();
             try
             {
-                _userRepo.Update(Mapper.Map < DTO.User, Entities.User >(User));
-                user.Success = true;
-                user.Data = User;
+                _userRepo.Update(Mapper.Map < DTO.User, Entities.User >(user));
+                response.Success = true;
+                response.Data = user;
             }
             catch (Exception e)
             {
-                user.ErrorMessage = e.Message;
-                user.Success = false;
+                response.ErrorMessage = e.GetBaseException().Message;
+                response.Success = false;
             }
-            return user;
+            return response;
         }
     }
 }

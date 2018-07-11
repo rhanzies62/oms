@@ -58,7 +58,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DTO\Address.cs" />
     <Compile Include="DTO\Product.cs" />
+    <Compile Include="Interface\Services\IAddressService.cs" />
     <Compile Include="Interface\Services\IProductService.cs" />
     <Compile Include="DTO\Category.cs" />
     <Compile Include="Interface\Services\ICategoryService.cs" />
@@ -70,6 +72,7 @@
     <Compile Include="Interface\Services\IRoleService.cs" />
     <Compile Include="Interface\Services\IUserService.cs" />
     <Compile Include="Interface\Services\IVariantService.cs" />
+    <Compile Include="Mapper\AddressProfile.cs" />
     <Compile Include="Mapper\AutoMapperCoreConfiguration.cs" />
     <Compile Include="DTO\Response.cs" />
     <Compile Include="Common\Cryptography.cs" />
