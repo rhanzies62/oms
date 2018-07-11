@@ -1,13 +1,13 @@
-﻿@model IEnumerable<OMS.Core.DTO.Variant>
+﻿@model IEnumerable<OMS.Core.DTO.Category>
 
 @{
-    ViewBag.Title = "Variants";
+    ViewBag.Title = "Category";
 }
 
-<h2>Variants</h2>
+<h2>Category</h2>
 
 <p>
-    @Html.ActionLink("Create New", "CreateVariants")
+    @Html.ActionLink("Create New", "CreateCategory")
 </p>
 <table class="table">
     <tr>
@@ -16,6 +16,12 @@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VariantID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ParentCategoryId)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.CreatedBy)
@@ -39,6 +45,12 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.VariantID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ParentCategoryId)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.CreatedBy)

@@ -1,21 +1,30 @@
-﻿@model IEnumerable<OMS.Core.DTO.Variant>
+﻿@model IEnumerable<OMS.Core.DTO.Account>
 
 @{
-    ViewBag.Title = "Variants";
+    ViewBag.Title = "Employee";
 }
 
-<h2>Variants</h2>
+<h2>Employee</h2>
 
 <p>
-    @Html.ActionLink("Create New", "CreateVariants")
+    @Html.ActionLink("Create New", "CreateEmployee")
 </p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Name)
+            @Html.DisplayNameFor(model => model.UserName)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Description)
+            @Html.DisplayNameFor(model => model.PasswordHash)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Status)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Salt)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RoleID)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.CreatedBy)
@@ -35,10 +44,19 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.Name)
+            @Html.DisplayFor(modelItem => item.UserName)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Description)
+            @Html.DisplayFor(modelItem => item.PasswordHash)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Status)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Salt)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RoleID)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.CreatedBy)

@@ -1,47 +1,64 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>@ViewBag.Title</title>
+    <link type="text/css" rel="stylesheet" href="~/Content/materialize.min.css" />
+    <link type="text/css" rel="stylesheet" href="~/Content/materialize.css" />
+    <link href="~/Content/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
+    <link href="~/Content/StyleSheet1.css" type="text/css" rel="stylesheet" media="screen,projection" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Topan", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Variants", "Variants", "Admin")</li>
-                    <li>@Html.ActionLink("Category", "Category", "Admin")</li>
-                    <li>@Html.ActionLink("Products", "Producst", "Admin")</li>
-                    <li>@Html.ActionLink("Employee", "Employee", "Admin")</li>
-                    <li>@Html.ActionLink("Admin", "Index", "Admin")</li>
-                    <li>@Html.ActionLink("Orders", "About", "Admin")</li>
-                    <li>@Html.ActionLink("Transaction", "Contact", "Admin")</li>
 
-                </ul>
-            </div>
+
+    <nav class="#43a047 green darken-1  navbar-fixed-top" role="navigation" style="margin-top: 1px;">
+        <div class="nav-wrapper container">
+            <a id="logo-container" href="#" class="brand-logo"><img src="~/Content/Images/logo.png" style="line-height: normal; height:55px;" /></a>
+            
+            
+            
+            <ul class="right hide-on-med-and-down">
+                <li> @Html.ActionLink("Variants", "Variants", "Admin", new { area = "" }, new { @class = "text white-text" })</li>
+                <li> @Html.ActionLink("Products", "Products", "Admin", new { area = "" }, new { @class = "text white-text" })</li>
+                <li> @Html.ActionLink("Category", "Category", "Admin", new { area = "" }, new { @class = "text white-text" })</li>
+                <li> @Html.ActionLink("Employee", "Employee", "Admin", new { area = "" }, new { @class = "text white-text" })</li>
+                <li>  @Html.ActionLink("Admin", "Admin", "Admin", new { area = "" }, new { @class = "text white-text" })</li>
+            </ul>
+
+            <ul id="nav-mobile" class="sidenav text">
+                <li> @Html.ActionLink("Variants", "Variants", "Admin", new { area = "" }, new { @class = "text" })</li>
+                <li> @Html.ActionLink("Products", "Products", "Admin", new { area = "" }, new { @class = "text" })</li>
+                <li> @Html.ActionLink("Category", "Category", "Admin", new { area = "" }, new { @class = "text" })</li>
+                <li> @Html.ActionLink("Employee", "Employee", "Admin", new { area = "" }, new { @class = "text" })</li>
+                <li>  @Html.ActionLink("Admin", "Admin", "Admin", new { area = "" }, new { @class = "text" })</li>
+            </ul>
+            <a  href="#" data-target="nav-mobile" class="sidenav-trigger white-text"><i class="material-icons">menu</i></a>
         </div>
-    </div>
+    </nav>
+
+
+
+
+
     <div class="container body-content">
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            <p>&copy; @DateTime.Now.Year </p>
         </footer>
     </div>
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
+
+    <script src="~/Scripts/materialize.js"></script>
+    <script src="~/Scripts/init.js"></script>
+
+
 </body>
 </html>

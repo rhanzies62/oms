@@ -25,6 +25,64 @@ namespace OMS.Web.Controllers
             return View();
         }
 
+        public ActionResult Products()
+        {
+
+            return View();
+
+        }
+
+
+        public ActionResult CreateProducts()
+        {
+            return View();
+
+        }
+
+
+        public ActionResult Category() {
+
+            return View();
+
+        }
+
+        public ActionResult CreateCategory()
+        {
+
+            return View();
+
+        }
+
+
+        public ActionResult Employee()
+        {
+
+            return View();
+
+        }
+
+        public ActionResult CreateEmployee()
+        {
+
+            return View();
+
+        }
+
+        public ActionResult Admin()
+        {
+
+            return View();
+
+        }
+
+        public ActionResult CreateAdmin()
+        {
+
+            return View();
+
+        }
+
+
 
 
 

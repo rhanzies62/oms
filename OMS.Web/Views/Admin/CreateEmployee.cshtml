@@ -1,33 +1,56 @@
-﻿@model OMS.Core.DTO.Variant
+﻿@model OMS.Core.DTO.Account
 
 @{
-    ViewBag.Title = "CreateVariants";
+    ViewBag.Title = "CreateEmployee";
 }
 
-<h2>CreateVariants</h2>
+<h2>CreateEmployee</h2>
 
 @using (Html.BeginForm()) 
 {
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>Variant</h4>
+        <h4>Account</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
-            @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2 text1" })
+            @Html.LabelFor(model => model.UserName, htmlAttributes: new { @class = "control-label col-md-2 text1" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "input-text", @id = "name" } })
-                
-                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "validate" })
+                @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2 text1" })
+            @Html.LabelFor(model => model.PasswordHash, htmlAttributes: new { @class = "control-label col-md-2 text1" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Description, "", new { @class = "validate" })
+                @Html.EditorFor(model => model.PasswordHash, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.PasswordHash, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Status, htmlAttributes: new { @class = "control-label col-md-2 text1" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Status, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Status, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Salt, htmlAttributes: new { @class = "control-label col-md-2 text1" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Salt, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Salt, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.RoleID, htmlAttributes: new { @class = "control-label col-md-2 text1" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.RoleID, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.RoleID, "", new { @class = "text-danger" })
             </div>
         </div>
 
@@ -65,7 +88,7 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <button type="submit" value="Create" class="btn waves-effect waves-light">Create</button>
+                <input type="submit" value="Create" class="btn waves-effect waves-light" />
             </div>
         </div>
     </div>
