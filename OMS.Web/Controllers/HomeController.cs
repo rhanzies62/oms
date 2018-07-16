@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using OMS.Core.Entities;
 
 namespace OMS.Web.Controllers
 {
@@ -33,5 +34,16 @@ namespace OMS.Web.Controllers
 
             return View();
         }
+
+
+        public ActionResult ProductList()
+        {
+
+
+
+            return View();
+        }
+
+
     }
 }
