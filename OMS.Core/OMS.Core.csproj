@@ -60,9 +60,11 @@
   <ItemGroup>
     <Compile Include="DTO\Address.cs" />
     <Compile Include="DTO\Customer.cs" />
+    <Compile Include="DTO\Order.cs" />
     <Compile Include="DTO\Product.cs" />
     <Compile Include="DTO\Transaction.cs" />
     <Compile Include="Interface\Services\IAddressService.cs" />
+    <Compile Include="Interface\Services\IOrderService.cs" />
     <Compile Include="Interface\Services\IProductService.cs" />
     <Compile Include="DTO\Category.cs" />
     <Compile Include="Interface\Services\ICategoryService.cs" />
@@ -93,6 +95,7 @@
     <Compile Include="Interface\Entity\IAudit.cs" />
     <Compile Include="Interface\Repositories\ICRUDRepository.cs" />
     <Compile Include="Interface\Services\ITestService.cs" />
+    <Compile Include="Mapper\OrderProfile.cs" />
     <Compile Include="Mapper\ProductProfile.cs" />
     <Compile Include="Mapper\CategoryProfile.cs" />
     <Compile Include="Mapper\RoleProfile.cs" />
