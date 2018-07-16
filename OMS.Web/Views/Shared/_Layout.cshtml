@@ -16,7 +16,7 @@
 <body>
 
 
-    <nav class="#43a047 green darken-1  navbar-fixed-top" role="navigation" style="margin-top: 1px;">
+    <nav class="#2e7d32 green darken-3 navbar-fixed-top" role="navigation" style="margin-top: 1px;">
         <div class="nav-wrapper container">
             <a id="logo-container" href="#" class="brand-logo"><img src="~/Content/Images/logo.png" style="line-height: normal; height:55px;" /></a>
 
@@ -27,17 +27,23 @@
                 <li>@Html.ActionLink("About", "About", "Home", new { area = "" }, new { @class = "text white-text" })</li>
                 <li>@Html.ActionLink("Contact", "Contact", "Home", new { area = "" }, new { @class = "text white-text" })</li>
                 <li>@Html.ActionLink("Products", "ProductList", "Home", new { area = "" }, new { @class = "text white-text" })</li>
-                <li style="margin-left:100px;">@Html.ActionLink("My Cart", "ProductList", "Home", new { area = "" }, new { @class = "text white-text" })</li>
+                <li style="margin-left:400px;">   <span class="badge badge-notify">5</span>   <a href="#"><i class="material-icons white-text">shopping_cart</i></a>  </li>
+
+
+
+
+
 
 
             </ul>
 
             <ul id="nav-mobile" class="sidenav text">
-                <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "text" })</li>
-                <li>@Html.ActionLink("About", "About", "Home", new { area = "" }, new { @class = "text" })</li>
-                <li>@Html.ActionLink("Contact", "Contact", "Home", new { area = "" }, new { @class = "text" })</li>
-                <li>@Html.ActionLink("Products", "ProductList", "Home", new { area = "" }, new { @class = "text" })</li>
-                <li>@Html.ActionLink("My Cart", "ProductList", "Home", new { area = "" }, new { @class = "text" })</li>
+                <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "text white-text" })</li>
+                <li>@Html.ActionLink("About", "About", "Home", new { area = "" }, new { @class = "text white-text" })</li>
+                <li>@Html.ActionLink("Contact", "Contact", "Home", new { area = "" }, new { @class = "text white-text" })</li>
+                <li>@Html.ActionLink("Products", "ProductList", "Home", new { area = "" }, new { @class = "text white-text" })</li>
+                <li>   <a href="#"><i class="material-icons white">shopping_cart</i> <span class="badge">1</span></a></li>
+
             </ul>
             <a href="#" data-target="nav-mobile" class="sidenav-trigger white-text"><i class="material-icons">menu</i></a>
         </div>
@@ -47,13 +53,45 @@
 
 
 
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year </p>
-        </footer>
-    </div>
+    @RenderBody()
+    <hr />
+    <footer class="page-footer teal">
+        <div class="container">
+            <div class="row">
+                <div class="col l6 s12">
+                    <h5 class="white-text">Topan Marketing Corp.</h5>
+                    <p class="grey-text text-lighten-4"> is dedicated to provide high quality formwork construction materials, different kinds of plywood and fiber-cement board since 1989</p>
+
+
+                </div>
+                @*<div class="col l3 s12">
+                            <h5 class="white-text">Settings</h5>
+                            <ul>
+                                <li><a class="white-text" href="#!">Link 1</a></li>
+                                <li><a class="white-text" href="#!">Link 2</a></li>
+                                <li><a class="white-text" href="#!">Link 3</a></li>
+                                <li><a class="white-text" href="#!">Link 4</a></li>
+                            </ul>
+                        </div>
+                        <div class="col l3 s12">
+                            <h5 class="white-text">Connect</h5>
+                            <ul>
+                                <li><a class="white-text" href="#!">Link 1</a></li>
+                                <li><a class="white-text" href="#!">Link 2</a></li>
+                                <li><a class="white-text" href="#!">Link 3</a></li>
+                                <li><a class="white-text" href="#!">Link 4</a></li>
+                            </ul>
+                        </div>
+                    </div>*@
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <div class="container">
+                Made by <a class="brown-text text-lighten-3" href="http://materializecss.com">Topan Marketing Corp</a>
+            </div>
+        </div>
+    </footer>
+
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
