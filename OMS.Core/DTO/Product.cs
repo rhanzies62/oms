@@ -21,13 +21,13 @@ namespace OMS.Core.DTO
         public decimal Price { get; set; }
 
         public int CategoryID { get; set; }
-        //public Category Category { get; set; }
+        public Category Category { get; set; }
 
         public int VariantID { get; set; }
 
-        //public Variant Variant { get; set; }
+        public Variant Variant { get; set; }
 
-        //public IEnumerable<Order> order { get; set; }
+        public IEnumerable<Order> order { get; set; }
 
         [Required]
         public string CreatedBy { get; set; }

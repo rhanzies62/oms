@@ -18,8 +18,8 @@ namespace OMS.Core.DTO
         [Required, StringLength(50)]
         public string Description { get; set; }
 
-        //public IEnumerable<Category> Category { get; set; }
-        //public IEnumerable<Product> Product { get; set; }
+        public IEnumerable<Category> Category { get; set; }
+        public IEnumerable<Product> Product { get; set; }
 
         [Required]
         public string CreatedBy { get; set; }

@@ -16,14 +16,10 @@ namespace OMS.Core.DTO
         public string UserName { get; set; }
         [Required, StringLength(25)]
         public string PasswordHash { get; set; }
-        public Role Role { get; set; }
         [Required]
         public int Status { get; set; }
         [Required]
         public string Salt { get; set; }
-        [Required]
-        public int RoleID { get; set; }
-
 
         public User User { get; set; }
 
