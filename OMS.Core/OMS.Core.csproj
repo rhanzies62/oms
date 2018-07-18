@@ -59,8 +59,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DTO\Address.cs" />
+    <Compile Include="DTO\Customer.cs" />
     <Compile Include="DTO\Order.cs" />
     <Compile Include="DTO\Product.cs" />
+    <Compile Include="DTO\Transaction.cs" />
     <Compile Include="Interface\Services\IAddressService.cs" />
     <Compile Include="Interface\Services\IOrderService.cs" />
     <Compile Include="Interface\Services\IProductService.cs" />
@@ -72,6 +74,7 @@
     <Compile Include="DTO\Role.cs" />
     <Compile Include="DTO\Variant.cs" />
     <Compile Include="Interface\Services\IRoleService.cs" />
+    <Compile Include="Interface\Services\ITransactionService.cs" />
     <Compile Include="Interface\Services\IUserService.cs" />
     <Compile Include="Interface\Services\IVariantService.cs" />
     <Compile Include="Mapper\AddressProfile.cs" />
@@ -96,6 +99,7 @@
     <Compile Include="Mapper\ProductProfile.cs" />
     <Compile Include="Mapper\CategoryProfile.cs" />
     <Compile Include="Mapper\RoleProfile.cs" />
+    <Compile Include="Mapper\TransactionProfile.cs" />
     <Compile Include="Mapper\UserProfile.cs" />
     <Compile Include="Mapper\VariantProfile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
