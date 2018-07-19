@@ -76,3 +76,11 @@ h5 {
     font-size: medium;
 >>>>>>> 743a561bc2c321c75bc22f8028096b529b907f6a
 }
+
+.wood {
+    background-image: url("Images/wood.jpg");
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}

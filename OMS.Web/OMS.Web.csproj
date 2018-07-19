@@ -201,6 +201,7 @@
     <Content Include="Content\Images\background2.jpg" />
     <Content Include="Content\Images\background3.jpg" />
     <Content Include="Content\Images\bg2.jpg" />
+    <Content Include="Content\Images\wood.jpg" />
     <Content Include="Content\style.css" />
     <Content Include="Content\Custom.css" />
     <Content Include="favicon.ico" />
