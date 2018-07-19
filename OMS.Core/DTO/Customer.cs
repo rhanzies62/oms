@@ -2,16 +2,16 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OMS.Core.Entities
+namespace OMS.Core.DTO
 {
     public class Customer : IAudit
     {
-        [Key,ForeignKey("CustomerID")]
+
+        [Required]
         public int ID { get; set; }
         [Required, StringLength(25)]
         public string FirstName { get; set; }

@@ -2,26 +2,31 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OMS.Core.Entities
+namespace OMS.Core.DTO
 {
-    public class Customer : IAudit
+    public class Order : IAudit
     {
-        [Key,ForeignKey("CustomerID")]
-        public int ID { get; set; }
-        [Required, StringLength(25)]
-        public string FirstName { get; set; }
-        [Required, StringLength(25)]
-        public string LastName { get; set; }
         [Required]
-        public int MobileNumber { get; set; }
+        public int ID { get; set; }
 
-        public int Tin { get; set; }
-        public string BusinessName { get; set; }
+        [Required]
+        public int Quantity { get; set; }
+        [Required]
+        public int UserID { get; set; }
+        [Required]
+        public int ProductID { get; set; }
+        [Required]
+        public DateTime Date { get; set; }
+
+        public int TransactionId { get; set; }
+
+        //public Transaction Transaction { get; set; }
+        public Product Product { get; set; }
+        public User User { get; set; }
 
         [Required]
         public string CreatedBy { get; set; }
