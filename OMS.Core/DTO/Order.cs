@@ -24,7 +24,7 @@ namespace OMS.Core.DTO
 
         public int TransactionId { get; set; }
 
-        //public Transaction Transaction { get; set; }
+        public Transaction Transaction { get; set; }
         public Product Product { get; set; }
         public User User { get; set; }
 

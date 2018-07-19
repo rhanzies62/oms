@@ -38,8 +38,8 @@ namespace OMS.Core.DTO
         [Required]
         public DateTime UpdatedDate { get; set; }
 
-        //[Required]
-        //public IEnumerable<Order> order { get; set; }
+        [Required]
+        public IEnumerable<Order> order { get; set; }
 
     }
 }

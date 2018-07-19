@@ -49,7 +49,7 @@ namespace OMS.Core.DTO
 
         public IEnumerable<Order> Order { get; set; }
 
-        //public IEnumerable<Transaction> Transaction { get; set; }
+        public IEnumerable<Transaction> Transaction { get; set; }
 
 
     }
