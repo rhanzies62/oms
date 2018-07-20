@@ -15,7 +15,7 @@ namespace OMS.Core.DTO
 
         [Required, StringLength(25)]
         public string Name { get; set; }
-        [Required, StringLength(25)]
+        [StringLength(25)]
         public string Description { get; set; }
         [Required]
         public decimal Price { get; set; }
