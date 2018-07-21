@@ -1,3 +1,6 @@
+using OMS.Core.Entities;
+using OMS.Repository.Repositories;
+using OMS.Core.Interface.Repositories;
 using OMS.Core.Interface.Services;
 using OMS.Service.Services;
 using System.Web.Http;
@@ -14,6 +17,10 @@ namespace OMS.Web
 			var container = new UnityContainer();
 
             container.RegisterType<ITestService, TestService>();
+            container.RegisterType<IVariantService, VariantService>();
+            container.RegisterType<IProductService, ProductService>();
+            container.RegisterType<ICRUDRepository<Variant>, CRUDRepository<Variant>>();
+            container.RegisterType<ICRUDRepository<Product>, CRUDRepository<Product>>();
 
             DependencyResolver.SetResolver(new Unity.Mvc5.UnityDependencyResolver(container));
             GlobalConfiguration.Configuration.DependencyResolver = new Unity.WebApi.UnityDependencyResolver(container);
