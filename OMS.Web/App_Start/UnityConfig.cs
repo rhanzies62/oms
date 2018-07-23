@@ -19,8 +19,14 @@ namespace OMS.Web
             container.RegisterType<ITestService, TestService>();
             container.RegisterType<IVariantService, VariantService>();
             container.RegisterType<IProductService, ProductService>();
+            container.RegisterType<ICategoryService, CategoryService>();
+            container.RegisterType<IRoleService, RoleService>();
+            container.RegisterType<IUserService, UserService>();
             container.RegisterType<ICRUDRepository<Variant>, CRUDRepository<Variant>>();
             container.RegisterType<ICRUDRepository<Product>, CRUDRepository<Product>>();
+            container.RegisterType<ICRUDRepository<Category>, CRUDRepository<Category>>();
+            container.RegisterType<ICRUDRepository<User>, CRUDRepository<User>>();
+            container.RegisterType<ICRUDRepository<Role>, CRUDRepository<Role>>();
 
             DependencyResolver.SetResolver(new Unity.Mvc5.UnityDependencyResolver(container));
             GlobalConfiguration.Configuration.DependencyResolver = new Unity.WebApi.UnityDependencyResolver(container);
