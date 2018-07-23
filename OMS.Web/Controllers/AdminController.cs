@@ -14,11 +14,14 @@ namespace OMS.Web.Controllers
         private readonly IProductService _productService;
         private readonly IVariantService _variantService;
         private readonly ICategoryService _categoryService;
-        public AdminController(IVariantService variantService, IProductService productService, ICategoryService categoryService)
+        private readonly IUserService _userService;
+
+        public AdminController(IVariantService variantService, IProductService productService, ICategoryService categoryService, IUserService userService)
         {
             _variantService = variantService;
             _productService = productService;
             _categoryService = categoryService;
+            _userService = userService;
         }
         // GET: Admin
         public ActionResult Index()
@@ -114,7 +117,38 @@ namespace OMS.Web.Controllers
         }
 
         #endregion
+        #region user
+        public ActionResult ActiveUserList()
+        {
+            return View(_userService.ListUsers(true));
+        }
+        public ActionResult InActiveUserList()
+        {
+            return View(_userService.ListUsers(false));
+        }
 
+        public ActionResult CreateUser()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult CreateUser(User user)
+        {
+            Response<User> response = new Response<User>();
+            response = _userService.CreateUser(user);
+            if (response.Success.Equals(true))
+            {
+                ViewBag.Message = OMSResource.SuccessfullyAdded;
+            }
+            else
+            {
+                ViewBag.Message = response.ErrorMessage;
+            }
+            return View();
+        }
+
+        #endregion
 
     }
 }
