@@ -15,13 +15,16 @@ namespace OMS.Web.Controllers
         private readonly IVariantService _variantService;
         private readonly ICategoryService _categoryService;
         private readonly IUserService _userService;
+        private readonly IRoleService _roleService;
 
-        public AdminController(IVariantService variantService, IProductService productService, ICategoryService categoryService, IUserService userService)
+        public AdminController(IVariantService variantService, IProductService productService, ICategoryService categoryService, IUserService userService, IRoleService roleService)
         {
             _variantService = variantService;
             _productService = productService;
             _categoryService = categoryService;
             _userService = userService;
+            _roleService = roleService;
+
         }
         // GET: Admin
         public ActionResult Index()
@@ -148,6 +151,49 @@ namespace OMS.Web.Controllers
             return View();
         }
 
+        #endregion
+        #region role
+        public ActionResult Role()
+        {
+            return View(_roleService.ListRoles());
+        }
+
+
+        public ActionResult CreateRole()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult CreateRole(Role role)
+        {
+            Response<Role> response = new Response<Role>();
+            response = _roleService.CreateRole(role);
+            if (response.Success.Equals(true))
+            {
+                ViewBag.Message = OMSResource.SuccessfullyAdded;
+            }
+            else
+            {
+                ViewBag.Message = response.ErrorMessage;
+            }
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult DeleteRole(int roleID)
+        {
+            Response<Role> response = new Response<Role>();
+            response = _roleService.RemoveRole(roleID);
+            if (response.Success.Equals(true))
+            {
+                ViewBag.Message = OMSResource.SuccesfullyRemoved;
+            }
+            else
+            {
+                ViewBag.Message = response.ErrorMessage;
+            }
+            return View();
+        }
         #endregion
 
     }

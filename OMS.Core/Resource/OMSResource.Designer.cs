@@ -70,6 +70,15 @@ namespace OMS.Core.Resource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Successfully Removed.
+        /// </summary>
+        public static string SuccesfullyRemoved {
+            get {
+                return ResourceManager.GetString("SuccesfullyRemoved", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Successfully Added.
         /// </summary>
         public static string SuccessfullyAdded {
