@@ -13,23 +13,50 @@ namespace OMS.Repository
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            
+
+            modelBuilder.Entity<Order>()
+                .HasRequired(c => c.User)
+                .WithMany()
+                .WillCascadeOnDelete(false);
+
             modelBuilder.Entity<User>()
-            .HasRequired(c => c.Address)
-            .WithMany()
-            .WillCascadeOnDelete(false);
+                .HasRequired(c => c.Address)
+                .WithMany()
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<User>()
+                .HasMany<Transaction>(g => g.Transaction)
+                .WithRequired(s => s.User)
+                .HasForeignKey<int>(s => s.UserID);
+
+            modelBuilder.Entity<User>()
+                .HasRequired(c => c.Transaction)
+                .WithMany()
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<Transaction>()
+                .HasRequired(s => s.User)
+                .WithMany()
+                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Transaction>()
                 .HasRequired(s => s.Address)
                 .WithMany()
                 .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<Order>()
-         .HasRequired(c => c.User)
-         .WithMany()
-         .WillCascadeOnDelete(false);
+            modelBuilder.Entity<Variant>()
+                .HasMany<Product>(g => g.Product)
+                .WithRequired(s => s.Variant)
+                .HasForeignKey<int>(s => s.VariantID);
 
-            modelBuilder.Entity<Transaction>()
-                .HasRequired(s => s.User)
+            modelBuilder.Entity<Variant>()
+                .HasRequired(s => s.Product)
+                .WithMany()
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<Product>()
+                .HasRequired(s => s.Variant)
                 .WithMany()
                 .WillCascadeOnDelete(false);
 

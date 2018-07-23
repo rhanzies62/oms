@@ -50,7 +50,6 @@ namespace OMS.Core.Entities
         [ForeignKey("UserID")]
         public ICollection<Order> Order { get; set; }
 
-        [ForeignKey("UserID")]
         public ICollection<Transaction> Transaction { get; set; }
 
     }
