@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using OMS.Core.Resource;
 
 namespace OMS.Web.Controllers
 {
@@ -12,10 +13,12 @@ namespace OMS.Web.Controllers
     {
         private readonly IProductService _productService;
         private readonly IVariantService _variantService;
-        public AdminController(IVariantService variantService, IProductService productService)
+        private readonly ICategoryService _categoryService;
+        public AdminController(IVariantService variantService, IProductService productService, ICategoryService categoryService)
         {
             _variantService = variantService;
             _productService = productService;
+            _categoryService = categoryService;
         }
         // GET: Admin
         public ActionResult Index()
@@ -23,6 +26,7 @@ namespace OMS.Web.Controllers
             return View();
         }
 
+        #region variant
         public ActionResult Variants()
         {
             return View(_variantService.ListVariants());
@@ -38,10 +42,15 @@ namespace OMS.Web.Controllers
         {
             Response<Variant> response = new Response<Variant>();
             response = _variantService.CreateVariant(variant);
-            
-            return View(response.ErrorMessage);
+            if (response.Success.Equals(true)) {
+                ViewBag.Message = OMSResource.SuccessfullyAdded;
+            }else {
+                ViewBag.Message = response.ErrorMessage;
+            }
+            return View();
         }
-
+        #endregion
+        #region products
         public ActionResult Products()
         {
             return View(_productService.ListProducts());
@@ -55,46 +64,57 @@ namespace OMS.Web.Controllers
         {
             Response<Product> response = new Response<Product>();
             response = _productService.CreateProduct(product);
-            return View(response.ErrorMessage);
+            if (response.Success.Equals(true))
+            {
+                ViewBag.Message = OMSResource.SuccessfullyAdded;
+            }
+            else
+            {
+                ViewBag.Message = response.ErrorMessage;
+            }
+            return View();
         }
 
-
+        #endregion
+        #region category
         public ActionResult Category()
         {
+            return View(_categoryService.ListCategories());
+        }
 
-            return View();
+        public ActionResult CategoryByVariantID(int variantID)
+        {
+            return View(_categoryService.ListCategoryByVariantID(variantID));
+        }
+
+        public ActionResult SubCategoryByCategoryID(int categoryID)
+        {
+            return View(_categoryService.ListSubCategoryByCategoryID(categoryID));
         }
 
         public ActionResult CreateCategory()
         {
-
             return View();
         }
 
-
-        public ActionResult Employee()
+        [HttpPost]
+        public ActionResult CreateCategory(Category category)
         {
-
+            Response<Category> response = new Response<Category>();
+            response = _categoryService.CreateCategory(category);
+            if (response.Success.Equals(true))
+            {
+                ViewBag.Message = OMSResource.SuccessfullyAdded;
+            }
+            else
+            {
+                ViewBag.Message = response.ErrorMessage;
+            }
             return View();
         }
 
-        public ActionResult CreateEmployee()
-        {
+        #endregion
 
-            return View();
-        }
-
-        public ActionResult Admin()
-        {
-
-            return View();
-        }
-
-        public ActionResult CreateAdmin()
-        {
-
-            return View();
-        }
 
     }
 }

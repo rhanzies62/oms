@@ -68,5 +68,14 @@ namespace OMS.Core.Resource {
                 return ResourceManager.GetString("IncorrectPassword", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Successfully Added.
+        /// </summary>
+        public static string SuccessfullyAdded {
+            get {
+                return ResourceManager.GetString("SuccessfullyAdded", resourceCulture);
+            }
+        }
     }
 }
