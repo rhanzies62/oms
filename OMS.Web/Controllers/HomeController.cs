@@ -44,7 +44,7 @@ namespace OMS.Web.Controllers
             return View();
         }
 
-        public ActionResult ShowCart()
+        public ActionResult ShowOrder()
         {
 
             return View();
