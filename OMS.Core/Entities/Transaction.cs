@@ -22,9 +22,6 @@ namespace OMS.Core.Entities
         public DateTime Date { get; set; }
 
         [Required]
-        public int CustomerID { get; set; }
-
-        [Required]
         public int UserID { get; set; }
         public User User { get; set; }
 

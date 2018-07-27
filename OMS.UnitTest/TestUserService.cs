@@ -31,7 +31,6 @@ namespace OMS.UnitTest
             var stringDate = DateTime.Now.ToString(format);
             var convertedBack = DateTime.ParseExact(stringDate, format, CultureInfo.InvariantCulture);
             
-            user.AccountID = 1;
             user.AddressID = 1;
             user.FirstName = "fname";
             user.LastName = "lname";
@@ -56,7 +55,6 @@ namespace OMS.UnitTest
 
             user.ID = 1;
             user.AddressID = 1;
-            user.AccountID = 1;
             user.FirstName = "lorenz";
             user.LastName = "lname";
             user.MobileNumber = 09311212;

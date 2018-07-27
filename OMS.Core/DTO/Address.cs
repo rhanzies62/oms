@@ -32,7 +32,7 @@ namespace OMS.Core.DTO
         public DateTime UpdatedDate { get; set; }
 
         public IEnumerable<User> User { get; set; }
-        //public IEnumerable<Transaction> Transaction { get; set; }
+        public IEnumerable<Transaction> Transaction { get; set; }
 
     }
 }

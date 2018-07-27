@@ -17,8 +17,7 @@ namespace OMS.Core.DTO
         [Required, MaxLength(50)]
         public string Description { get; set; }
 
-
-        //public IEnumerable<Account> Account { get; set; }
+        public ICollection<User> User { get; set; }
 
         [Required]
         public string CreatedBy { get; set; }

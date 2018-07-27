@@ -21,7 +21,7 @@ namespace OMS.Core.Entities
 
         [ForeignKey("VariantID")]
         public ICollection<Category> Category { get; set; }
-        [ForeignKey("VariantID")]
+
         public ICollection<Product> Product { get; set; }
 
         [Required]

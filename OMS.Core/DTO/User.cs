@@ -1,4 +1,5 @@
-﻿using OMS.Core.Interface.Entity;
+﻿using OMS.Core.Entities;
+using OMS.Core.Interface.Entity;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -23,11 +24,17 @@ namespace OMS.Core.DTO
         [Required, StringLength(25)]
         public string Email { get; set; }
         [Required]
-        public Entities.Gender Gender { get; set; }
+        public Gender Gender { get; set; }
+
         [Required]
         public bool IsActive { get; set; }
 
-        //public Address Address { get; set; }
+        public Address Address { get; set; }
+
+        [Required]
+        public int RoleID { get; set; }
+        [Required]
+        public Role Role { get; set; }
 
         [Required]
         public string CreatedBy { get; set; }
@@ -38,12 +45,11 @@ namespace OMS.Core.DTO
         [Required]
         public DateTime UpdatedDate { get; set; }
 
-        [Required]
-        public int AccountID { get; set; }
+        public Account account { get; set; }
 
-        public Account Account { get; set; }
-        //public IEnumerable<Order> Order { get; set; }
-        //public IEnumerable<Transaction> Transaction { get; set; }
+        public IEnumerable<Order> Order { get; set; }
+
+        public IEnumerable<Transaction> Transaction { get; set; }
 
 
     }

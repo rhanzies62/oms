@@ -32,6 +32,11 @@ namespace OMS.Core.Entities
         public Address Address { get; set; }
 
         [Required]
+        public int RoleID { get; set; }
+        [Required]
+        public Role Role { get; set; }
+
+        [Required]
         public string CreatedBy { get; set; }
         [Required]
         public DateTime CreatedDate { get; set; }
@@ -40,15 +45,11 @@ namespace OMS.Core.Entities
         [Required]
         public DateTime UpdatedDate { get; set; }
 
-        [Required]
-        public int AccountID { get; set; }
-
         public Account account { get; set; }
 
         [ForeignKey("UserID")]
         public ICollection<Order> Order { get; set; }
 
-        [ForeignKey("UserID")]
         public ICollection<Transaction> Transaction { get; set; }
 
     }

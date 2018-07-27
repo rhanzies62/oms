@@ -11,7 +11,7 @@ namespace OMS.Core.Entities
 {
     public class Customer : IAudit
     {
-        [Key,ForeignKey("CustomerID")]
+        [Key,ForeignKey("Transaction")]
         public int ID { get; set; }
         [Required, StringLength(25)]
         public string FirstName { get; set; }
@@ -23,6 +23,7 @@ namespace OMS.Core.Entities
         public int Tin { get; set; }
         public string BusinessName { get; set; }
 
+        public Transaction Transaction { get; set; }
         [Required]
         public string CreatedBy { get; set; }
         [Required]

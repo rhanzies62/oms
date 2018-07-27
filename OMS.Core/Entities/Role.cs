@@ -20,7 +20,7 @@ namespace OMS.Core.Entities
 
 
         [ForeignKey("RoleID")]
-        public ICollection<Account> Account { get; set; }
+        public ICollection<User> User { get; set; }
 
         [Required]
         public string CreatedBy { get; set; }

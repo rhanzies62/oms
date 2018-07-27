@@ -21,10 +21,10 @@ namespace OMS.Core.DTO
         public int VariantID { get; set; }
         public int? ParentCategoryId { get; set; }
 
-        //public Variant Variant { get; set; }
+        public Variant Variant { get; set; }
 
         public IEnumerable<Category> SubCategory { get; set; }
-        //public IEnumerable<Product> Product { get; set; }
+        public IEnumerable<Product> Product { get; set; }
 
         [Required]
         public string CreatedBy { get; set; }
