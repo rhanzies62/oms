@@ -13,8 +13,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OMS.Web", "OMS.Web\OMS.Web.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OMS.UnitTest", "OMS.UnitTest\OMS.UnitTest.csproj", "{AC700971-3E76-49BB-80CC-B573F57EE826}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleDatabase", "SampleDatabase\SampleDatabase.csproj", "{841D8565-C24F-438D-BB0B-750E98247FC2}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -41,10 +39,6 @@ Global
 		{AC700971-3E76-49BB-80CC-B573F57EE826}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AC700971-3E76-49BB-80CC-B573F57EE826}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AC700971-3E76-49BB-80CC-B573F57EE826}.Release|Any CPU.Build.0 = Release|Any CPU
-		{841D8565-C24F-438D-BB0B-750E98247FC2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{841D8565-C24F-438D-BB0B-750E98247FC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{841D8565-C24F-438D-BB0B-750E98247FC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{841D8565-C24F-438D-BB0B-750E98247FC2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

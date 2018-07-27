@@ -20,9 +20,7 @@ namespace OMS.Service.Services
         public  Response<Order> GetSubtotal(Order order)
         {
 
-            public int FirstNum { get; set; }
-            public int SecondNum { get; set; }
-            public int result { get; set; }
+   
         }
 
 
