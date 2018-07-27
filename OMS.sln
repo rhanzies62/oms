@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2035
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OMS.Core", "OMS.Core\OMS.Core.csproj", "{60453B73-A854-48C0-92CC-8DD0AD095305}"
 EndProject
@@ -12,6 +12,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OMS.Web", "OMS.Web\OMS.Web.csproj", "{CA8391D7-954D-425A-9B3A-D6BEA7C6D6AF}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OMS.UnitTest", "OMS.UnitTest\OMS.UnitTest.csproj", "{AC700971-3E76-49BB-80CC-B573F57EE826}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleDatabase", "SampleDatabase\SampleDatabase.csproj", "{841D8565-C24F-438D-BB0B-750E98247FC2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,8 +41,15 @@ Global
 		{AC700971-3E76-49BB-80CC-B573F57EE826}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AC700971-3E76-49BB-80CC-B573F57EE826}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AC700971-3E76-49BB-80CC-B573F57EE826}.Release|Any CPU.Build.0 = Release|Any CPU
+		{841D8565-C24F-438D-BB0B-750E98247FC2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{841D8565-C24F-438D-BB0B-750E98247FC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{841D8565-C24F-438D-BB0B-750E98247FC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{841D8565-C24F-438D-BB0B-750E98247FC2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D4A3A9B9-2FF2-40A4-AF48-BF998438B48B}
 	EndGlobalSection
 EndGlobal

@@ -13,7 +13,20 @@ using AutoMapper;
 namespace OMS.Service.Services
 {
     public class OrderService : IOrderService
+
     {
+
+
+        public  Response<Order> GetSubtotal(Order order)
+        {
+
+            public int FirstNum { get; set; }
+            public int SecondNum { get; set; }
+            public int result { get; set; }
+        }
+
+
+
         private readonly ICRUDRepository<Entities.Order> _orderRepo;
         public OrderService(ICRUDRepository<Entities.Order> orderRepo)
         {
@@ -109,5 +122,11 @@ namespace OMS.Service.Services
             }
             return response;
         }
+
+
+       
+
+
+
     }
 }

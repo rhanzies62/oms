@@ -17,6 +17,20 @@ namespace OMS.Web
 
             DependencyResolver.SetResolver(new Unity.Mvc5.UnityDependencyResolver(container));
             GlobalConfiguration.Configuration.DependencyResolver = new Unity.WebApi.UnityDependencyResolver(container);
+
+
+            var orderContainer = new UnityContainer();
+
+            orderContainer.RegisterType<IOrderService, OrderService>();
+            DependencyResolver.SetResolver(new Unity.Mvc5.UnityDependencyResolver(orderContainer));
+            GlobalConfiguration.Configuration.DependencyResolver = new Unity.WebApi.UnityDependencyResolver(orderContainer);
+
+
+
+
+
+
+
         }
     }
 }
