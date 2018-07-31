@@ -208,6 +208,8 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <None Include="Properties\PublishProfiles\topantest - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\topantest - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\init.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -255,6 +257,7 @@
     <Content Include="Views\Admin\Admin.cshtml" />
     <Content Include="Views\Admin\CreateAdmin.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Home\ShowOrders.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

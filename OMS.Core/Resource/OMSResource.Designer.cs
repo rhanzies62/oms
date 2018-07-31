@@ -68,5 +68,8 @@ namespace OMS.Core.Resource {
                 return ResourceManager.GetString("IncorrectPassword", resourceCulture);
             }
         }
+
+        public static dynamic SuccessfullyAdded { get; set; }
+        public static dynamic SuccesfullyRemoved { get; set; }
     }
 }
