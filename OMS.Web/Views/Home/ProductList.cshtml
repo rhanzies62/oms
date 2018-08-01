@@ -56,20 +56,10 @@
         <td>
             @Html.DisplayFor(modelItem => item.VariantID)
         </td>
+      
+
         <td>
-            @Html.DisplayFor(modelItem => item.CreatedBy)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CreatedDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.UpdatedBy)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.UpdatedDate)
-        </td>
-        <td>
-            @Html.ActionLink("Add To Cart", "Add To Cart", new { id=item.ID }) 
+            @Html.ActionLink("Add To Cart", "AddProductToOrder", new { id=item.ID }) 
        
         </td>
     </tr>
