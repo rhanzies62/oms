@@ -5,16 +5,33 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using OMS.Core.Entities;
+using OMS.Service.Services;
 
 namespace OMS.Web.Controllers
 {
     public class HomeController : Controller
     {
+
+        
+
+
         private readonly ITestService _service;
+        private readonly IOrderService _orderService;
+
         public HomeController(ITestService service)
         {
             _service = service;
         }
+
+
+        public HomeController(IOrderService orderService)
+        {
+            _orderService = orderService;
+        }
+
+
+
+
 
         public ActionResult Index()
         {
@@ -42,6 +59,18 @@ namespace OMS.Web.Controllers
 
 
             return View();
+        }
+
+
+
+        public ActionResult ShowOrder()
+        {
+
+            
+
+            return View();
+
+
         }
 
 
