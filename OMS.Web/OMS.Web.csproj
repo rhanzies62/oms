@@ -259,10 +259,10 @@
     <Content Include="Views\Admin\Admin.cshtml" />
     <Content Include="Views\Admin\CreateAdmin.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
-    <Content Include="Views\Home\ShowOrder.cshtml" />
     <Content Include="Views\Account\Index.cshtml" />
     <Content Include="Views\Shared\_LoginLayout.cshtml" />
     <Content Include="Views\Account\_ViewStart.cshtml" />
+    <Content Include="Views\Home\ShowOrder.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
