@@ -14,8 +14,13 @@ namespace OMS.Web
 			var container = new UnityContainer();
 
             container.RegisterType<ITestService, TestService>();
-
-            DependencyResolver.SetResolver(new Unity.Mvc5.UnityDependencyResolver(container));
+            container.RegisterType<IProductService, ProductService>();
+            container.RegisterType<IVariantService, VariantService>();
+            container.RegisterType<ICategoryService, CategoryService>();
+            container.RegisterType<IUserService, UserService>();
+            container.RegisterType<IRoleService, RoleService>();
+   
+        DependencyResolver.SetResolver(new Unity.Mvc5.UnityDependencyResolver(container));
             GlobalConfiguration.Configuration.DependencyResolver = new Unity.WebApi.UnityDependencyResolver(container);
         }
     }
