@@ -17,6 +17,8 @@ namespace OMS.Web
 			var container = new UnityContainer();
 
             container.RegisterType<ITestService, TestService>();
+            container.RegisterType<IOrderService, OrderService>();
+            container.RegisterType<IProductService, ProductService>();
 
  
    

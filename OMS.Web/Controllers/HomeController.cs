@@ -17,10 +17,21 @@ namespace OMS.Web.Controllers
 
         private readonly ITestService _service;
         private readonly IOrderService _orderService;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+        private readonly IProductService _productService;
+        public HomeController(ITestService service,IOrderService orderService, IProductService productService)
+=======
+>>>>>>> origin/Dev
 
         public HomeController(ITestService service)
+>>>>>>> d22b3aa29488a2d06171c8a47f9e3e49167b49c9
         {
             _service = service;
+            _orderService = orderService;
+            _productService = productService;
+
         }
 
 
@@ -56,9 +67,30 @@ namespace OMS.Web.Controllers
         public ActionResult ProductList()
         {
 
+            return View(_productService.ListProducts());
+        }
+
+
+
+       [HttpPost]
+        public ActionResult AddProductToOrder(int ProductId,int Quantity)
+        {
 
 
             return View();
+
+        }
+
+
+
+        public ActionResult ShowOrder()
+        {
+
+            
+
+            return View();
+
+
         }
 
 

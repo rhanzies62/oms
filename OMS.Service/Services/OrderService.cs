@@ -17,7 +17,15 @@ namespace OMS.Service.Services
     {
 
 
+<<<<<<< HEAD
 
+=======
+        public  Response<Order> GetSubtotal(Order order)
+        {
+
+   
+        }
+>>>>>>> origin/Dev
 
 
 
