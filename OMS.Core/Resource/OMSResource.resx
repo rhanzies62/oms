@@ -120,4 +120,10 @@
   <data name="IncorrectPassword" xml:space="preserve">
     <value>Incorrect Password</value>
   </data>
+  <data name="SuccesfullyRemoved" xml:space="preserve">
+    <value>Successfully Removed</value>
+  </data>
+  <data name="SuccessfullyAdded" xml:space="preserve">
+    <value>Successfully Added</value>
+  </data>
 </root>

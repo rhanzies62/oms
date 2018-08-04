@@ -1,6 +1,7 @@
 ﻿using OMS.Core.Interface.Services;
 using OMS.Core.DTO;
 
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,7 +18,7 @@ namespace OMS.Web.Controllers
         private readonly ICategoryService _categoryService;
         private readonly IUserService _userService;
         private readonly IRoleService _roleService;
-       
+
 
         public AdminController(IVariantService variantService, IProductService productService, ICategoryService categoryService, IUserService userService, IRoleService roleService)
         {
@@ -34,7 +35,9 @@ namespace OMS.Web.Controllers
             return View();
         }
 
-        //#region variant
+
+       // #region variant
+
         public ActionResult Variants()
         {
             return View(_variantService.ListVariants());
@@ -50,26 +53,34 @@ namespace OMS.Web.Controllers
         {
             Response<Variant> response = new Response<Variant>();
             response = _variantService.CreateVariant(variant);
+
             if (response.Success.Equals(true))
             {
                 ViewBag.Message ="Successfully Added";
             }
             else
             {
+
+            if (response.Success.Equals(true)) {
+                ViewBag.Message = OMSResource.SuccessfullyAdded;
+            }else {
+
                 ViewBag.Message = response.ErrorMessage;
             }
             return View();
         }
-      //  #endregion
+
+    //    #endregion
        // #region products
-        public ActionResult Products()
-        {
-            return View(_productService.ListProducts());
-        }
-        public ActionResult CreateProducts()
-        {
-            return View();
-        }
+
+     //   public ActionResult Products()
+      //  {
+      //      return View(_productService.ListProducts());
+     ///   }
+      //  public ActionResult CreateProducts()
+      //  {
+      //      return View();
+      //  }
         [HttpPost]
         public ActionResult CreateProducts(Product product)
         {
@@ -77,7 +88,11 @@ namespace OMS.Web.Controllers
             response = _productService.CreateProduct(product);
             if (response.Success.Equals(true))
             {
+
                 ViewBag.Message = "Successfully Added";
+
+                ViewBag.Message = OMSResource.SuccessfullyAdded;
+
             }
             else
             {
@@ -86,8 +101,10 @@ namespace OMS.Web.Controllers
             return View();
         }
 
-       // #endregion
+
+      //  #endregion
        // #region category
+
         public ActionResult Category()
         {
             return View(_categoryService.ListCategories());
@@ -115,7 +132,11 @@ namespace OMS.Web.Controllers
             response = _categoryService.CreateCategory(category);
             if (response.Success.Equals(true))
             {
+
                 ViewBag.Message = "Successfully Added";
+
+                ViewBag.Message = OMSResource.SuccessfullyAdded;
+
             }
             else
             {
@@ -124,8 +145,10 @@ namespace OMS.Web.Controllers
             return View();
         }
 
+
        // #endregion
        // #region user
+
         public ActionResult ActiveUserList()
         {
             return View(_userService.ListUsers(true));
@@ -147,7 +170,11 @@ namespace OMS.Web.Controllers
             response = _userService.CreateUser(user);
             if (response.Success.Equals(true))
             {
+
                 ViewBag.Message = "Successfully Added";
+
+                ViewBag.Message = OMSResource.SuccessfullyAdded;
+
             }
             else
             {
@@ -156,8 +183,7 @@ namespace OMS.Web.Controllers
             return View();
         }
 
-        //#endregion
-       // #region role
+
         public ActionResult Role()
         {
             return View(_roleService.ListRoles());
@@ -175,7 +201,11 @@ namespace OMS.Web.Controllers
             response = _roleService.CreateRole(role);
             if (response.Success.Equals(true))
             {
+
                 ViewBag.Message = "Successfully Added";
+
+                ViewBag.Message = OMSResource.SuccessfullyAdded;
+
             }
             else
             {
@@ -191,7 +221,11 @@ namespace OMS.Web.Controllers
             response = _roleService.RemoveRole(roleID);
             if (response.Success.Equals(true))
             {
+
                 ViewBag.Message = "Successfully Added";
+
+                ViewBag.Message = OMSResource.SuccesfullyRemoved;
+
             }
             else
             {
@@ -199,7 +233,7 @@ namespace OMS.Web.Controllers
             }
             return View();
         }
-        //#endregion
+
 
     }
 }
