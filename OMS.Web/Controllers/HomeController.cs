@@ -11,9 +11,11 @@ namespace OMS.Web.Controllers
     public class HomeController : Controller
     {
         private readonly ITestService _service;
-        public HomeController(ITestService service)
+        private readonly IProductService _productservice;
+        public HomeController(ITestService service, IProductService productservice)
         {
             _service = service;
+            _productservice = productservice;
         }
 
         public ActionResult Index()
@@ -40,8 +42,8 @@ namespace OMS.Web.Controllers
         {
 
 
+            return View(_productservice.ListProducts());
 
-            return View();
         }
 
 

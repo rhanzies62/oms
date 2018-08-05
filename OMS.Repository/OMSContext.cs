@@ -61,7 +61,7 @@ namespace OMS.Repository
                 .WillCascadeOnDelete(false);
 
         }
-        public OMSContext() : base("OMSContext") { }
+        public OMSContext() : base("OMS") { }
 
         public DbSet<Category> Categories { get; set; }
         public DbSet<Product> Products { get; set; }
