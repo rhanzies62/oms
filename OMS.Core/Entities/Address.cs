@@ -31,9 +31,7 @@ namespace OMS.Core.Entities
         [Required]
         public DateTime UpdatedDate { get; set; }
 
-        [ForeignKey("AddressID")]
         public ICollection<User> User { get; set; }
-        [ForeignKey("AddressID")]
         public ICollection<Transaction> Transaction { get; set; }
     }
 }

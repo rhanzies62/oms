@@ -14,5 +14,15 @@ namespace OMS.Core.Entities
         [Description("Female")]
         Female,
     }
-    
+    public enum InventoryProcess
+    {
+        [Description("Incoming")]
+        Incoming,
+        [Description("OutGoing")]
+        OutGoing,
+        [Description("Return")]
+        Return,
+    }
+
+
 }

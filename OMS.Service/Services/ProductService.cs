@@ -51,12 +51,12 @@ namespace OMS.Service.Services
 
         public IEnumerable<DTO.Product> ListProductsByCategory(int categoryID)
         {
-            return Mapper.Map<IEnumerable<Entities.Product>, IEnumerable<DTO.Product>>(_productRepo.GetList(p => p.CategoryID.Equals(categoryID)));
+            return Mapper.Map<IEnumerable<Entities.Product>, IEnumerable<DTO.Product>>(_productRepo.GetList(p => p.Category.ID.Equals(categoryID)));
         }
 
         public IEnumerable<DTO.Product> ListProductsByVariantID(int variantID)
         {
-            return Mapper.Map<IEnumerable<Entities.Product>, IEnumerable<DTO.Product>>(_productRepo.GetList(p=>p.VariantID.Equals(variantID)));
+            return Mapper.Map<IEnumerable<Entities.Product>, IEnumerable<DTO.Product>>(_productRepo.GetList(p=>p.Variant.ID.Equals(variantID)));
         }
 
         public DTO.Response<DTO.Product> RemoveProduct(int productID)

@@ -15,14 +15,11 @@ namespace OMS.Core.Entities
         public int ID { get; set; }
 
         [Required]
-        public int AddressID { get; set; }
-        [Required]
         public decimal TotalPrice { get; set; }
         [Required]
         public DateTime Date { get; set; }
 
         [Required]
-        public int UserID { get; set; }
         public User User { get; set; }
 
         public Customer Customer { get; set; }
@@ -36,7 +33,6 @@ namespace OMS.Core.Entities
         [Required]
         public DateTime UpdatedDate { get; set; }
 
-        [ForeignKey("TransactionId")]
         public ICollection<Order> order { get; set; }
 
     }

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace OMS.Core.Entities
 {
-    public class Product:IAudit
+    public class Product : IAudit
     {   
         [Key]
         public int ID { get; set; }
@@ -21,14 +21,10 @@ namespace OMS.Core.Entities
         [Required]
         public decimal Price { get; set; }
 
-        public int CategoryID { get; set; }
         public Category Category { get; set; }
-
-        public int VariantID { get; set; }
 
         public Variant Variant { get; set; }
 
-        [ForeignKey("ProductID")]
         public ICollection<Order> order { get; set; }
 
         [Required]

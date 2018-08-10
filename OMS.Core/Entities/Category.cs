@@ -19,15 +19,13 @@ namespace OMS.Core.Entities
         [Required, StringLength(30)]
         public string Description { get; set; }
 
-        public int VariantID { get; set; }
-        public int? ParentCategoryId { get; set; }
+        public Category ParentCategory { get; set; }
 
+        [Required]
         public Variant Variant { get; set; }
 
-        [ForeignKey("ParentCategoryId")]
         public ICollection<Category> SubCategory { get; set; }
 
-        [ForeignKey("CategoryID")]
         public ICollection<Product> Product { get; set; }
 
         [Required]
