@@ -38,14 +38,38 @@ namespace OMS.Web.Controllers
         }
 
 
+     
+
+
         public ActionResult ProductList()
         {
 
+            List<Product> prodList = new List<Product>();
+            Product prod = new Product();
+            prod.CategoryID = 1;
+            prod.ID = 1;
+            prod.Name = "Plywood";
+            prod.Price = 1000;
+            prod.Description = "sample";
 
-            return View(_productservice.ListProducts());
+            Product prod1 = new Product();
+            prod1.CategoryID = 2;
+            prod1.ID = 2;
+            prod1.Name = "Plywood1";
+            prod1.Price = 2000;
+            prod1.Description = "sample1";
+
+            prodList.Add(prod1);
+            prodList.Add(prod);
+
+
+        return View(prodList);
+
 
         }
 
 
-    }
+
+
+        }
 }

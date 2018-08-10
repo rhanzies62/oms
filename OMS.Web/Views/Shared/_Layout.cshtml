@@ -10,6 +10,7 @@
     <link href="~/Content/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
     <link href="~/Content/Custom.css" type="text/css" rel="stylesheet" media="screen,projection" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+ 
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
@@ -27,9 +28,7 @@
                 <li>@Html.ActionLink("About", "About", "Home", new { area = "" }, new { @class = "text white-text" })</li>
                 <li>@Html.ActionLink("Contact", "Contact", "Home", new { area = "" }, new { @class = "text white-text" })</li>
                 <li>@Html.ActionLink("Products", "ProductList", "Home", new { area = "" }, new { @class = "text white-text" })</li>
-                <li style="margin-left:400px;">   <span class="badge badge-notify">5</span>   <a href="#"><i class="material-icons white-text">shopping_cart</i></a>  </li>
-
-
+         
 
 
 
@@ -38,12 +37,11 @@
             </ul>
 
             <ul id="nav-mobile" class="sidenav text">
-                <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "text white-text" })</li>
-                <li>@Html.ActionLink("About", "About", "Home", new { area = "" }, new { @class = "text white-text" })</li>
-                <li>@Html.ActionLink("Contact", "Contact", "Home", new { area = "" }, new { @class = "text white-text" })</li>
-                <li>@Html.ActionLink("Products", "ProductList", "Home", new { area = "" }, new { @class = "text white-text" })</li>
-                <li>   <a href="#"><i class="material-icons white">shopping_cart</i> <span class="badge">1</span></a></li>
-
+                <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "text black-text" })</li>
+                <li>@Html.ActionLink("About", "About", "Home", new { area = "" }, new { @class = "text black-text" })</li>
+                <li>@Html.ActionLink("Contact", "Contact", "Home", new { area = "" }, new { @class = "text black-text" })</li>
+                <li>@Html.ActionLink("Products", "ProductList", "Home", new { area = "" }, new { @class = "text black-text" })</li>
+       
             </ul>
             <a href="#" data-target="nav-mobile" class="sidenav-trigger white-text"><i class="material-icons">menu</i></a>
         </div>
@@ -53,43 +51,40 @@
 
 
 
-    @RenderBody()
-    <hr />
-    <footer class="page-footer teal">
+
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year </p>
+        </footer>
+    </div>
+    @*<div class="col l3 s12">
+                <h5 class="white-text">Settings</h5>
+                <ul>
+                    <li><a class="white-text" href="#!">Link 1</a></li>
+                    <li><a class="white-text" href="#!">Link 2</a></li>
+                    <li><a class="white-text" href="#!">Link 3</a></li>
+                    <li><a class="white-text" href="#!">Link 4</a></li>
+                </ul>
+            </div>
+            <div class="col l3 s12">
+                <h5 class="white-text">Connect</h5>
+                <ul>
+                    <li><a class="white-text" href="#!">Link 1</a></li>
+                    <li><a class="white-text" href="#!">Link 2</a></li>
+                    <li><a class="white-text" href="#!">Link 3</a></li>
+                    <li><a class="white-text" href="#!">Link 4</a></li>
+                </ul>
+            </div>
+        </div>*@
+    </div>
+    </div>
+    <div class="footer-copyright">
         <div class="container">
-            <div class="row">
-                <div class="col l6 s12">
-                    <h5 class="white-text">Topan Marketing Corp.</h5>
-                    <p class="grey-text text-lighten-4"> is dedicated to provide high quality formwork construction materials, different kinds of plywood and fiber-cement board since 1989</p>
-
-
-                </div>
-                @*<div class="col l3 s12">
-                            <h5 class="white-text">Settings</h5>
-                            <ul>
-                                <li><a class="white-text" href="#!">Link 1</a></li>
-                                <li><a class="white-text" href="#!">Link 2</a></li>
-                                <li><a class="white-text" href="#!">Link 3</a></li>
-                                <li><a class="white-text" href="#!">Link 4</a></li>
-                            </ul>
-                        </div>
-                        <div class="col l3 s12">
-                            <h5 class="white-text">Connect</h5>
-                            <ul>
-                                <li><a class="white-text" href="#!">Link 1</a></li>
-                                <li><a class="white-text" href="#!">Link 2</a></li>
-                                <li><a class="white-text" href="#!">Link 3</a></li>
-                                <li><a class="white-text" href="#!">Link 4</a></li>
-                            </ul>
-                        </div>
-                    </div>*@
-            </div>
+            Made by <a class="brown-text text-lighten-3" href="http://materializecss.com">Topan Marketing Corp</a>
         </div>
-        <div class="footer-copyright">
-            <div class="container">
-                Made by <a class="brown-text text-lighten-3" href="http://materializecss.com">Topan Marketing Corp</a>
-            </div>
-        </div>
+    </div>
     </footer>
 
 
@@ -99,7 +94,7 @@
 
     <script src="~/Scripts/materialize.js"></script>
     <script src="~/Scripts/init.js"></script>
-
+    <script src="~/Scripts/Custom.js"></script>
 
 </body>
 </html>

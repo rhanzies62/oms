@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Http;
+using OMS.Core.Mapper;
 
 namespace OMS.Web.App_Start
 {
@@ -11,10 +12,10 @@ namespace OMS.Web.App_Start
         public static void Register(HttpConfiguration config)
         {
             // TODO: Add any additional configuration code.
-
+            AutoMapperCoreConfiguration.Configure();
             // Web API routes
             config.MapHttpAttributeRoutes();
-
+            
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
                 routeTemplate: "api/{controller}/{id}",

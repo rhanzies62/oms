@@ -25,11 +25,14 @@ namespace OMS.Web
             container.RegisterType<ICategoryService, CategoryService>();
             container.RegisterType<IRoleService, RoleService>();
             container.RegisterType<IUserService, UserService>();
+            container.RegisterType<IAccountService, AccountService>();
             container.RegisterType<ICRUDRepository<Variant>, CRUDRepository<Variant>>();
             container.RegisterType<ICRUDRepository<Product>, CRUDRepository<Product>>();
             container.RegisterType<ICRUDRepository<Category>, CRUDRepository<Category>>();
             container.RegisterType<ICRUDRepository<User>, CRUDRepository<User>>();
             container.RegisterType<ICRUDRepository<Role>, CRUDRepository<Role>>();
+            container.RegisterType<ICRUDRepository<Account>, CRUDRepository<Account>>();
+
 
 
             DependencyResolver.SetResolver(new Unity.Mvc5.UnityDependencyResolver(container));

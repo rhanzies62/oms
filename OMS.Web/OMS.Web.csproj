@@ -184,6 +184,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\UnityConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
@@ -210,6 +211,7 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\Custom.js" />
     <Content Include="Scripts\init.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -252,13 +254,15 @@
     <Content Include="Views\Admin\Category.cshtml" />
     <Content Include="Views\Admin\CreateCategory.cshtml" />
     <Content Include="Views\Admin\Employee.cshtml" />
-    <Content Include="Views\Admin\CreateEmployee.cshtml" />
     <Content Include="Views\Admin\Admin.cshtml" />
     <Content Include="Views\Admin\CreateAdmin.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
-    <Content Include="Views\Shared\_LoginLayout.cshtml" />
     <Content Include="Views\Account\Index.cshtml" />
+    <Content Include="Views\Shared\_LoginLayout.cshtml" />
     <Content Include="Views\Account\_ViewStart.cshtml" />
+    <Content Include="Views\Admin\CreateRole.cshtml" />
+    <Content Include="Views\Admin\Role.cshtml" />
+    <Content Include="Views\Admin\CreateUser.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -276,6 +280,10 @@
     <ProjectReference Include="..\OMS.Core\OMS.Core.csproj">
       <Project>{60453b73-a854-48c0-92cc-8dd0ad095305}</Project>
       <Name>OMS.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OMS.Repository\OMS.Repository.csproj">
+      <Project>{e284f0ae-7065-46c6-969c-496208bed74e}</Project>
+      <Name>OMS.Repository</Name>
     </ProjectReference>
     <ProjectReference Include="..\OMS.Service\OMS.Service.csproj">
       <Project>{c44b4ccd-d44b-47f0-a42e-c1c71d22e962}</Project>

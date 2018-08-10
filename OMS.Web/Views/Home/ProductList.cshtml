@@ -1,13 +1,13 @@
 ﻿@model IEnumerable<OMS.Core.Entities.Product>
 
-@{
-    ViewBag.Title = "ProductList";
-}
-
-<h2>ProductList</h2>
 
 
-<table class="table">
+
+<h2>Products</h2>
+
+
+
+<table class="responsive-table highlight">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.Name)
@@ -19,27 +19,15 @@
             @Html.DisplayNameFor(model => model.Price)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.CategoryID)
+            <p>Quantity</p>
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.VariantID)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CreatedBy)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CreatedDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.UpdatedBy)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.UpdatedDate)
-        </th>
+      
+
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
+    @foreach (var item in Model)
+    {
     <tr>
         <td>
             @Html.DisplayFor(modelItem => item.Name)
@@ -47,32 +35,29 @@
         <td>
             @Html.DisplayFor(modelItem => item.Description)
         </td>
+
         <td>
             @Html.DisplayFor(modelItem => item.Price)
         </td>
+
         <td>
-            @Html.DisplayFor(modelItem => item.CategoryID)
+            <div class="input-field col s2">
+                <button class=" btn waves-effect waves-light">-</button>  <input type="text" value="1" min="1" max="100" style="width:50px;text-align:center; " />  <button class="btn waves-effect waves-light">+</button>
+            </div>
         </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.VariantID)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CreatedBy)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CreatedDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.UpdatedBy)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.UpdatedDate)
-        </td>
-        <td>
-            @Html.ActionLink("Add To Cart", "Add To Cart", new { id=item.ID }) 
        
+
+
+
+
+        <td>
+            <a href="#"  class="btn waves-effect waves-light">Add to Order</a>
         </td>
     </tr>
-}
+    }   
 
 </table>
+
+<br>
+
+<span style="margin-left:500px"><p> Total:  2000.00 hard coded </p></span>

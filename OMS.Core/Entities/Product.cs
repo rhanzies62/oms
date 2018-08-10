@@ -23,6 +23,9 @@ namespace OMS.Core.Entities
 
         public int CategoryID { get; set; }
         public Category Category { get; set; }
+        public decimal Quantity { get; set; }
+        public decimal Subtotal { get; set; }
+    
 
         public int VariantID { get; set; }
 
