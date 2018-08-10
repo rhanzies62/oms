@@ -50,12 +50,12 @@ namespace OMS.Service.Services
 
         public IEnumerable<DTO.Category> ListCategoryByVariantID(int variantID)
         {
-            return Mapper.Map<IEnumerable<Entities.Category>, IEnumerable<DTO.Category>>(_categoryRepo.GetList(c => c.VariantID.Equals(variantID)));
+            return Mapper.Map<IEnumerable<Entities.Category>, IEnumerable<DTO.Category>>(_categoryRepo.GetList(c => c.Variant.ID.Equals(variantID)));
         }
 
         public IEnumerable<DTO.Category> ListSubCategoryByCategoryID(int categoryID)
         {
-            return Mapper.Map<IEnumerable<Entities.Category>, IEnumerable<DTO.Category>>(_categoryRepo.GetList(c => c.ParentCategoryId.Equals(categoryID)));
+            return Mapper.Map<IEnumerable<Entities.Category>, IEnumerable<DTO.Category>>(_categoryRepo.GetList(c => c.ParentCategory.ID.Equals(categoryID)));
         }
 
         public DTO.Response<DTO.Category> RemoveCategory(int categoryID)

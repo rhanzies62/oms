@@ -51,7 +51,7 @@ namespace OMS.Service.Services
 
         public IEnumerable<Order> ListOrdersByCategoryID(int categoryID)
         {
-            return Mapper.Map<IEnumerable<Entities.Order>, IEnumerable<DTO.Order>>(_orderRepo.GetList(p => p.Product.CategoryID.Equals(categoryID)));
+            return Mapper.Map<IEnumerable<Entities.Order>, IEnumerable<DTO.Order>>(_orderRepo.GetList(p => p.Product.Category.ID.Equals(categoryID)));
         }
 
         public IEnumerable<Order> ListOrdersByProductID(int productID)
@@ -61,17 +61,17 @@ namespace OMS.Service.Services
 
         public IEnumerable<Order> ListOrdersByTransID(int transactionID)
         {
-            return Mapper.Map<IEnumerable<Entities.Order>, IEnumerable<DTO.Order>>(_orderRepo.GetList(p => p.TransactionId.Equals(transactionID)));
+            return Mapper.Map<IEnumerable<Entities.Order>, IEnumerable<DTO.Order>>(_orderRepo.GetList(p => p.Transaction.ID.Equals(transactionID)));
         }
 
         public IEnumerable<Order> ListOrdersByUserID(int userID)
         {
-            return Mapper.Map<IEnumerable<Entities.Order>, IEnumerable<DTO.Order>>(_orderRepo.GetList(p => p.UserID.Equals(userID)));
+            return Mapper.Map<IEnumerable<Entities.Order>, IEnumerable<DTO.Order>>(_orderRepo.GetList(p => p.User.ID.Equals(userID)));
         }
 
         public IEnumerable<Order> ListOrdersByVariantID(int variantID)
         {
-            return Mapper.Map<IEnumerable<Entities.Order>, IEnumerable<DTO.Order>>(_orderRepo.GetList(p => p.Product.VariantID.Equals(variantID)));
+            return Mapper.Map<IEnumerable<Entities.Order>, IEnumerable<DTO.Order>>(_orderRepo.GetList(p => p.Product.Variant.ID.Equals(variantID)));
         }
 
         public Response<Order> RemoveOrder(int orderID)

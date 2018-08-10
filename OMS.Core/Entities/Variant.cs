@@ -19,7 +19,6 @@ namespace OMS.Core.Entities
         [Required, StringLength(50)]
         public string Description { get; set; }
 
-        [ForeignKey("VariantID")]
         public ICollection<Category> Category { get; set; }
 
         public ICollection<Product> Product { get; set; }

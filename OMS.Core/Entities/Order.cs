@@ -16,16 +16,12 @@ namespace OMS.Core.Entities
         [Required]
         public int Quantity { get; set; }
         [Required]
-        public int UserID { get; set; }
-        [Required]
-        public int ProductID { get; set; }
-        [Required]
         public DateTime Date { get; set; }
 
-        public int TransactionId { get; set; }
-
         public Transaction Transaction { get; set; }
+        [Required]
         public Product Product { get; set; }
+        [Required]
         public User User { get; set; }
 
         [Required]

@@ -63,6 +63,9 @@
     <Compile Include="DTO\Order.cs" />
     <Compile Include="DTO\Product.cs" />
     <Compile Include="DTO\Transaction.cs" />
+    <Compile Include="Entities\InventoryLog.cs" />
+    <Compile Include="Entities\Stock.cs" />
+    <Compile Include="Entities\Supplier.cs" />
     <Compile Include="Interface\Services\IAddressService.cs" />
     <Compile Include="Interface\Services\IOrderService.cs" />
     <Compile Include="Interface\Services\IProductService.cs" />

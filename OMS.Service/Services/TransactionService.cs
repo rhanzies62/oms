@@ -51,7 +51,7 @@ namespace OMS.Service.Services
 
         public IEnumerable<DTO.Transaction> ListTransactionsByUserID(int userID)
         {
-            return Mapper.Map<IEnumerable<Entities.Transaction>, IEnumerable<DTO.Transaction>>(_transactionRepo.GetList(p => p.UserID.Equals(userID)));
+            return Mapper.Map<IEnumerable<Entities.Transaction>, IEnumerable<DTO.Transaction>>(_transactionRepo.GetList(p => p.User.ID.Equals(userID)));
         }
 
         public DTO.Response<DTO.Transaction> RemoveTransaction(int transactionID)
