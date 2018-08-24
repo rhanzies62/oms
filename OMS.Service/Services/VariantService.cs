@@ -48,6 +48,7 @@ namespace OMS.Service.Services
             return Mapper.Map<IEnumerable<Entities.Variant>, IEnumerable<DTO.Variant>>(_variantRepo.GetAll());
         }
 
+
         public DTO.Response<DTO.Variant> RemoveVariant(int variantID)
         {
             DTO.Response<DTO.Variant> response = new DTO.Response<DTO.Variant>();

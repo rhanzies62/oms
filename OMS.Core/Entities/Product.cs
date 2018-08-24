@@ -22,8 +22,7 @@ namespace OMS.Core.Entities
         public decimal Price { get; set; }
 
         public Category Category { get; set; }
-        public decimal Quantity { get; set; }
-        public decimal Subtotal { get; set; }
+  
     
 
         public Variant Variant { get; set; }

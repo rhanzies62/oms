@@ -26,6 +26,8 @@ namespace OMS.Web
             container.RegisterType<IRoleService, RoleService>();
             container.RegisterType<IUserService, UserService>();
             container.RegisterType<IAccountService, AccountService>();
+            container.RegisterType<IOrderService, OrderService>();
+            container.RegisterType<ICRUDRepository<Order>, CRUDRepository<Order>>();
             container.RegisterType<ICRUDRepository<Variant>, CRUDRepository<Variant>>();
             container.RegisterType<ICRUDRepository<Product>, CRUDRepository<Product>>();
             container.RegisterType<ICRUDRepository<Category>, CRUDRepository<Category>>();

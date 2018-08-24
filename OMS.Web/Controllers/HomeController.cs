@@ -4,7 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using OMS.Core.Entities;
+using OMS.Web.Models;
+using OMS.Core.DTO;
 
 namespace OMS.Web.Controllers
 {
@@ -12,7 +13,8 @@ namespace OMS.Web.Controllers
     {
         private readonly ITestService _service;
         private readonly IProductService _productservice;
-        public HomeController(ITestService service, IProductService productservice)
+        private readonly IOrderService _orderService;
+        public HomeController(ITestService service, IProductService productservice,IOrderService orderService)
         {
             _service = service;
             _productservice = productservice;
@@ -44,32 +46,48 @@ namespace OMS.Web.Controllers
         public ActionResult ProductList()
         {
 
-            List<Product> prodList = new List<Product>();
-            Product prod = new Product();
-            prod.CategoryID = 1;
-            prod.ID = 1;
-            prod.Name = "Plywood";
-            prod.Price = 1000;
-            prod.Description = "sample";
-
-            Product prod1 = new Product();
-            prod1.CategoryID = 2;
-            prod1.ID = 2;
-            prod1.Name = "Plywood1";
-            prod1.Price = 2000;
-            prod1.Description = "sample1";
-
-            prodList.Add(prod1);
-            prodList.Add(prod);
+  
 
 
-        return View(prodList);
+            return View(_productservice.ListProducts());
 
 
         }
 
 
 
+        public ActionResult AddToOrders() {
+
+            return View();
+        }
+
+           [HttpPost] 
+        public ActionResult AddToOrders(Order order)
+        {
+
+
+            Response<Order> response = _orderService.CreateOrder(order);
+            if (response.Success.Equals(true))
+            {
+                ViewBag.Message = "Successfully Added";
+            }
+            else
+            {
+                ViewBag.Message = response.ErrorMessage;
+            }
+            return View();
+        }
+
+
+        public ActionResult ShowOrders() {
+
+            return View();
 
         }
+
+
+
+
+  
+    }
 }

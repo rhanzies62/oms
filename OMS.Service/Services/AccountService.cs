@@ -129,8 +129,9 @@ namespace OMS.Service.Services
             try
             {
                 Entities.Account resultAccount = _accountRepo.GetSingle(a => a.UserName.Equals(account.UserName));
+              
+                account.PasswordHash = account.PasswordHash;
 
-                account.PasswordHash = Cryptography.HashString(account.PasswordHash, resultAccount.Salt);
                 if (account.PasswordHash.Equals(resultAccount.PasswordHash))
                 {
                     response.Success = true;

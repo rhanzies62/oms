@@ -51,8 +51,18 @@ namespace OMS.Web.Controllers
         [HttpPost]
         public ActionResult CreateVariants(Variant variant)
         {
+
+            variant.CreatedBy = Request.Cookies["Username"].Value;
             Response<Variant> response = _variantService.CreateVariant(variant);
 
+            if (response.Success.Equals(true))
+            {
+                ViewBag.Message = "Successfully Added";
+            }
+            else
+            {
+                ViewBag.Message = response.ErrorMessage;
+            }
             return View();
         }
 
@@ -75,7 +85,16 @@ namespace OMS.Web.Controllers
         [HttpPost]
         public ActionResult CreateProducts(Product product)
         {
+           // product.CreatedBy = Request.Cookies["Username"].Value;
             Response<Product> response = _productservice.CreateProduct(product);
+            if (response.Success.Equals(true))
+            {
+                ViewBag.Message = "Successfully Added";
+            }
+            else
+            {
+                ViewBag.Message = response.ErrorMessage;
+            }
             return View();
 
         }
@@ -90,13 +109,24 @@ namespace OMS.Web.Controllers
 
         public ActionResult CreateCategory()
         {
+            
+          var varlist =  _variantService.ListVariants();
+            SelectList list = new SelectList(varlist ,"ID", "Name",1);
+            ViewBag.variantlist = list;
+
 
             return View();
 
+
+
         }
+
+        
+
         [HttpPost]
         public ActionResult CreateCategory(Category category)
         {
+         //  category.CreatedBy = Request.Cookies["Username"].Value;
             Response<Category> response = _categoryService.CreateCategory(category);
          
             if (response.Success.Equals(true))
@@ -109,6 +139,17 @@ namespace OMS.Web.Controllers
             }
             return View();
         }
+
+
+  
+
+
+
+
+
+
+
+
 
         public ActionResult Employee()
         {
@@ -123,9 +164,13 @@ namespace OMS.Web.Controllers
             return View();
 
         }
+
+
+
         [HttpPost]
         public ActionResult CreateEmployee(Account account)
         {
+            account.CreatedBy = Request.Cookies["Username"].Value;
             Response<Account> response = _accountService.CreateAccount(account);
             return View();
 

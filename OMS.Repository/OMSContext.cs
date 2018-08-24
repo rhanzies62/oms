@@ -16,7 +16,7 @@ namespace OMS.Repository
             modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
             modelBuilder.Conventions.Remove<ManyToManyCascadeDeleteConvention>();
         }
-        public OMSContext() : base("OMS") { }
+        public OMSContext() : base("OMSDB") { }
 
         public DbSet<Category> Categories { get; set; }
         public DbSet<Product> Products { get; set; }

@@ -13,13 +13,19 @@ namespace OMS.UnitTest
     {
         OMSContext context = new OMSContext();
         CRUDRepository<Entities.Role> _roleRepo;
+        CRUDRepository<Entities.Category> _catRepo;
         private RoleService _service;
+        private CategoryService _catservice;
+
         [TestInitialize]
         public void initservice()
         {
             AutoMapperCoreConfiguration.Configure();
             _roleRepo = new CRUDRepository<Entities.Role>(context);
             _service = new RoleService(_roleRepo);
+
+            _catRepo = new CRUDRepository<Entities.Category>(context);
+            _catservice = new CategoryService(_catRepo);
         }
         [TestMethod]
         public void TestMethod1()
@@ -33,6 +39,20 @@ namespace OMS.UnitTest
             Role.UpdatedDate = DateTime.UtcNow;
 
             DTO.Response<DTO.Role> role = _service.CreateRole(Role);
+        }
+        [TestMethod]
+        public void TestMethod2()
+        {
+            DTO.Category Category = new DTO.Category();
+            Category.Name = "Driver";
+            Category.Description = "Driver of th van";
+            Category.CreatedBy = "lorenz";
+            Category.CreatedDate = DateTime.UtcNow;
+            Category.UpdatedBy = "lorenz";
+            Category.UpdatedDate = DateTime.UtcNow;
+            Category.VariantID = 1;
+
+            DTO.Response<DTO.Category> category = _catservice.CreateCategory(Category);
         }
     }
 }

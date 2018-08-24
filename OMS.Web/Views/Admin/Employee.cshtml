@@ -12,16 +12,16 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.UserName)
+            @Html.DisplayNameFor(model => model.account.User)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.PasswordHash)
+            @Html.DisplayNameFor(model => model.account.PasswordHash)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Status)
+            @Html.DisplayNameFor(model => model.account.Status)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Salt)
+            @Html.DisplayNameFor(model => model.account.Salt)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.RoleID)
@@ -44,16 +44,16 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.UserName)
+            @Html.DisplayFor(modelItem => item.account.UserName)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.PasswordHash)
+            @Html.DisplayFor(modelItem => item.account.PasswordHash)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Status)
+            @Html.DisplayFor(modelItem => item.account.Status)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Salt)
+            @Html.DisplayFor(modelItem => item.account.Salt)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.RoleID)
