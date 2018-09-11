@@ -1,73 +1,55 @@
 ﻿@model OMS.Core.DTO.Category
+@{
+    /**/
 
-
-
-
-<h2>CreateCategory</h2>
-
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
-
-<div class="form-horizontal">
-    <h4>Category</h4>
-    <hr />
-    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-    <div class="form-group">
-        @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2 text1" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2 text1" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.VariantID, htmlAttributes: new { @class = "control-label col-md-2 text1" })
-        <div class="col-md-10">
-
-            @Html.DropDownListFor(model => model.VariantID, ViewBag.variantlist as SelectList, htmlAttributes: new { @class = "form-control" })
-            @Html.ValidationMessageFor(model => model.VariantID, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.CreatedBy, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.CreatedBy, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.CreatedBy, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.UpdatedBy, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.UpdatedBy, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.UpdatedBy, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-
-
-
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Create" class="btn waves-effect waves-light" />
-        </div>
-    </div>
-</div>
+    Layout = null;
 }
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
+<table id="categoryList" class="table table-bordered table-responsive" style="width:100%">
+    <thead>
+        <tr>
+            <td>Category Id</td>
+            <td>Name</td>
+            <td>Description</td>
+            <td></td>
+        </tr>
+    </thead>
+    <tbody></tbody>
+</table>
+
+<div class="panel panel-primary" style="margin-top:10px;">
+    <div class="panel-heading">
+        <h4 class="panel-title">Add New Category</h4>
+    </div>
+    <div class="panel-body">
+        @using (Html.BeginForm(AdminController.ActionNameConstants.CreateCategory,
+                               AdminController.NameConst,
+                               FormMethod.Post,
+                               new { @id = "categoryForm" }))
+        {
+            @Html.AntiForgeryToken()
+            @Html.HiddenFor(i => i.ID)
+            <div class="alert alert-danger alert-dismissible errorAlert" style="display:none;" role="alert">
+                <strong id="errTitle"></strong>:<span id="errMsg"></span>
+            </div>
+            <div class="form-horizontal">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2 text1" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2 text1" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
 </div>
+

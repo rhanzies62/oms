@@ -4,36 +4,19 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>@ViewBag.Title</title>
-    <link type="text/css" rel="stylesheet" href="~/Content/materialize.min.css" />
-    <link type="text/css" rel="stylesheet" href="~/Content/materialize.css" />
     <link href="~/Content/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
-    <link href="~/Content/Custom.css" type="text/css" rel="stylesheet" media="screen,projection" />
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
-
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
-<body style="background-image: url('../../Content/Images/wood.jpg'); min-height: 100%;">
-
-
-
-
-
+<body>
     <div class="container body-content">
         @RenderBody()
-        />
-
     </div>
 
     @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/botstrap")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/appscript")
     @RenderSection("scripts", required: false)
-
-    <script src="~/Scripts/materialize.js"></script>
-    <script src="~/Scripts/init.js"></script>
-
-
 </body>
 </html>

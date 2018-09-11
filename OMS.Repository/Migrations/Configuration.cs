@@ -9,8 +9,7 @@ namespace OMS.Repository.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = true;
-            AutomaticMigrationDataLossAllowed = true;
+            AutomaticMigrationsEnabled = false;
         }
 
         protected override void Seed(OMS.Repository.OMSContext context)

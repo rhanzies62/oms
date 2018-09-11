@@ -27,22 +27,37 @@ namespace OMS.UnitTest
         {
 
             DTO.User user = new DTO.User();
-            var format = "yyyy-MM-dd HH:mm:ss:fff";
-            var stringDate = DateTime.Now.ToString(format);
-            var convertedBack = DateTime.ParseExact(stringDate, format, CultureInfo.InvariantCulture);
-            
             user.AddressID = 1;
-            user.FirstName = "fname";
-            user.LastName = "lname";
+            user.FirstName = "Topan";
+            user.LastName = "Admin";
             user.MobileNumber = 09311212;
-            user.CreatedBy = "lorenz";
-            user.Gender = Entities.Gender.Male;
-            user.UpdatedBy = "lorenz";
-            user.UpdatedDate = convertedBack;
-            user.CreatedDate = convertedBack;
+            user.CreatedBy = "admin";
+            user.Gender = Core.Entities.Gender.Male;
+            user.UpdatedBy = "admin";
+            user.UpdatedDate = DateTime.UtcNow;
+            user.CreatedDate = DateTime.UtcNow;
             user.Email = "email@gmail.com";
             user.IsActive = true;
-            DTO.Response<DTO.User> res = _service.CreateUser(user);
+            user.account = new Account
+            {
+                CreatedBy = "admin",
+                CreatedDate = DateTime.UtcNow,
+                PasswordHash = "password",
+                Status = 1,
+                UpdatedBy = "admin",
+                UpdatedDate = DateTime.UtcNow,
+                UserName = "tpadmin"
+            };
+            user.Role = new Role
+            {
+                UpdatedDate = DateTime.UtcNow,
+                UpdatedBy = "admin",
+                CreatedBy = "admin",
+                CreatedDate = DateTime.UtcNow,
+                Description = "System Admininstrator",
+                Name = "SystemAdmin"
+            };
+            DTO.Response<DTO.User> res = _userService.CreateUser(user);
         }
 
         [TestMethod]

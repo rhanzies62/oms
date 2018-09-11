@@ -9,30 +9,30 @@ using OMS.Core.DTO;
 
 namespace OMS.Web.Controllers
 {
-    public class HomeController : Controller
+    public partial class HomeController : Controller
     {
         private readonly ITestService _service;
         private readonly IProductService _productservice;
         private readonly IOrderService _orderService;
-        public HomeController(ITestService service, IProductService productservice,IOrderService orderService)
+        public HomeController(ITestService service, IProductService productservice, IOrderService orderService)
         {
             _service = service;
             _productservice = productservice;
         }
 
-        public ActionResult Index()
+        public virtual ActionResult Index()
         {
             return View();
         }
 
-        public ActionResult About()
+        public virtual ActionResult About()
         {
             ViewBag.Message = _service.GetName(); //"Your application description page.";
 
             return View();
         }
 
-        public ActionResult Contact()
+        public virtual ActionResult Contact()
         {
             ViewBag.Message = "Your contact page.";
 
@@ -40,13 +40,13 @@ namespace OMS.Web.Controllers
         }
 
 
-     
 
 
-        public ActionResult ProductList()
+
+        public virtual ActionResult ProductList()
         {
 
-  
+
 
 
             return View(_productservice.ListProducts());
@@ -56,13 +56,14 @@ namespace OMS.Web.Controllers
 
 
 
-        public ActionResult AddToOrders() {
+        public virtual ActionResult AddToOrders()
+        {
 
             return View();
         }
 
-           [HttpPost] 
-        public ActionResult AddToOrders(Order order)
+        [HttpPost]
+        public virtual ActionResult AddToOrders(Order order)
         {
 
 
@@ -79,7 +80,8 @@ namespace OMS.Web.Controllers
         }
 
 
-        public ActionResult ShowOrders() {
+        public virtual ActionResult ShowOrders()
+        {
 
             return View();
 
@@ -88,6 +90,6 @@ namespace OMS.Web.Controllers
 
 
 
-  
+
     }
 }

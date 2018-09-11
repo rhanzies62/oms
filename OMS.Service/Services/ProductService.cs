@@ -8,15 +8,20 @@ using DTO = OMS.Core.DTO;
 using AutoMapper;
 using OMS.Core.Interface.Services;
 using OMS.Core.Interface.Repositories;
+using OMS.Web.Models;
+using System.Globalization;
 
 namespace OMS.Service.Services
 {
     public class ProductService : IProductService
     {
         private readonly ICRUDRepository<Entities.Product> _productRepo;
-        public ProductService(ICRUDRepository<Entities.Product> productRepo)
+        private readonly ICRUDRepository<Entities.Category> _categoryRepo;
+        public ProductService(ICRUDRepository<Entities.Product> productRepo,
+                              ICRUDRepository<Entities.Category> categoryRepo)
         {
             _productRepo = productRepo;
+            _categoryRepo = categoryRepo;
         }
 
         public DTO.Response<DTO.Product> CreateProduct(DTO.Product product)
@@ -26,7 +31,8 @@ namespace OMS.Service.Services
             {
                 product.CreatedDate = DateTime.UtcNow;
                 product.UpdatedDate = DateTime.UtcNow;
-                _productRepo.Add(Mapper.Map<DTO.Product, Entities.Product>(product));
+                var productEntity = Mapper.Map<DTO.Product, Entities.Product>(product);
+                _productRepo.Add(productEntity);
                 response.Success = true;
                 response.Data = product;
             }
@@ -54,11 +60,6 @@ namespace OMS.Service.Services
             return Mapper.Map<IEnumerable<Entities.Product>, IEnumerable<DTO.Product>>(_productRepo.GetList(p => p.Category.ID.Equals(categoryID)));
         }
 
-        public IEnumerable<DTO.Product> ListProductsByVariantID(int variantID)
-        {
-            return Mapper.Map<IEnumerable<Entities.Product>, IEnumerable<DTO.Product>>(_productRepo.GetList(p=>p.Variant.ID.Equals(variantID)));
-        }
-
         public DTO.Response<DTO.Product> RemoveProduct(int productID)
         {
             DTO.Response<DTO.Product> response = new DTO.Response<DTO.Product>();
@@ -83,7 +84,12 @@ namespace OMS.Service.Services
             DTO.Response<DTO.Product> response = new DTO.Response<DTO.Product>();
             try
             {
-                _productRepo.Update(Mapper.Map<DTO.Product, Entities.Product>(product));
+                var productEntity = _productRepo.GetSingle(i => i.ID == product.ID);
+                productEntity.Name = product.Name;
+                productEntity.Description = product.Description;
+                productEntity.CategoryId = product.CategoryID;
+                productEntity.Price = product.Price;
+                _productRepo.Update(productEntity);
                 response.Success = true;
                 response.Data = product;
             }
@@ -93,6 +99,28 @@ namespace OMS.Service.Services
                 response.Success = false;
             }
             return response;
+        }
+
+        public DataTableResult ListProductByPage(int take, int skip,string search = "",int category = 0)
+        {
+            var allProduct = _productRepo.GetAll(i => i.Category);
+            if (!string.IsNullOrEmpty(search))
+            {
+                allProduct = allProduct.Where(i => i.Name.Contains(search) || i.Description.Contains(search)).ToList();
+            }
+            if(category != 0)
+            {
+                allProduct = allProduct.Where(i => i.CategoryId == category).ToList();
+            }
+            var result = allProduct.Skip(skip).Take(take).Select(i => new DTO.ProductResult
+            {
+                Category = i.Category?.Name,
+                Description = i.Description,
+                Name = i.Name,
+                Price = i.Price.ToString("c", CultureInfo.CreateSpecificCulture("en-PH")),
+                ProductId = i.ID
+            });
+            return new DataTableResult(result, allProduct.Count());
         }
     }
 }

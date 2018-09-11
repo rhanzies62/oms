@@ -128,20 +128,31 @@ namespace OMS.Service.Services
             DTO.Response<DTO.Account> response = new DTO.Response<DTO.Account>();
             try
             {
-                Entities.Account resultAccount = _accountRepo.GetSingle(a => a.UserName.Equals(account.UserName));
-              
-                account.PasswordHash = account.PasswordHash;
-
-                if (account.PasswordHash.Equals(resultAccount.PasswordHash))
+                Entities.Account resultAccount = _accountRepo.GetSingle(a => a.UserName.Equals(account.UserName),i => i.User);
+                if(resultAccount != null)
                 {
-                    response.Success = true;
-                    response.Data = Mapper.Map<Entities.Account,DTO.Account>(resultAccount);
+                    var passwordHash = Cryptography.HashString(account.PasswordHash, resultAccount.Salt);
+                    if(resultAccount.PasswordHash == passwordHash)
+                    {
+                        response.Success = true;
+                        resultAccount.User = new Entities.User
+                        {
+                            FirstName = resultAccount.User.FirstName,
+                            LastName = resultAccount.User.LastName
+                        };
+                        response.Data = Mapper.Map<Entities.Account, DTO.Account>(resultAccount);
+                    }
+                    else
+                    {
+                        response.Success = false;
+                        response.ErrorMessage = OMSResource.IncorrectPassword;
+                    }
                 }
-                else {
+                else
+                {
                     response.Success = false;
-                    response.ErrorMessage = OMSResource.IncorrectPassword;
+                    response.ErrorMessage = OMSResource.ErrMsgUserNotFound;
                 }
-
             }
             catch (Exception e)
             {

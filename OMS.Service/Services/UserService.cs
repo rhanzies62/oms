@@ -8,6 +8,8 @@ using System.Threading.Tasks;
 using Entities = OMS.Core.Entities;
 using OMS.Core.Interface.Repositories;
 using DTO = OMS.Core.DTO;
+using OMS.Core.Common;
+
 namespace OMS.Service.Services
 {
     public class UserService : IUserService
@@ -21,7 +23,10 @@ namespace OMS.Service.Services
         {
             DTO.Response<DTO.User> response = new DTO.Response<DTO.User>();
             try {
-                _userRepo.Add(Mapper.Map<DTO.User,Entities.User>(user));
+                var userEntities = Mapper.Map<DTO.User, Entities.User>(user);
+                userEntities.account.Salt = Cryptography.CreateSalt();
+                userEntities.account.PasswordHash = Cryptography.HashString(userEntities.account.PasswordHash, userEntities.account.Salt);
+                _userRepo.Add(userEntities);
                 response.Success = true;
                 response.Data = user;
             }

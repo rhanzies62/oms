@@ -5,13 +5,11 @@ using System.Web;
 using System.Web.Mvc;
 using OMS.Core.Interface.Services;
 using OMS.Core.DTO;
+using OMS.Web.Models;
 
 namespace OMS.Web.Controllers
 {
-
-
-
-    public class AdminController : Controller
+    public partial class AdminController : BaseController
     {
 
         private readonly ITestService _service;
@@ -21,7 +19,7 @@ namespace OMS.Web.Controllers
         private readonly IAccountService _accountService;
         private readonly IRoleService _roleService;
         private readonly IUserService _userService;
-        public AdminController(IUserService userService,IRoleService roleService, ITestService service, IProductService productservice,IVariantService variantService,ICategoryService categoryService,IAccountService accountService)
+        public AdminController(IUserService userService, IRoleService roleService, ITestService service, IProductService productservice, IVariantService variantService, ICategoryService categoryService, IAccountService accountService)
         {
             _service = service;
             _productservice = productservice;
@@ -33,59 +31,40 @@ namespace OMS.Web.Controllers
         }
 
         // GET: Admin
-        public ActionResult Index()
+        public virtual ActionResult Index()
         {
             return View();
         }
 
-        public ActionResult Variants()
+        public virtual ActionResult Variants()
         {
             return View(_variantService.ListVariants());
         }
 
-
-        public ActionResult CreateVariants()
+        public virtual ActionResult CreateVariants()
         {
             return View();
         }
-        [HttpPost]
-        public ActionResult CreateVariants(Variant variant)
+
+        public virtual ActionResult Products()
         {
 
-            variant.CreatedBy = Request.Cookies["Username"].Value;
-            Response<Variant> response = _variantService.CreateVariant(variant);
-
-            if (response.Success.Equals(true))
-            {
-                ViewBag.Message = "Successfully Added";
-            }
-            else
-            {
-                ViewBag.Message = response.ErrorMessage;
-            }
-            return View();
-        }
-
-
-
-        public ActionResult Products()
-        {
-      
 
 
 
             return View(_productservice.ListProducts());
 
         }
-        
-        public ActionResult CreateProducts()
+
+        public virtual ActionResult CreateProducts()
         {
             return View();
         }
+
         [HttpPost]
-        public ActionResult CreateProducts(Product product)
+        public virtual ActionResult CreateProducts(Product product)
         {
-           // product.CreatedBy = Request.Cookies["Username"].Value;
+            // product.CreatedBy = Request.Cookies["Username"].Value;
             Response<Product> response = _productservice.CreateProduct(product);
             if (response.Success.Equals(true))
             {
@@ -99,19 +78,22 @@ namespace OMS.Web.Controllers
 
         }
 
-
-
-        public ActionResult Category() {
-
-            return View(_categoryService.ListCategories());
-
+        [HttpGet]
+        public virtual ActionResult ListCategory()
+        {
+            var start = Request.Params["start"];
+            var length = Request.Params["length"];
+            var draw = Request.Params["draw"];
+            var result = _categoryService.ListCategories(int.Parse(length), int.Parse(start));
+            result.draw = int.Parse(draw); 
+            return Json(result, JsonRequestBehavior.AllowGet);
         }
 
-        public ActionResult CreateCategory()
+        public virtual ActionResult CreateCategory()
         {
-            
-          var varlist =  _variantService.ListVariants();
-            SelectList list = new SelectList(varlist ,"ID", "Name",1);
+
+            var varlist = _variantService.ListVariants();
+            SelectList list = new SelectList(varlist, "ID", "Name", 1);
             ViewBag.variantlist = list;
 
 
@@ -121,54 +103,51 @@ namespace OMS.Web.Controllers
 
         }
 
-        
-
         [HttpPost]
-        public ActionResult CreateCategory(Category category)
+        public virtual JsonResult CreateCategory(Category category)
         {
-         //  category.CreatedBy = Request.Cookies["Username"].Value;
-            Response<Category> response = _categoryService.CreateCategory(category);
-         
-            if (response.Success.Equals(true))
+            category.CreatedBy = appUser.Username;
+            category.UpdatedBy = appUser.Username;
+            Response<Category> response;
+            if(category.ID == 0)
             {
-                ViewBag.Message = "Successfully Added";
+                response = _categoryService.CreateCategory(category);
             }
             else
             {
-                ViewBag.Message = response.ErrorMessage;
+                response = _categoryService.UpdateCategory(category);
             }
-            return View();
+            return Json(response);
         }
 
+        [HttpGet]
+        public virtual JsonResult GetCategory(int id)
+        {
+            return Json(_categoryService.GetCategoryByID(id), JsonRequestBehavior.AllowGet);
+        }
 
-  
+        [HttpGet]
+        public virtual JsonResult DeleteCategory(int id)
+        {
+            return Json(_categoryService.RemoveCategory(id), JsonRequestBehavior.AllowGet);
+        }
 
-
-
-
-
-
-
-
-
-        public ActionResult Employee()
+        public virtual ActionResult Employee()
         {
 
             return View(_accountService.ListAccounts());
 
         }
 
-        public ActionResult CreateEmployee()
+        public virtual ActionResult CreateEmployee()
         {
-         
+
             return View();
 
         }
 
-
-
         [HttpPost]
-        public ActionResult CreateEmployee(Account account)
+        public virtual ActionResult CreateEmployee(Account account)
         {
             account.CreatedBy = Request.Cookies["Username"].Value;
             Response<Account> response = _accountService.CreateAccount(account);
@@ -176,23 +155,21 @@ namespace OMS.Web.Controllers
 
         }
 
-        public ActionResult Admin()
+        public virtual ActionResult Admin()
         {
 
             return View(_accountService.ListAccounts());
 
         }
 
- 
-
-        public ActionResult CreateAdmin()
+        public virtual ActionResult CreateAdmin()
         {
 
             return View();
 
         }
         [HttpPost]
-        public ActionResult CreateAdmin(Account account)
+        public virtual ActionResult CreateAdmin(Account account)
         {
 
             Response<Account> response = _accountService.CreateAccount(account);
@@ -200,15 +177,15 @@ namespace OMS.Web.Controllers
 
         }
 
-        public ActionResult Role()
+        public virtual ActionResult Role()
         {
 
-            
+
 
             var listRole = _roleService.ListRoles();
-            
 
-          
+
+
 
 
             return View(_roleService.ListRoles());
@@ -216,7 +193,7 @@ namespace OMS.Web.Controllers
         }
 
 
-        public ActionResult CreateRole()
+        public virtual ActionResult CreateRole()
         {
 
             return View();
@@ -224,7 +201,7 @@ namespace OMS.Web.Controllers
         }
 
         [HttpPost]
-        public ActionResult CreateRole(Role role)
+        public virtual ActionResult CreateRole(Role role)
         {
 
             Response<Role> response = _roleService.CreateRole(role);
@@ -241,14 +218,14 @@ namespace OMS.Web.Controllers
         }
 
 
-        public ActionResult CreateUser()
+        public virtual ActionResult CreateUser()
         {
 
             return View();
         }
 
         [HttpPost]
-        public ActionResult CreateUser(User user)
+        public virtual ActionResult CreateUser(User user)
         {
 
             Response<User> response = _userService.CreateUser(user);

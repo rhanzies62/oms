@@ -8,6 +8,7 @@ using Entities = OMS.Core.Entities;
 using DTO = OMS.Core.DTO;
 using AutoMapper;
 using OMS.Core.Interface.Repositories;
+using OMS.Web.Models;
 
 namespace OMS.Service.Services
 {
@@ -43,14 +44,16 @@ namespace OMS.Service.Services
             return Mapper.Map<Entities.Category, DTO.Category>(_categoryRepo.GetSingle(u => u.ID.Equals(categoryID)));
         }
 
-        public IEnumerable<DTO.Category> ListCategories()
+        public DataTableResult ListCategories(int take, int skip)
         {
-            return Mapper.Map<IEnumerable<Entities.Category>, IEnumerable<DTO.Category>>(_categoryRepo.GetAll());
-        }
-
-        public IEnumerable<DTO.Category> ListCategoryByVariantID(int variantID)
-        {
-            return Mapper.Map<IEnumerable<Entities.Category>, IEnumerable<DTO.Category>>(_categoryRepo.GetList(c => c.Variant.ID.Equals(variantID)));
+            var allCategories = _categoryRepo.GetAll();
+            var result = allCategories.Skip(skip).Take(take).Select(i => new DTO.Category
+            {
+                ID = i.ID,
+                Name = i.Name,
+                Description = i.Description
+            });
+            return new  DataTableResult(result,allCategories.Count());
         }
 
         public IEnumerable<DTO.Category> ListSubCategoryByCategoryID(int categoryID)
@@ -82,7 +85,10 @@ namespace OMS.Service.Services
             DTO.Response<DTO.Category> response = new DTO.Response<DTO.Category>();
             try
             {
-                _categoryRepo.Update(Mapper.Map<DTO.Category, Entities.Category>(category));
+                var categoryEntity = _categoryRepo.GetSingle(i => i.ID == category.ID);
+                categoryEntity.Name = category.Name;
+                categoryEntity.Description = category.Description;
+                _categoryRepo.Update(categoryEntity);
                 response.Success = true;
                 response.Data = category;
             }
@@ -92,6 +98,16 @@ namespace OMS.Service.Services
                 response.Success = false;
             }
             return response;
+        }
+
+        public IEnumerable<DTO.SelectListDto> GetCategories()
+        {
+            var result = _categoryRepo.GetAll().Select(i => new DTO.SelectListDto
+            {
+                Value = i.ID.ToString(),
+                Text = i.Name
+            });
+            return result;
         }
     }
 }

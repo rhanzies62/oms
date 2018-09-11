@@ -1,4 +1,5 @@
 ﻿using OMS.Core.DTO;
+using OMS.Web.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,8 +20,8 @@ namespace OMS.Core.Interface.Services
 
         Product GetProductByID(int productID);
 
-        IEnumerable<Product> ListProductsByVariantID(int variantID);
-
         IEnumerable<Product> ListProductsByCategory(int categoryID);
+
+        DataTableResult ListProductByPage(int take, int skip, string search = "", int category = 0);
     }
 }

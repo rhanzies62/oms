@@ -49,12 +49,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Migrations\201809091047574_recreatedb.cs" />
+    <Compile Include="Migrations\201809091047574_recreatedb.Designer.cs">
+      <DependentUpon>201809091047574_recreatedb.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="OMSContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\CRUDRepository.cs" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <Content Include="Coding Standard.txt" />
   </ItemGroup>
@@ -67,6 +70,11 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201809091047574_recreatedb.resx">
+      <DependentUpon>201809091047574_recreatedb.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

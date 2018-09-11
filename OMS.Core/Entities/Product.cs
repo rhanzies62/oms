@@ -21,12 +21,11 @@ namespace OMS.Core.Entities
         [Required]
         public decimal Price { get; set; }
 
+        [ForeignKey("Category")]
+        public int CategoryId { get; set; }
+
         public Category Category { get; set; }
   
-    
-
-        public Variant Variant { get; set; }
-
         public ICollection<Order> order { get; set; }
 
         [Required]

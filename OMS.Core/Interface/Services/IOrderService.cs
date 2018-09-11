@@ -19,8 +19,6 @@ namespace OMS.Core.Interface.Services
 
         Order GetOrderByID(int orderID);
 
-        IEnumerable<Order> ListOrdersByVariantID(int variantID);
-
         IEnumerable<Order> ListOrdersByCategoryID(int categoryID);
 
         IEnumerable<Order> ListOrdersByProductID(int productID);

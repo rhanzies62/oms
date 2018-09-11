@@ -1,4 +1,5 @@
-﻿using OMS.Core.Interface.Entity;
+﻿
+using OMS.Core.Interface.Entity;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -20,9 +21,6 @@ namespace OMS.Core.Entities
         public string Description { get; set; }
 
         public Category ParentCategory { get; set; }
-
-        [Required]
-        public Variant Variant { get; set; }
 
         public ICollection<Category> SubCategory { get; set; }
 

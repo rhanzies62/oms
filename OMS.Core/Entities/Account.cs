@@ -15,7 +15,7 @@ namespace OMS.Core.Entities
         public int ID { get; set; }
         [Required, StringLength(25)]
         public string UserName { get; set; }
-        [Required, StringLength(25)]
+        [Required]
         public string PasswordHash { get; set; }
         [Required]
         public int Status { get; set; }

@@ -69,10 +69,6 @@ namespace OMS.Service.Services
             return Mapper.Map<IEnumerable<Entities.Order>, IEnumerable<DTO.Order>>(_orderRepo.GetList(p => p.User.ID.Equals(userID)));
         }
 
-        public IEnumerable<Order> ListOrdersByVariantID(int variantID)
-        {
-            return Mapper.Map<IEnumerable<Entities.Order>, IEnumerable<DTO.Order>>(_orderRepo.GetList(p => p.Product.Variant.ID.Equals(variantID)));
-        }
 
         public Response<Order> RemoveOrder(int orderID)
         {

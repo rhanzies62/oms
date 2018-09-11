@@ -4,12 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using OMS.Core.DTO;
+using OMS.Web.Models;
+
 namespace OMS.Core.Interface.Services
 {
     public interface ICategoryService
     {
-        IEnumerable<Category> ListCategories();
-        
+        DataTableResult ListCategories(int take, int skip);
+
         Response<Category> CreateCategory(Category category);
 
         Response<Category> UpdateCategory(Category category);
@@ -18,8 +20,8 @@ namespace OMS.Core.Interface.Services
 
         Category GetCategoryByID(int categoryID);
 
-        IEnumerable<Category> ListCategoryByVariantID(int variantID);
         IEnumerable<Category> ListSubCategoryByCategoryID(int categoryID);
 
+        IEnumerable<DTO.SelectListDto> GetCategories();
     }
 }
