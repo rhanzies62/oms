@@ -60,3 +60,24 @@ var categoryController = {
         serviceCaller.get('/admin/DeleteCategory/' + id, callback);
     }
 }
+
+var Loader = {
+
+  show: function(message) {
+    if (message === undefined) {
+      message = "Your file is being processed.<br/>Depending on the size of the file, this make take several minutes to complete.";
+    }
+    var $loader = $("<div id='loader'><p>" + message + "</p></div>").appendTo($("body"));
+
+    // center
+    var $loaderP = $('#loader p');
+    var height = $loaderP.outerHeight();
+    var width = $loaderP.outerWidth();
+    $loaderP.css({ 'margin-top': (-height / 2) });
+    $loaderP.css({ 'margin-left': (-width / 2) });
+    $loader.fadeIn(2000);
+  },
+  hide: function() {
+    $('#loader').fadeOut(2000, function() { $('#loader').remove() } );
+  },
+};

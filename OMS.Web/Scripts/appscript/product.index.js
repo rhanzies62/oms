@@ -76,7 +76,9 @@ $(function () {
     element.$productList.find('tbody')
         .on('click', 'tr', function () {
             var data = dom.productDt.row(this).data();
+            Loader.show('Retrieving Product Please Wait');
             productController.GetProduct(data[0], function (data) {
+                Loader.hide();
                 $('#Name', element.$productForm).val(data.Name);
                 $('#Description', element.$productForm).val(data.Description);
                 $('#Price', element.$productForm).val(data.Price);
@@ -89,7 +91,9 @@ $(function () {
             e.stopPropagation();
             if (confirm("Are you sure you want to delete this record?")) {
                 var data = dom.productDt.row($(this).closest('tr')).data();
+                Loader.show('Deleting Product. Please Wait');
                 productController.RemoveProduct(data[0], function (data) {
+                    Loader.hide();
                     if (data.Success) {
                         element.$newproductModal.modal('hide');
                         methods.initProductDT();
@@ -104,11 +108,13 @@ $(function () {
         .on('click', '.btnSaveProduct', function (e) {
             if (element.$productForm.valid()) {
                 e.preventDefault();
+                Loader.show('Saving Product Please Wait');
                 $.ajax({
                     type: 'POST',
                     url: element.$productForm.attr('action'),
                     data: element.$productForm.serialize(),
                     success: function (data) {
+                        Loader.hide();
                         if (data.Success) {
                             element.$newproductModal.modal('hide');
                             methods.initProductDT();

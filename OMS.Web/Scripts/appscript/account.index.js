@@ -21,11 +21,13 @@ $(function () {
         .on('click', '#btnLogin', function (e) {
             if (element.$loginForm.valid()) {
                 e.preventDefault();
+                Loader.show('Logging In Please Wait');
                 $.ajax({
                     type: 'POST',
                     url: element.$loginForm.attr('action'),
                     data: element.$loginForm.serialize(),
                     success: function (data) {
+                        Loader.hide();
                         if (data.Success) {
                             window.location.reload();
                         } else {

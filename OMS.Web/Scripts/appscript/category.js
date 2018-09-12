@@ -34,7 +34,6 @@
         init: function () {
             methods.initializeDt();
             dom.categoryValidator = elements.$categoryForm.data('validator');
-            console.log(dom.categoryValidator);
         }
     }
 
@@ -45,6 +44,7 @@
     elements.$categoryList.find('tbody')
         .on('click', 'tr', function () {
             var data = dom.categoryDt.row(this).data();
+            Loader.show('Retrieving Category Details. Please Wait');
             categoryController.GetCategory(data[0], function (data) {
                 $('#Name', elements.$categoryForm).val(data.Name);
                 $('#Description', elements.$categoryForm).val(data.Description);
@@ -55,7 +55,9 @@
             e.stopPropagation();
             if (confirm("Are you sure you want to delete this record?")) {
                 var data = dom.categoryDt.row($(this).closest('tr')).data();
+                Loader.show('Deleting Category. Please Wait');
                 categoryController.DeleteCategory(data[0], function (data) {
+                    Loader.hide();
                     if (data.Success) {
                         methods.initializeDt();
                     } else {
@@ -69,11 +71,13 @@
         .on('click', '.btnSave', function (e) {
             if (elements.$categoryForm.valid()) {
                 e.preventDefault();
+                Loader.show('Saving Category Please wait');
                 $.ajax({
                     type: 'POST',
                     url: elements.$categoryForm.attr('action'),
                     data: elements.$categoryForm.serialize(),
                     success: function (data) {
+                        Loader.hide();
                         if (data.Success) {
                             methods.initializeDt();
                         } else {
