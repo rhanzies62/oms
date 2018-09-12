@@ -30,7 +30,6 @@ namespace OMS.Web.Controllers
         [OMSAuth]
         public virtual ActionResult Index()
         {
-
             return View();
         }
         [HttpPost]
