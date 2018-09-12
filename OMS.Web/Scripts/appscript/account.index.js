@@ -40,4 +40,5 @@ $(function () {
         ;
 
     methods.init();
+    Loader.show();
 });

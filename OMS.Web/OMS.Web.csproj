@@ -239,6 +239,7 @@
     <Content Include="Content\Images\background2.jpg" />
     <Content Include="Content\Images\background3.jpg" />
     <Content Include="Content\Images\bg2.jpg" />
+    <Content Include="Content\Images\loader.gif" />
     <Content Include="Content\Images\wood.jpg" />
     <Content Include="Content\jquery.dataTables.css" />
     <Content Include="Content\style.css" />

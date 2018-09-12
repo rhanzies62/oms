@@ -46,6 +46,7 @@
             var data = dom.categoryDt.row(this).data();
             Loader.show('Retrieving Category Details. Please Wait');
             categoryController.GetCategory(data[0], function (data) {
+                Loader.hide();
                 $('#Name', elements.$categoryForm).val(data.Name);
                 $('#Description', elements.$categoryForm).val(data.Description);
                 $('#ID', elements.$categoryForm).val(data.ID);
