@@ -58,16 +58,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Common\EntityExtension.cs" />
     <Compile Include="DTO\Address.cs" />
     <Compile Include="DTO\Customer.cs" />
     <Compile Include="DTO\DataTableResult.cs" />
+    <Compile Include="DTO\LoginResult.cs" />
     <Compile Include="DTO\Order.cs" />
     <Compile Include="DTO\Product.cs" />
     <Compile Include="DTO\SelectListDto.cs" />
     <Compile Include="DTO\Transaction.cs" />
+    <Compile Include="Entities\CategoryVariant.cs" />
     <Compile Include="Entities\InventoryLog.cs" />
+    <Compile Include="Entities\ProductVariant.cs" />
     <Compile Include="Entities\Stock.cs" />
     <Compile Include="Entities\Supplier.cs" />
+    <Compile Include="Entities\VariantOption.cs" />
     <Compile Include="Interface\Services\IAddressService.cs" />
     <Compile Include="Interface\Services\IOrderService.cs" />
     <Compile Include="Interface\Services\IProductService.cs" />

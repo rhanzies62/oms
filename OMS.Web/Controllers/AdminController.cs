@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using OMS.Core.DTO;
 using OMS.Core.Interface.Services;
-using OMS.Core.DTO;
-using OMS.Web.Models;
+using System.Web.Mvc;
 
 namespace OMS.Web.Controllers
 {
@@ -149,8 +144,6 @@ namespace OMS.Web.Controllers
         [HttpPost]
         public virtual ActionResult CreateEmployee(Account account)
         {
-            account.CreatedBy = Request.Cookies["Username"].Value;
-            Response<Account> response = _accountService.CreateAccount(account);
             return View();
 
         }
@@ -171,8 +164,6 @@ namespace OMS.Web.Controllers
         [HttpPost]
         public virtual ActionResult CreateAdmin(Account account)
         {
-
-            Response<Account> response = _accountService.CreateAccount(account);
             return View();
 
         }
@@ -228,7 +219,7 @@ namespace OMS.Web.Controllers
         public virtual ActionResult CreateUser(User user)
         {
 
-            Response<User> response = _userService.CreateUser(user);
+            Response<User> response = _userService.CreateUser(user,appUser.Username);
             if (response.Success.Equals(true))
             {
                 ViewBag.Message = "Successfully Added";

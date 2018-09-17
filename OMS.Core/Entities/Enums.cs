@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel;
 
 namespace OMS.Core.Entities
 {
@@ -22,6 +17,13 @@ namespace OMS.Core.Entities
         OutGoing,
         [Description("Return")]
         Return,
+    }
+    public enum VariantType
+    {
+        [Description("Text")]
+        Text,
+        [Description("Options")]
+        Options
     }
 
 

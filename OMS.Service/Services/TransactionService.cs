@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Entities = OMS.Core.Entities;
-using DTO = OMS.Core.DTO;
-using AutoMapper;
-using OMS.Core.Interface.Services;
+﻿using AutoMapper;
 using OMS.Core.Interface.Repositories;
+using OMS.Core.Interface.Services;
+using System;
+using System.Collections.Generic;
+using DTO = OMS.Core.DTO;
+using Entities = OMS.Core.Entities;
 
 
 namespace OMS.Service.Services
@@ -51,7 +48,8 @@ namespace OMS.Service.Services
 
         public IEnumerable<DTO.Transaction> ListTransactionsByUserID(int userID)
         {
-            return Mapper.Map<IEnumerable<Entities.Transaction>, IEnumerable<DTO.Transaction>>(_transactionRepo.GetList(p => p.User.ID.Equals(userID)));
+            //return Mapper.Map<IEnumerable<Entities.Transaction>, IEnumerable<DTO.Transaction>>(_transactionRepo.GetList(p => p.User.ID.Equals(userID)));
+            return null;
         }
 
         public DTO.Response<DTO.Transaction> RemoveTransaction(int transactionID)

@@ -1,11 +1,6 @@
 ﻿using OMS.Core.Entities;
-using System;
-using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace OMS.Repository
 {
@@ -29,6 +24,10 @@ namespace OMS.Repository
         public DbSet<Stock> Stocks { get; set; }
         public DbSet<InventoryLog> InventoryLogs { get; set; }
         public DbSet<Supplier> Suppliers { get; set; }
+        public DbSet<CategoryVariant> CategoryVariants { get; set; }
+        public DbSet<ProductVariant> ProductVariants { get; set; }
+        public DbSet<VariantOption> VariantOptions { get; set; }
+        public DbSet<Account> Accounts { get; set; }
 
     }
 }

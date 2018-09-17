@@ -1,9 +1,5 @@
-﻿using System;
+﻿using OMS.Core.DTO;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using OMS.Core.DTO;
 
 namespace OMS.Core.Interface.Services
 {
@@ -11,7 +7,7 @@ namespace OMS.Core.Interface.Services
     {
         IEnumerable<User> ListUsers(bool isActive);
 
-        Response<User> CreateUser(User user);
+        Response<User> CreateUser(User user, string username);
 
         Response<User> UpdateUser(User user);
 

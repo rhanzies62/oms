@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace OMS.Core.Entities
 {
-    public class Stock : IAudit
+    public class ProductVariant : IAudit
     {
         [Key]
         public int ID { get; set; }
@@ -15,20 +15,23 @@ namespace OMS.Core.Entities
 
         public Product Product { get; set; }
 
-        [Required]
-        public int GoodQuantity { get; set; }
+        [Required, ForeignKey("Variant")]
+        public int VariantID { get; set; }
 
-        [Required]
-        public int DamagedQuantity { get; set; }
+        public Variant Variant { get; set; }
+
+        public string Value { get; set; }
 
         [Required]
         public string CreatedBy { get; set; }
-        [Required]
-        public DateTime CreatedDate { get; set; }
+
         [Required]
         public string UpdatedBy { get; set; }
+
+        [Required]
+        public DateTime CreatedDate { get; set; }
+
         [Required]
         public DateTime UpdatedDate { get; set; }
-
     }
 }

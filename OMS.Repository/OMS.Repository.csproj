@@ -49,9 +49,33 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Migrations\201809091047574_recreatedb.cs" />
-    <Compile Include="Migrations\201809091047574_recreatedb.Designer.cs">
-      <DependentUpon>201809091047574_recreatedb.cs</DependentUpon>
+    <Compile Include="Migrations\201809130358209_database-creation.cs" />
+    <Compile Include="Migrations\201809130358209_database-creation.Designer.cs">
+      <DependentUpon>201809130358209_database-creation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809130403350_accounttable.cs" />
+    <Compile Include="Migrations\201809130403350_accounttable.Designer.cs">
+      <DependentUpon>201809130403350_accounttable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809140930426_usertableupdate.cs" />
+    <Compile Include="Migrations\201809140930426_usertableupdate.Designer.cs">
+      <DependentUpon>201809140930426_usertableupdate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809140949144_populateRoe.cs" />
+    <Compile Include="Migrations\201809140949144_populateRoe.Designer.cs">
+      <DependentUpon>201809140949144_populateRoe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809141034361_lengthupdate.cs" />
+    <Compile Include="Migrations\201809141034361_lengthupdate.Designer.cs">
+      <DependentUpon>201809141034361_lengthupdate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809141042390_addressfix.cs" />
+    <Compile Include="Migrations\201809141042390_addressfix.Designer.cs">
+      <DependentUpon>201809141042390_addressfix.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809141046046_requiredaddressfix.cs" />
+    <Compile Include="Migrations\201809141046046_requiredaddressfix.Designer.cs">
+      <DependentUpon>201809141046046_requiredaddressfix.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="OMSContext.cs" />
@@ -72,8 +96,26 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201809091047574_recreatedb.resx">
-      <DependentUpon>201809091047574_recreatedb.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201809130358209_database-creation.resx">
+      <DependentUpon>201809130358209_database-creation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809130403350_accounttable.resx">
+      <DependentUpon>201809130403350_accounttable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809140930426_usertableupdate.resx">
+      <DependentUpon>201809140930426_usertableupdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809140949144_populateRoe.resx">
+      <DependentUpon>201809140949144_populateRoe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809141034361_lengthupdate.resx">
+      <DependentUpon>201809141034361_lengthupdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809141042390_addressfix.resx">
+      <DependentUpon>201809141042390_addressfix.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809141046046_requiredaddressfix.resx">
+      <DependentUpon>201809141046046_requiredaddressfix.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

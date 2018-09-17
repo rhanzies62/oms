@@ -2,10 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace OMS.Core.Entities
 {
@@ -13,13 +9,9 @@ namespace OMS.Core.Entities
     {
         [Key]
         public int ID { get; set; }
-        [Required,StringLength(25)]
         public string AddressLineOne { get; set; }
-        [StringLength(25)]
         public string AddressLineTwo { get; set; }
-        [Required, StringLength(25)]
         public string City { get; set; }
-        [StringLength(10)]
         public string PostalCode { get; set; }
 
         [Required]

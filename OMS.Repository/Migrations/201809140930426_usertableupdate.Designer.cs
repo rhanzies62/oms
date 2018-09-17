@@ -7,13 +7,13 @@ namespace OMS.Repository.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class recreatedb : IMigrationMetadata
+    public sealed partial class usertableupdate : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(recreatedb));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(usertableupdate));
         
         string IMigrationMetadata.Id
         {
-            get { return "201809091047574_recreatedb"; }
+            get { return "201809140930426_usertableupdate"; }
         }
         
         string IMigrationMetadata.Source

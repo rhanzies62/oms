@@ -1,10 +1,6 @@
 ﻿using OMS.Core.Interface.Entity;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace OMS.Core.Entities
 {
@@ -15,10 +11,12 @@ namespace OMS.Core.Entities
 
         [Required]
         public int Quantity { get; set; }
-        [Required]
+
         public string Note { get; set; }
+
         [Required]
         public int InvoiceNumber { get; set; }
+
         [Required]
         public InventoryProcess Process { get; set; }
 
@@ -30,10 +28,13 @@ namespace OMS.Core.Entities
 
         [Required]
         public string CreatedBy { get; set; }
+
         [Required]
         public DateTime CreatedDate { get; set; }
+
         [Required]
         public string UpdatedBy { get; set; }
+
         [Required]
         public DateTime UpdatedDate { get; set; }
 

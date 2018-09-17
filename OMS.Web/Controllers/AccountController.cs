@@ -1,16 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using Newtonsoft.Json;
+using OMS.Core.Interface.Services;
+using OMS.Web.Extension;
+using OMS.Web.Models;
+using OMS.Web.Security;
+using System;
 using System.Web;
 using System.Web.Mvc;
-using OMS.Core.DTO;
-using OMS.Core.Interface.Services;
-using OMS.Web.Models;
-using OMS.Web.Extension;
 using System.Web.Security;
-using Newtonsoft.Json;
-using OMS.Web.Security;
-using DTO = OMS.Core.DTO;
 
 namespace OMS.Web.Controllers
 {
@@ -30,6 +26,33 @@ namespace OMS.Web.Controllers
         [OMSAuth]
         public virtual ActionResult Index()
         {
+            //var result = _userService.CreateUser(new Core.DTO.User
+            //{
+            //    Address = new Core.DTO.Address
+            //    {
+            //        AddressLineTwo = string.Empty,
+            //        AddressLineOne = string.Empty,
+            //        City = string.Empty,
+            //        CreatedBy = "admin",
+            //        CreatedDate = DateTime.UtcNow,
+            //        PostalCode = string.Empty,
+            //        UpdatedBy = "admin",
+            //        UpdatedDate = DateTime.UtcNow
+            //    },
+            //    Email = "fcebu@parachutesoftware.com",
+            //    FirstName = "Topan",
+            //    LastName = "Admin",
+            //    Gender = Core.Entities.Gender.Male,
+            //    IsActive = true,
+            //    MobileNumber = 7920364,
+            //    RoleId = 1,
+            //}, "admin");
+            //_accountService.CreateAccount(new Core.DTO.Account
+            //{
+            //    PasswordHash = "password",
+            //    UserName = "tpadmin",
+            //    UserID = 1
+            //}, "admin");
             return View();
         }
         [HttpPost]
@@ -43,10 +66,10 @@ namespace OMS.Web.Controllers
                     var serializableObject = new AppSerializeModal
                     {
                         UserId = result.Data.ID,
-                        Username = result.Data.UserName,
-                        Email = result.Data.User?.Email,
-                        FirstName = result.Data.User?.FirstName,
-                        LastName = result.Data.User?.LastName
+                        Username = result.Data.Username,
+                        Email = result.Data.Email,
+                        FirstName = result.Data.FirstName,
+                        LastName = result.Data.LastName
                     };
                     string userData = JsonConvert.SerializeObject(serializableObject);
                     FormsAuthenticationTicket authTicket = new FormsAuthenticationTicket(1, viewmodel.Username, DateTime.Now, DateTime.Now.AddMinutes(15), false, userData);

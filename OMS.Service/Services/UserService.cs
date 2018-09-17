@@ -1,14 +1,11 @@
-﻿using OMS.Core.Interface.Services;
+﻿using AutoMapper;
+using OMS.Core.Common;
+using OMS.Core.Interface.Repositories;
+using OMS.Core.Interface.Services;
 using System;
 using System.Collections.Generic;
-using AutoMapper;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Entities = OMS.Core.Entities;
-using OMS.Core.Interface.Repositories;
 using DTO = OMS.Core.DTO;
-using OMS.Core.Common;
+using Entities = OMS.Core.Entities;
 
 namespace OMS.Service.Services
 {
@@ -19,13 +16,12 @@ namespace OMS.Service.Services
         {
             _userRepo = userRepo;
         }
-        public DTO.Response<DTO.User> CreateUser(DTO.User user)
+        public DTO.Response<DTO.User> CreateUser(DTO.User user,string username)
         {
             DTO.Response<DTO.User> response = new DTO.Response<DTO.User>();
             try {
                 var userEntities = Mapper.Map<DTO.User, Entities.User>(user);
-                userEntities.account.Salt = Cryptography.CreateSalt();
-                userEntities.account.PasswordHash = Cryptography.HashString(userEntities.account.PasswordHash, userEntities.account.Salt);
+                userEntities.SetCreatedAudit(username);
                 _userRepo.Add(userEntities);
                 response.Success = true;
                 response.Data = user;

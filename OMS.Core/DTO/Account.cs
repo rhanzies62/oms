@@ -1,25 +1,26 @@
-﻿using OMS.Core.Interface.Entity;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace OMS.Core.DTO
 {
-    public class Account : IAudit
+    public class Account
     {
-        [Required]
+        [Key]
         public int ID { get; set; }
+
         [Required, StringLength(25)]
         public string UserName { get; set; }
-        [Required, StringLength(25)]
+
+        [Required]
         public string PasswordHash { get; set; }
+
         [Required]
         public int Status { get; set; }
+
         [Required]
         public string Salt { get; set; }
+
+        public int UserID { get; set; }
 
         public User User { get; set; }
 
@@ -31,7 +32,5 @@ namespace OMS.Core.DTO
         public string UpdatedBy { get; set; }
         [Required]
         public DateTime UpdatedDate { get; set; }
-
-
     }
 }
