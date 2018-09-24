@@ -1,10 +1,5 @@
 ﻿using OMS.Core.DTO;
 using OMS.Core.Interface.Services;
-using OMS.Web.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace OMS.Web.Controllers
@@ -20,7 +15,6 @@ namespace OMS.Web.Controllers
             _categoryService = categoryService;
         }
 
-        // GET: Product
         public virtual ActionResult Index()
         {
             return View();
@@ -37,8 +31,13 @@ namespace OMS.Web.Controllers
             return Json(result, JsonRequestBehavior.AllowGet);
         }
 
-        public virtual ActionResult CreateProduct()
+        public virtual ActionResult CreateProduct(int id = 0)
         {
+            if (id != 0)
+            {
+                var model = _productService.GetProductByID(id);
+                return View(model);
+            }
             return View();
         }
 

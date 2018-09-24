@@ -15,7 +15,7 @@ $(function () {
     var dom = {
         productFormValidator: null,
         productDt: null
-    }
+    };
 
     var methods = {
         initProductDT: function () {
@@ -55,15 +55,39 @@ $(function () {
                 common.populateDropdowns($('.categoryDrp'), data);
                 common.populateDropdowns($('#categoryDrpSearch'), data);
             });
+        },
+        initProductModal: function (url) {
+            Loader.show('Loading');
+            LoadModal(url, 'Add New Product', function () {
+                Loader.hide();
+                var $productForm = $('#productfrm');
+                $productForm.validate();
+                methods.loadCategories();
+                $('.btnSaveProduct').on('click', function (e) {
+                    if ($productForm.valid()) {
+                        e.preventDefault();
+                        Loader.show('Saving Product Please Wait');
+                        $.ajax({
+                            type: 'POST',
+                            url: $productForm.attr('action'),
+                            data: $productForm.serialize(),
+                            success: function (data) {
+                                Loader.hide();
+                                if (data.Success) {
+                                    $('#genericModal').modal('hide');
+                                    methods.initProductDT();
+                                } else {
+                                    common.displayAlert(element.$productForm, 'Error', data.ErrorMessage);
+                                }
+                            }
+                        });
+                    }
+                });
+            });
         }
     };
 
     methods.init();
-
-    element.$btnAddProduct.on('click', function () {
-        methods.loadCategories();
-        element.$productForm.find('input').val('');
-    });
 
     element.$txtProductSearch.on('keyup', function () {
         dom.productDt.search($(this).val()).draw();
@@ -76,16 +100,8 @@ $(function () {
     element.$productList.find('tbody')
         .on('click', 'tr', function () {
             var data = dom.productDt.row(this).data();
-            Loader.show('Retrieving Product Please Wait');
-            productController.GetProduct(data[0], function (data) {
-                Loader.hide();
-                $('#Name', element.$productForm).val(data.Name);
-                $('#Description', element.$productForm).val(data.Description);
-                $('#Price', element.$productForm).val(data.Price);
-                $('#CategoryID', element.$productForm).val(data.CategoryID);
-                $('#ID', element.$productForm).val(data.ID);
-                element.$newproductModal.modal('show');
-            });
+            var $btnAddNewProduct = $('.btnAddProduct');
+            methods.initProductModal($btnAddNewProduct.data('modal-url') + '/' + data[0]);
         })
         .on('click', '.btnDeleteProduct', function (e) {
             e.stopPropagation();
@@ -104,25 +120,7 @@ $(function () {
             }
         });
 
-    element.$newproductModal
-        .on('click', '.btnSaveProduct', function (e) {
-            if (element.$productForm.valid()) {
-                e.preventDefault();
-                Loader.show('Saving Product Please Wait');
-                $.ajax({
-                    type: 'POST',
-                    url: element.$productForm.attr('action'),
-                    data: element.$productForm.serialize(),
-                    success: function (data) {
-                        Loader.hide();
-                        if (data.Success) {
-                            element.$newproductModal.modal('hide');
-                            methods.initProductDT();
-                        } else {
-                            common.displayAlert(element.$productForm, 'Error', data.ErrorMessage);
-                        }
-                    }
-                });
-            }
-        });
+    $('.btnAddProduct').on('click', function () {
+        methods.initProductModal($(this).data('modal-url'));
+    });
 });

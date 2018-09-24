@@ -78,6 +78,6 @@ var Loader = {
     $loader.fadeIn(2000);
   },
   hide: function() {
-    $('#loader').fadeOut(2000, function() { $('#loader').remove() } );
+      $('#loader').remove();
   },
 };

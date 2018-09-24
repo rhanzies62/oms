@@ -14,10 +14,12 @@ namespace OMS.Service.Services
     public class AccountService : IAccountService
     {
         private readonly ICRUDRepository<Entities.Account> _accountRepo;
+
         public AccountService(ICRUDRepository<Entities.Account> accountRepo)
         {
             _accountRepo = accountRepo;
         }
+
         public Response<Account> CreateAccount(Account account, string username)
         {
             DTO.Response<DTO.Account> response = new DTO.Response<DTO.Account>();
@@ -89,6 +91,7 @@ namespace OMS.Service.Services
             return response;
 
         }
+
         public Response<Account> ChangeAccountPassword(Account account, string newPassword)
         {
             DTO.Response<DTO.Account> response = new DTO.Response<DTO.Account>();
@@ -166,6 +169,19 @@ namespace OMS.Service.Services
             }
             return response;
 
+        }
+
+        public Response<string> ValidateUsername(string username)
+        {
+            var result = new Response<string>();
+            result.Success = true;
+            var query = _accountRepo.GetSingle(i => i.UserName == username);
+            if(query != null)
+            {
+                result.Success = false;
+                result.ErrorMessage = OMSResource.ErrMsgUserNameAlreadyExist;
+            }
+            return result;
         }
     }
 }

@@ -1,14 +1,12 @@
-﻿using OMS.Core.Interface.Services;
+﻿using AutoMapper;
+using OMS.Core.Interface.Repositories;
+using OMS.Core.Interface.Services;
+using OMS.Web.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Entities = OMS.Core.Entities;
 using DTO = OMS.Core.DTO;
-using AutoMapper;
-using OMS.Core.Interface.Repositories;
-using OMS.Web.Models;
+using Entities = OMS.Core.Entities;
 
 namespace OMS.Service.Services
 {

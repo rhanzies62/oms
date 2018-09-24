@@ -24,7 +24,7 @@ namespace OMS.Service.Services
                 userEntities.SetCreatedAudit(username);
                 _userRepo.Add(userEntities);
                 response.Success = true;
-                response.Data = user;
+                response.Data = Mapper.Map<Entities.User,DTO.User>(userEntities);
             }
             catch (Exception e) {
                 response.ErrorMessage = e.GetBaseException().Message;

@@ -205,12 +205,10 @@ namespace OMS.Web.Controllers
                 public readonly string CreateCategory = "CreateCategory";
                 public readonly string CreateProducts = "CreateProducts";
                 public readonly string CreateRole = "CreateRole";
-                public readonly string CreateUser = "CreateUser";
                 public readonly string CreateVariants = "CreateVariants";
                 public readonly string Employee = "Employee";
                 public readonly string Index = "Index";
                 public readonly string Products = "Products";
-                public readonly string Role = "Role";
                 public readonly string Variants = "Variants";
             }
             public readonly string _ViewStart = "~/Views/Admin/_ViewStart.cshtml";
@@ -220,12 +218,10 @@ namespace OMS.Web.Controllers
             public readonly string CreateCategory = "~/Views/Admin/CreateCategory.cshtml";
             public readonly string CreateProducts = "~/Views/Admin/CreateProducts.cshtml";
             public readonly string CreateRole = "~/Views/Admin/CreateRole.cshtml";
-            public readonly string CreateUser = "~/Views/Admin/CreateUser.cshtml";
             public readonly string CreateVariants = "~/Views/Admin/CreateVariants.cshtml";
             public readonly string Employee = "~/Views/Admin/Employee.cshtml";
             public readonly string Index = "~/Views/Admin/Index.cshtml";
             public readonly string Products = "~/Views/Admin/Products.cshtml";
-            public readonly string Role = "~/Views/Admin/Role.cshtml";
             public readonly string Variants = "~/Views/Admin/Variants.cshtml";
         }
     }

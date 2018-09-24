@@ -1,7 +1,7 @@
-﻿/// <reference path="../../jquery-1.10.2.min.js" />
-/// <reference path="../../jquery.validate.js" />
-/// <reference path="../../jquery.datatables.js" />
-/// <reference path="../../common/common.js" />
+﻿/// <reference path="../jquery-1.10.2.min.js" />
+/// <reference path="../jquery.validate.js" />
+/// <reference path="../jquery.datatables.js" />
+/// <reference path="../common/common.js" />
 $(function () {
     var element = {
         $loginForm: $('#loginForm')
@@ -27,7 +27,6 @@ $(function () {
                     url: element.$loginForm.attr('action'),
                     data: element.$loginForm.serialize(),
                     success: function (data) {
-                        Loader.hide();
                         if (data.Success) {
                             window.location.reload();
                         } else {

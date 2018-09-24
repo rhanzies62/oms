@@ -17,10 +17,8 @@ namespace OMS.Core.Entities
         [Required, StringLength(25)]
         public string LastName { get; set; }
 
-        [Required]
-        public int MobileNumber { get; set; }
+        public string MobileNumber { get; set; }
 
-        [Required]
         public string Email { get; set; }
 
         [Required]

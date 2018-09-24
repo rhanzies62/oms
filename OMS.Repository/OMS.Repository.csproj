@@ -77,6 +77,14 @@
     <Compile Include="Migrations\201809141046046_requiredaddressfix.Designer.cs">
       <DependentUpon>201809141046046_requiredaddressfix.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201809171016538_remove required fields.cs" />
+    <Compile Include="Migrations\201809171016538_remove required fields.Designer.cs">
+      <DependentUpon>201809171016538_remove required fields.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809171018174_mobilenumberupdate.cs" />
+    <Compile Include="Migrations\201809171018174_mobilenumberupdate.Designer.cs">
+      <DependentUpon>201809171018174_mobilenumberupdate.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="OMSContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -116,6 +124,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201809141046046_requiredaddressfix.resx">
       <DependentUpon>201809141046046_requiredaddressfix.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809171016538_remove required fields.resx">
+      <DependentUpon>201809171016538_remove required fields.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809171018174_mobilenumberupdate.resx">
+      <DependentUpon>201809171018174_mobilenumberupdate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

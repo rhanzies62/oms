@@ -1,15 +1,11 @@
-﻿using System;
+﻿using OMS.Core.DTO;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using OMS.Core.DTO;
 
 namespace OMS.Core.Interface.Services
 {
     public interface IRoleService
     {
-        IEnumerable<Role> ListRoles();
+        IEnumerable<DTO.SelectListDto> ListRoles();
 
         Response<Role> CreateRole(Role Role);
 

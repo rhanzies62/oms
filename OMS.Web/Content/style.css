@@ -78,3 +78,7 @@ footer.page-footer {
         left: 50%;
         /*margin-left: -175px;*/
     }
+
+    .error{
+        color:red;
+    }

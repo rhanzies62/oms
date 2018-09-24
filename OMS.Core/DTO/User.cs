@@ -1,4 +1,5 @@
 ﻿using OMS.Core.Entities;
+using System;
 using System.ComponentModel.DataAnnotations;
 
 namespace OMS.Core.DTO
@@ -14,10 +15,8 @@ namespace OMS.Core.DTO
         [Required, StringLength(25)]
         public string LastName { get; set; }
 
-        [Required]
-        public int MobileNumber { get; set; }
+        public string MobileNumber { get; set; }
 
-        [Required]
         public string Email { get; set; }
 
         [Required]
@@ -35,5 +34,16 @@ namespace OMS.Core.DTO
 
         public Role Role { get; set; }
 
+        [Required]
+        public string CreatedBy { get; set; }
+
+        [Required]
+        public DateTime CreatedDate { get; set; }
+
+        [Required]
+        public string UpdatedBy { get; set; }
+
+        [Required]
+        public DateTime UpdatedDate { get; set; }
     }
 }

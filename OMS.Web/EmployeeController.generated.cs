@@ -28,9 +28,6 @@ namespace OMS.Web.Controllers
     public partial class EmployeeController
     {
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-        public EmployeeController() { }
-
-        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
         protected EmployeeController(Dummy d) { }
 
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
@@ -76,15 +73,28 @@ namespace OMS.Web.Controllers
         public class ActionNamesClass
         {
             public readonly string Index = "Index";
+            public readonly string CreateNewEmployee = "CreateNewEmployee";
+            public readonly string GetRoles = "GetRoles";
         }
 
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
         public class ActionNameConstants
         {
             public const string Index = "Index";
+            public const string CreateNewEmployee = "CreateNewEmployee";
+            public const string GetRoles = "GetRoles";
         }
 
 
+        static readonly ActionParamsClass_CreateNewEmployee s_params_CreateNewEmployee = new ActionParamsClass_CreateNewEmployee();
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public ActionParamsClass_CreateNewEmployee CreateNewEmployeeParams { get { return s_params_CreateNewEmployee; } }
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public class ActionParamsClass_CreateNewEmployee
+        {
+            public readonly string id = "id";
+            public readonly string model = "model";
+        }
         static readonly ViewsClass s_views = new ViewsClass();
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
         public ViewsClass Views { get { return s_views; } }
@@ -95,8 +105,10 @@ namespace OMS.Web.Controllers
             public _ViewNamesClass ViewNames { get { return s_ViewNames; } }
             public class _ViewNamesClass
             {
+                public readonly string CreateNewEmployee = "CreateNewEmployee";
                 public readonly string Index = "Index";
             }
+            public readonly string CreateNewEmployee = "~/Views/Employee/CreateNewEmployee.cshtml";
             public readonly string Index = "~/Views/Employee/Index.cshtml";
         }
     }
@@ -114,6 +126,41 @@ namespace OMS.Web.Controllers
         {
             var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.Index);
             IndexOverride(callInfo);
+            return callInfo;
+        }
+
+        [NonAction]
+        partial void CreateNewEmployeeOverride(T4MVC_System_Web_Mvc_ActionResult callInfo, int id);
+
+        [NonAction]
+        public override System.Web.Mvc.ActionResult CreateNewEmployee(int id)
+        {
+            var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.CreateNewEmployee);
+            ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "id", id);
+            CreateNewEmployeeOverride(callInfo, id);
+            return callInfo;
+        }
+
+        [NonAction]
+        partial void CreateNewEmployeeOverride(T4MVC_System_Web_Mvc_JsonResult callInfo, OMS.Web.Models.EmployeeViewModel model);
+
+        [NonAction]
+        public override System.Web.Mvc.JsonResult CreateNewEmployee(OMS.Web.Models.EmployeeViewModel model)
+        {
+            var callInfo = new T4MVC_System_Web_Mvc_JsonResult(Area, Name, ActionNames.CreateNewEmployee);
+            ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "model", model);
+            CreateNewEmployeeOverride(callInfo, model);
+            return callInfo;
+        }
+
+        [NonAction]
+        partial void GetRolesOverride(T4MVC_System_Web_Mvc_JsonResult callInfo);
+
+        [NonAction]
+        public override System.Web.Mvc.JsonResult GetRoles()
+        {
+            var callInfo = new T4MVC_System_Web_Mvc_JsonResult(Area, Name, ActionNames.GetRoles);
+            GetRolesOverride(callInfo);
             return callInfo;
         }
 

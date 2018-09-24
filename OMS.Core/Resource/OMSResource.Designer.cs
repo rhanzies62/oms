@@ -61,6 +61,15 @@ namespace OMS.Core.Resource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Username aleady exists.
+        /// </summary>
+        public static string ErrMsgUserNameAlreadyExist {
+            get {
+                return ResourceManager.GetString("ErrMsgUserNameAlreadyExist", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to User not found.
         /// </summary>
         public static string ErrMsgUserNotFound {

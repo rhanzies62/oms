@@ -119,6 +119,7 @@ namespace OMS.Web.Controllers
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
         public class ActionParamsClass_CreateProduct
         {
+            public readonly string id = "id";
             public readonly string product = "product";
         }
         static readonly ActionParamsClass_GetProduct s_params_GetProduct = new ActionParamsClass_GetProduct();
@@ -185,13 +186,14 @@ namespace OMS.Web.Controllers
         }
 
         [NonAction]
-        partial void CreateProductOverride(T4MVC_System_Web_Mvc_ActionResult callInfo);
+        partial void CreateProductOverride(T4MVC_System_Web_Mvc_ActionResult callInfo, int id);
 
         [NonAction]
-        public override System.Web.Mvc.ActionResult CreateProduct()
+        public override System.Web.Mvc.ActionResult CreateProduct(int id)
         {
             var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.CreateProduct);
-            CreateProductOverride(callInfo);
+            ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "id", id);
+            CreateProductOverride(callInfo, id);
             return callInfo;
         }
 

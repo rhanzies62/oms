@@ -98,6 +98,7 @@ namespace Links
             public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(UrlPath + "/" + fileName); }
             public static readonly string account_index_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(UrlPath + "/account.index.min.js") ? Url("account.index.min.js") : Url("account.index.js");
             public static readonly string category_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(UrlPath + "/category.min.js") ? Url("category.min.js") : Url("category.js");
+            public static readonly string employee_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(UrlPath + "/employee.min.js") ? Url("employee.min.js") : Url("employee.js");
             public static readonly string product_index_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(UrlPath + "/product.index.min.js") ? Url("product.index.min.js") : Url("product.index.js");
         }
     
@@ -109,6 +110,7 @@ namespace Links
             public static string Url() { return T4MVCHelpers.ProcessVirtualPath(UrlPath); }
             public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(UrlPath + "/" + fileName); }
             public static readonly string common_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(UrlPath + "/common.min.js") ? Url("common.min.js") : Url("common.js");
+            public static readonly string modalLoader_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(UrlPath + "/modalLoader.min.js") ? Url("modalLoader.min.js") : Url("modalLoader.js");
         }
     
         public static readonly string Custom_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(UrlPath + "/Custom.min.js") ? Url("Custom.min.js") : Url("Custom.js");
@@ -148,6 +150,7 @@ namespace Links
             public static readonly string background2_jpg = Url("background2.jpg");
             public static readonly string background3_jpg = Url("background3.jpg");
             public static readonly string bg2_jpg = Url("bg2.jpg");
+            public static readonly string loader_gif = Url("loader.gif");
             public static readonly string logo_png = Url("logo.png");
             public static readonly string wood_jpg = Url("wood.jpg");
         }
@@ -171,6 +174,7 @@ namespace Links
                 {
                     public static readonly string account_index_js = T4MVCHelpers.ProcessAssetPath("~/Scripts/appscript/account.index.js"); 
                     public static readonly string category_js = T4MVCHelpers.ProcessAssetPath("~/Scripts/appscript/category.js"); 
+                    public static readonly string employee_js = T4MVCHelpers.ProcessAssetPath("~/Scripts/appscript/employee.js"); 
                     public static readonly string product_index_js = T4MVCHelpers.ProcessAssetPath("~/Scripts/appscript/product.index.js"); 
                 }
             }
@@ -179,6 +183,7 @@ namespace Links
                 public static class Assets
                 {
                     public static readonly string common_js = T4MVCHelpers.ProcessAssetPath("~/Scripts/common/common.js"); 
+                    public static readonly string modalLoader_js = T4MVCHelpers.ProcessAssetPath("~/Scripts/common/modalLoader.js"); 
                 }
             }
             public static class Assets

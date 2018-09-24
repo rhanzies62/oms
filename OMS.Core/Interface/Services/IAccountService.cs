@@ -18,5 +18,7 @@ namespace OMS.Core.Interface.Services
         Response<Account> ChangeAccountPassword(Account account,string newPassword);
 
         Response<LoginResult> LoginAccount(Account account);
+
+        Response<string> ValidateUsername(string username);
     }
 }

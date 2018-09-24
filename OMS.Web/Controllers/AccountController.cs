@@ -19,7 +19,6 @@ namespace OMS.Web.Controllers
 
             _accountService = accountService;
             _userService = userService;
-
         }
 
         // GET: Account

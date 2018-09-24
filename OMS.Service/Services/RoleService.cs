@@ -1,20 +1,18 @@
-﻿using OMS.Core.Interface;
+﻿using AutoMapper;
 using OMS.Core.Interface.Repositories;
+using OMS.Core.Interface.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Entities = OMS.Core.Entities;
 using DTO = OMS.Core.DTO;
-using AutoMapper;
-using OMS.Core.Interface.Services;
+using Entities = OMS.Core.Entities;
 
 namespace OMS.Service.Services
 {
     public class RoleService : IRoleService
     {
         private readonly ICRUDRepository<Entities.Role> _roleRepo;
+
         public RoleService(ICRUDRepository<Entities.Role> roleRepo)
         {
             _roleRepo = roleRepo;
@@ -45,9 +43,13 @@ namespace OMS.Service.Services
             return Mapper.Map<Entities.Role, DTO.Role>(_roleRepo.GetSingle(u => u.ID.Equals(roleID)));
         }
 
-        public IEnumerable<DTO.Role> ListRoles()
+        public IEnumerable<DTO.SelectListDto> ListRoles()
         {
-            return Mapper.Map<IEnumerable<Entities.Role>, IEnumerable<DTO.Role>>(_roleRepo.GetAll());
+            var roles = _roleRepo.GetAll().Select(i => new DTO.SelectListDto {
+                 Text = i.Name,
+                  Value = i.ID.ToString()
+            });
+            return roles;
         }
 
         public DTO.Response<DTO.Role> RemoveRole(int roleID)
