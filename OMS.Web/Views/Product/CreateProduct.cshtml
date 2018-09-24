@@ -44,7 +44,7 @@
                 <div class="form-group">
                     @Html.LabelFor(model => model.CategoryID, htmlAttributes: new { @class = "control-label col-md-2 text1" })
                     <div class="col-md-10">
-                        @Html.DropDownListFor(model => model.CategoryID, Enumerable.Empty<SelectListItem>(), "-Please Select-", new { @class = "form-control categoryDrp", @required = true, @data_value=Model.CategoryID })
+                        @Html.DropDownListFor(model => model.CategoryID, Enumerable.Empty<SelectListItem>(), "-Please Select-", new { @class = "form-control categoryDrp", @required = true, @data_value=Model?.CategoryID })
                         @Html.ValidationMessageFor(model => model.CategoryID, "", new { @class = "text-danger" })
                     </div>
                 </div>
