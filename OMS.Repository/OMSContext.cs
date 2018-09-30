@@ -28,6 +28,7 @@ namespace OMS.Repository
         public DbSet<ProductVariant> ProductVariants { get; set; }
         public DbSet<VariantOption> VariantOptions { get; set; }
         public DbSet<Account> Accounts { get; set; }
+        public DbSet<Address> Addresses { get; set; }
 
     }
 }

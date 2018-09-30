@@ -1,4 +1,6 @@
-﻿using OMS.Core.Interface.Services;
+﻿using OMS.Core.DTO;
+using OMS.Core.Entities;
+using OMS.Core.Interface.Services;
 using OMS.Web.Extension;
 using OMS.Web.Models;
 using System.Web.Mvc;
@@ -11,7 +13,7 @@ namespace OMS.Web.Controllers
         private readonly IAccountService _accountService;
         private readonly IUserService _userService;
         private readonly IRoleService _roleSevice;
-        public EmployeeController(IAccountService accountService, 
+        public EmployeeController(IAccountService accountService,
                                   IUserService userService,
                                   IRoleService roleSevice)
         {
@@ -57,6 +59,24 @@ namespace OMS.Web.Controllers
         public virtual JsonResult GetRoles()
         {
             return Json(_roleSevice.ListRoles(), JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpPost]
+        public virtual JsonResult ListEmployee(string search = "", EmployeeFilterType filterType = EmployeeFilterType.AllUsers)
+        {
+            var start = Request.Params["start"];
+            var length = Request.Params["length"];
+            var draw = Request.Params["draw"];
+
+            var result = _userService.ListUsers(new EmployeeFilter()
+            {
+                Take = int.Parse(length),
+                Skip = int.Parse(start),
+                FilterType = filterType,
+                Query = search
+            });
+            result.draw = int.Parse(draw);
+            return Json(result);
         }
     }
 }
