@@ -89,6 +89,7 @@
     <Compile Include="OMSContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\CRUDRepository.cs" />
+    <Compile Include="Repositories\UserQueryRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Coding Standard.txt" />

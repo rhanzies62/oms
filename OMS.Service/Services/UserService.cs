@@ -2,6 +2,7 @@
 using OMS.Core.Common;
 using OMS.Core.Interface.Repositories;
 using OMS.Core.Interface.Services;
+using OMS.Web.Models;
 using System;
 using System.Collections.Generic;
 using DTO = OMS.Core.DTO;
@@ -12,9 +13,12 @@ namespace OMS.Service.Services
     public class UserService : IUserService
     {
         private ICRUDRepository<Entities.User> _userRepo;
-        public UserService(ICRUDRepository<Entities.User> userRepo)
+        private IUserQueryRepository _userQueryRepository;
+        public UserService(ICRUDRepository<Entities.User> userRepo,
+                           IUserQueryRepository userQueryRepository)
         {
             _userRepo = userRepo;
+            _userQueryRepository = userQueryRepository;
         }
         public DTO.Response<DTO.User> CreateUser(DTO.User user,string username)
         {
@@ -42,6 +46,11 @@ namespace OMS.Service.Services
         public IEnumerable<DTO.User> ListUsers(bool isActive)
         {
             return Mapper.Map<IEnumerable<Entities.User>,IEnumerable<DTO.User>>(_userRepo.GetList(u => u.IsActive.Equals(isActive)));
+        }
+
+        public DataTableResult ListUsers(DTO.EmployeeFilter filter)
+        {
+            return _userQueryRepository.ListEmployee(filter);
         }
 
         public DTO.Response<DTO.User> RemoveUser(int userID)

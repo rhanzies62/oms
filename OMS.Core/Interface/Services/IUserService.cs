@@ -1,4 +1,5 @@
 ﻿using OMS.Core.DTO;
+using OMS.Web.Models;
 using System.Collections.Generic;
 
 namespace OMS.Core.Interface.Services
@@ -14,5 +15,7 @@ namespace OMS.Core.Interface.Services
         Response<User> RemoveUser(int userID);
 
         User GetUserByID(int userID,bool isActive);
+
+        DataTableResult ListUsers(DTO.EmployeeFilter filter);
     }
 }
