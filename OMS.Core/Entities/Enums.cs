@@ -25,6 +25,15 @@ namespace OMS.Core.Entities
         [Description("Options")]
         Options
     }
+    public enum EmployeeFilterType
+    {
+        [Description("All Users")]
+        AllUsers,
+        [Description("Active")]
+        Active,
+        [Description("In Active")]
+        InActive
+    }
 
 
 }

@@ -62,6 +62,8 @@
     <Compile Include="DTO\Address.cs" />
     <Compile Include="DTO\Customer.cs" />
     <Compile Include="DTO\DataTableResult.cs" />
+    <Compile Include="DTO\Employee.cs" />
+    <Compile Include="DTO\EmployeeFilter.cs" />
     <Compile Include="DTO\LoginResult.cs" />
     <Compile Include="DTO\Order.cs" />
     <Compile Include="DTO\Product.cs" />
@@ -73,6 +75,7 @@
     <Compile Include="Entities\Stock.cs" />
     <Compile Include="Entities\Supplier.cs" />
     <Compile Include="Entities\VariantOption.cs" />
+    <Compile Include="Interface\Repositories\IUserQueryRepository.cs" />
     <Compile Include="Interface\Services\IAddressService.cs" />
     <Compile Include="Interface\Services\IOrderService.cs" />
     <Compile Include="Interface\Services\IProductService.cs" />

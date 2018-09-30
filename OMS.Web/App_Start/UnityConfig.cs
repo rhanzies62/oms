@@ -1,14 +1,11 @@
+using OMS.Core.Entities;
+using OMS.Core.Interface.Repositories;
 using OMS.Core.Interface.Services;
+using OMS.Repository.Repositories;
 using OMS.Service.Services;
 using System.Web.Http;
 using System.Web.Mvc;
 using Unity;
-using Unity.WebApi;
-using OMS.Core.Interface.Repositories;
-using OMS.Core.Entities;
-using OMS.Repository.Repositories;
-using DTO = OMS.Core.DTO;
-using Entities = OMS.Core.Entities;
 
 
 namespace OMS.Web
@@ -34,7 +31,7 @@ namespace OMS.Web
             container.RegisterType<ICRUDRepository<User>, CRUDRepository<User>>();
             container.RegisterType<ICRUDRepository<Role>, CRUDRepository<Role>>();
             container.RegisterType<ICRUDRepository<Account>, CRUDRepository<Account>>();
-
+            container.RegisterType<IUserQueryRepository, UserQueryRepository>();
 
 
             DependencyResolver.SetResolver(new Unity.Mvc5.UnityDependencyResolver(container));
