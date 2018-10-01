@@ -14,9 +14,9 @@ namespace OMS.Test.UserService
         private readonly IUserService userService;
         public CreateUserTest()
         {
+            var context = new OMSContext();
             userService = new OMS.Service.Services.UserService(
-                new CRUDRepository<OMS.Core.Entities.User>(
-                    new OMSContext()));
+                new CRUDRepository<OMS.Core.Entities.User>(context),new UserQueryRepository(context));
         }
 
         [TestMethod]
