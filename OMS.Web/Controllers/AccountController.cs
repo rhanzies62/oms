@@ -54,6 +54,7 @@ namespace OMS.Web.Controllers
             //}, "admin");
             return View();
         }
+
         [HttpPost]
         public virtual JsonResult Index(UserCredentialViewModel viewmodel)
         {
@@ -81,6 +82,15 @@ namespace OMS.Web.Controllers
                 return Json(result);
             }
             return Json(true);
+        }
+
+        public virtual ActionResult Logout()
+        {
+            if (Request.Cookies[FormsAuthentication.FormsCookieName] != null)
+            {
+                FormsAuthentication.SignOut();
+            }
+            return RedirectToAction(AccountController.ActionNameConstants.Index);
         }
     }
 }

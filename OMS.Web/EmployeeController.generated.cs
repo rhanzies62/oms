@@ -75,6 +75,7 @@ namespace OMS.Web.Controllers
             public readonly string Index = "Index";
             public readonly string CreateNewEmployee = "CreateNewEmployee";
             public readonly string GetRoles = "GetRoles";
+            public readonly string ListEmployee = "ListEmployee";
         }
 
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
@@ -83,6 +84,7 @@ namespace OMS.Web.Controllers
             public const string Index = "Index";
             public const string CreateNewEmployee = "CreateNewEmployee";
             public const string GetRoles = "GetRoles";
+            public const string ListEmployee = "ListEmployee";
         }
 
 
@@ -94,6 +96,15 @@ namespace OMS.Web.Controllers
         {
             public readonly string id = "id";
             public readonly string model = "model";
+        }
+        static readonly ActionParamsClass_ListEmployee s_params_ListEmployee = new ActionParamsClass_ListEmployee();
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public ActionParamsClass_ListEmployee ListEmployeeParams { get { return s_params_ListEmployee; } }
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public class ActionParamsClass_ListEmployee
+        {
+            public readonly string search = "search";
+            public readonly string filterType = "filterType";
         }
         static readonly ViewsClass s_views = new ViewsClass();
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
@@ -161,6 +172,19 @@ namespace OMS.Web.Controllers
         {
             var callInfo = new T4MVC_System_Web_Mvc_JsonResult(Area, Name, ActionNames.GetRoles);
             GetRolesOverride(callInfo);
+            return callInfo;
+        }
+
+        [NonAction]
+        partial void ListEmployeeOverride(T4MVC_System_Web_Mvc_JsonResult callInfo, string search, OMS.Core.Entities.EmployeeFilterType filterType);
+
+        [NonAction]
+        public override System.Web.Mvc.JsonResult ListEmployee(string search, OMS.Core.Entities.EmployeeFilterType filterType)
+        {
+            var callInfo = new T4MVC_System_Web_Mvc_JsonResult(Area, Name, ActionNames.ListEmployee);
+            ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "search", search);
+            ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "filterType", filterType);
+            ListEmployeeOverride(callInfo, search, filterType);
             return callInfo;
         }
 
