@@ -1,11 +1,13 @@
 ﻿using AutoMapper;
 using OMS.Core.Interface.Repositories;
 using OMS.Core.Interface.Services;
+using OMS.Web.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using DTO = OMS.Core.DTO;
 using Entities = OMS.Core.Entities;
+
 
 namespace OMS.Service.Services
 {
@@ -17,6 +19,10 @@ namespace OMS.Service.Services
         {
             _roleRepo = roleRepo;
         }
+
+        
+
+
 
         public DTO.Response<DTO.Role> CreateRole(DTO.Role Role)
         {
@@ -37,6 +43,20 @@ namespace OMS.Service.Services
             return role;
 
         }
+
+        public DataTableResult ListRole(int take, int skip)
+        {
+            var allCategories = _roleRepo.GetAll();
+            var result = allCategories.Skip(skip).Take(take).Select(i => new DTO.Category
+            {
+                ID = i.ID,
+                Name = i.Name,
+                Description = i.Description
+            });
+            return new DataTableResult(result, allCategories.Count());
+        }
+
+
 
         public DTO.Role GetRoleByID(int roleID)
         {

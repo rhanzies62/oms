@@ -84,6 +84,72 @@ namespace OMS.Web.Controllers
             return Json(result, JsonRequestBehavior.AllowGet);
         }
 
+        [HttpGet]
+        public virtual ActionResult ListRole()
+        {
+            var start = Request.Params["start"];
+            var length = Request.Params["length"];
+            var draw = Request.Params["draw"];
+            var result = _roleService.ListRole(int.Parse(length), int.Parse(start));
+            result.draw = int.Parse(draw);
+            return Json(result, JsonRequestBehavior.AllowGet);
+        }
+
+
+
+
+
+        public virtual ActionResult CreateRole()
+        {
+
+            var varlist = _roleService.ListRoles();
+            SelectList list = new SelectList(varlist, "ID", "Name", 1);
+            ViewBag.rolelist = list;
+
+
+            return View();
+
+
+
+        }
+
+        [HttpPost]
+        public virtual JsonResult CreateRole(Role role)
+        {
+            role.CreatedBy = appUser.Username;
+            role.UpdatedBy = appUser.Username;
+            Response<Role> response;
+            if (role.ID == 0)
+            {
+                response = _roleService.CreateRole(role);
+            }
+            else
+            {
+                response = _roleService.UpdateRole(role);
+            }
+            return Json(response);
+        }
+
+
+
+
+
+
+        [HttpGet]
+        public virtual JsonResult GetRole(int id)
+        {
+            return Json(_roleService.GetRoleByID(id), JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpGet]
+        public virtual JsonResult DeleteRole(int id)
+        {
+            return Json(_roleService.RemoveRole(id), JsonRequestBehavior.AllowGet);
+        }
+
+        
+
+
         public virtual ActionResult CreateCategory()
         {
 
@@ -114,6 +180,10 @@ namespace OMS.Web.Controllers
             }
             return Json(response);
         }
+
+
+
+
 
         [HttpGet]
         public virtual JsonResult GetCategory(int id)
@@ -168,45 +238,7 @@ namespace OMS.Web.Controllers
 
         }
 
-        public virtual ActionResult Role()
-        {
-
-
-
-            var listRole = _roleService.ListRoles();
-
-
-
-
-
-            return View(_roleService.ListRoles());
-
-        }
-
-
-        public virtual ActionResult CreateRole()
-        {
-
-            return View();
-
-        }
-
-        [HttpPost]
-        public virtual ActionResult CreateRole(Role role)
-        {
-
-            Response<Role> response = _roleService.CreateRole(role);
-            if (response.Success.Equals(true))
-            {
-                ViewBag.Message = "Successfully Added";
-            }
-            else
-            {
-                ViewBag.Message = response.ErrorMessage;
-            }
-            return View();
-
-        }
+        
 
 
         public virtual ActionResult CreateUser()
