@@ -73,12 +73,14 @@ namespace OMS.Web.Controllers
         public class ActionNamesClass
         {
             public readonly string Index = "Index";
+            public readonly string Logout = "Logout";
         }
 
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
         public class ActionNameConstants
         {
             public const string Index = "Index";
+            public const string Logout = "Logout";
         }
 
 
@@ -133,6 +135,17 @@ namespace OMS.Web.Controllers
             var callInfo = new T4MVC_System_Web_Mvc_JsonResult(Area, Name, ActionNames.Index);
             ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "viewmodel", viewmodel);
             IndexOverride(callInfo, viewmodel);
+            return callInfo;
+        }
+
+        [NonAction]
+        partial void LogoutOverride(T4MVC_System_Web_Mvc_ActionResult callInfo);
+
+        [NonAction]
+        public override System.Web.Mvc.ActionResult Logout()
+        {
+            var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.Logout);
+            LogoutOverride(callInfo);
             return callInfo;
         }
 
