@@ -35,5 +35,8 @@ namespace OMS.Web.Models
         public string UserName { get; set; }
 
         public string Password { get; set; }
+
+        [DisplayName("Confirm Password")]
+        public string ConfirmPassword { get; set; }
     }
 }

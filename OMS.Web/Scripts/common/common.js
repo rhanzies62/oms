@@ -44,22 +44,28 @@ var productController = {
     GetCategory: function (callback) {
         serviceCaller.get('/product/GetCategory', callback);
     },
-    GetProduct: function (id,callback) {
+    GetProduct: function (id, callback) {
         serviceCaller.get('/product/GetProduct/' + id, callback);
     },
     RemoveProduct: function (id, callback) {
         serviceCaller.get('/product/RemoveProduct/' + id, callback);
     }
-}
+};
 
 var categoryController = {
-    GetCategory: function (id,callback) {
+    GetCategory: function (id, callback) {
         serviceCaller.get('/admin/GetCategory/' + id, callback);
     },
     DeleteCategory: function (id, callback) {
         serviceCaller.get('/admin/DeleteCategory/' + id, callback);
     }
-}
+};
+
+var employeeController = {
+    GetRoles: function (callback) {
+        serviceCaller.get('/employee/GetRoles', callback);
+    }
+};
 
 var Loader = {
 

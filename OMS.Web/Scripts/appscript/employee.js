@@ -2,7 +2,7 @@
     var element = {
         $employeeList: $('#employeeList'),
         $txtEmployeeSearch: $('#txtEmployeeSearch'),
-        $activeDrpSearch: $('#activeDrpSearch')
+        $activeDrpSearch: $('#activeDrpSearch'),
     };
 
     var dom = {
@@ -58,6 +58,53 @@
             Loader.show('Loading');
             LoadModal(url,'Add New Employee', function () {
                 Loader.hide();
+                $employeefrm = $('#employeefrm');
+                $employeefrm.validate({
+                    rules: {
+                        Password: {
+                            required: true,
+                            equalTo: "#ConfirmPassword"
+                        },
+                        ConfirmPassword: {
+                            required: true,
+                            equalTo: "#Password"
+                        }
+                    },
+                    messages: {
+                        Password: {
+                            equalTo: 'Password mismatch.'
+                        },
+                        ConfirmPassword: {
+                            equalTo: 'Password mismatch.'
+                        }
+                    }
+                });
+                methods.loadRoles();
+                $('.btnSaveEmployee').on('click', function (e) {
+                    if ($employeefrm.valid()) {
+                        e.preventDefault();
+                        Loader.show('Saving Product Please Wait');
+                        $.ajax({
+                            type: 'POST',
+                            url: $employeefrm.attr('action'),
+                            data: $employeefrm.serialize(),
+                            success: function (data) {
+                                Loader.hide();
+                                if (data.Success) {
+                                    $('#genericModal').modal('hide');
+                                    methods.initEmployeeDT();
+                                } else {
+                                    common.displayAlert($employeefrm, 'Error', data.ErrorMessage);
+                                }
+                            }
+                        });
+                    }
+                });
+            });
+        },
+        loadRoles: function () {
+            employeeController.GetRoles(function (data) {
+                common.populateDropdowns($('#RoleId'),data);
             });
         }
     };
