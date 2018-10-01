@@ -30,6 +30,7 @@ $(function () {
                         if (data.Success) {
                             window.location.reload();
                         } else {
+                            Loader.hide();
                             common.displayAlert(element.$loginForm,'Error', data.ErrorMessage);
                         }
                     }
