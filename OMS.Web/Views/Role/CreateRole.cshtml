@@ -22,8 +22,8 @@
                 <h4 class="panel-title">Add New Role</h4>
             </div>
             <div class="panel-body">
-                @using (Html.BeginForm(AdminController.ActionNameConstants.CreateRole,
-                                       AdminController.NameConst,
+                @using (Html.BeginForm(RoleController.ActionNameConstants.CreateRole,
+                                       RoleController.NameConst,
                                        FormMethod.Post,
                                        new { @id = "roleForm" }))
                 {

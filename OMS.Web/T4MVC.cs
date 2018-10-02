@@ -33,6 +33,7 @@ public static partial class MVC
     public static OMS.Web.Controllers.HomeController Home = new OMS.Web.Controllers.T4MVC_HomeController();
     public static OMS.Web.Controllers.OrderController Order = new OMS.Web.Controllers.T4MVC_OrderController();
     public static OMS.Web.Controllers.ProductController Product = new OMS.Web.Controllers.T4MVC_ProductController();
+    public static OMS.Web.Controllers.RoleController Role = new OMS.Web.Controllers.T4MVC_RoleController();
     public static T4MVC.SharedController Shared = new T4MVC.SharedController();
 }
 
@@ -100,6 +101,7 @@ namespace Links
             public static readonly string category_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(UrlPath + "/category.min.js") ? Url("category.min.js") : Url("category.js");
             public static readonly string employee_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(UrlPath + "/employee.min.js") ? Url("employee.min.js") : Url("employee.js");
             public static readonly string product_index_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(UrlPath + "/product.index.min.js") ? Url("product.index.min.js") : Url("product.index.js");
+            public static readonly string role_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(UrlPath + "/role.min.js") ? Url("role.min.js") : Url("role.js");
         }
     
         public static readonly string bootstrap_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(UrlPath + "/bootstrap.min.js") ? Url("bootstrap.min.js") : Url("bootstrap.js");
@@ -176,6 +178,7 @@ namespace Links
                     public static readonly string category_js = T4MVCHelpers.ProcessAssetPath("~/Scripts/appscript/category.js"); 
                     public static readonly string employee_js = T4MVCHelpers.ProcessAssetPath("~/Scripts/appscript/employee.js"); 
                     public static readonly string product_index_js = T4MVCHelpers.ProcessAssetPath("~/Scripts/appscript/product.index.js"); 
+                    public static readonly string role_js = T4MVCHelpers.ProcessAssetPath("~/Scripts/appscript/role.js"); 
                 }
             }
             public static partial class common 

@@ -16,7 +16,7 @@
                 dom.roleDt = elements.$roleList.DataTable({
                     "processing": true,
                     "serverSide": true,
-                    "ajax": "/admin/ListRole",
+                    "ajax": "/role/ListRole",
                     "lengthChange": false,
                     "filter": false,
                     "columnDefs": [
