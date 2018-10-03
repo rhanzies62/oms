@@ -46,14 +46,14 @@ namespace OMS.Service.Services
 
         public DataTableResult ListRole(int take, int skip)
         {
-            var allCategories = _roleRepo.GetAll();
-            var result = allCategories.Skip(skip).Take(take).Select(i => new DTO.Category
+            var allRoles = _roleRepo.GetAll();
+            var result = allRoles.Skip(skip).Take(take).Select(i => new DTO.Role
             {
                 ID = i.ID,
                 Name = i.Name,
                 Description = i.Description
             });
-            return new DataTableResult(result, allCategories.Count());
+            return new DataTableResult(result, allRoles.Count());
         }
 
 
