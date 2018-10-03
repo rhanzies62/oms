@@ -115,6 +115,10 @@ namespace OMS.Web.Controllers
             return Json(response);
         }
 
+
+
+
+
         [HttpGet]
         public virtual JsonResult GetCategory(int id)
         {
@@ -168,45 +172,7 @@ namespace OMS.Web.Controllers
 
         }
 
-        public virtual ActionResult Role()
-        {
-
-
-
-            var listRole = _roleService.ListRoles();
-
-
-
-
-
-            return View(_roleService.ListRoles());
-
-        }
-
-
-        public virtual ActionResult CreateRole()
-        {
-
-            return View();
-
-        }
-
-        [HttpPost]
-        public virtual ActionResult CreateRole(Role role)
-        {
-
-            Response<Role> response = _roleService.CreateRole(role);
-            if (response.Success.Equals(true))
-            {
-                ViewBag.Message = "Successfully Added";
-            }
-            else
-            {
-                ViewBag.Message = response.ErrorMessage;
-            }
-            return View();
-
-        }
+        
 
 
         public virtual ActionResult CreateUser()

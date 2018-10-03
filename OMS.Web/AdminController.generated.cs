@@ -97,8 +97,6 @@ namespace OMS.Web.Controllers
             public readonly string CreateEmployee = "CreateEmployee";
             public readonly string Admin = "Admin";
             public readonly string CreateAdmin = "CreateAdmin";
-            public readonly string Role = "Role";
-            public readonly string CreateRole = "CreateRole";
             public readonly string CreateUser = "CreateUser";
         }
 
@@ -118,8 +116,6 @@ namespace OMS.Web.Controllers
             public const string CreateEmployee = "CreateEmployee";
             public const string Admin = "Admin";
             public const string CreateAdmin = "CreateAdmin";
-            public const string Role = "Role";
-            public const string CreateRole = "CreateRole";
             public const string CreateUser = "CreateUser";
         }
 
@@ -171,14 +167,6 @@ namespace OMS.Web.Controllers
         public class ActionParamsClass_CreateAdmin
         {
             public readonly string account = "account";
-        }
-        static readonly ActionParamsClass_CreateRole s_params_CreateRole = new ActionParamsClass_CreateRole();
-        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-        public ActionParamsClass_CreateRole CreateRoleParams { get { return s_params_CreateRole; } }
-        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-        public class ActionParamsClass_CreateRole
-        {
-            public readonly string role = "role";
         }
         static readonly ActionParamsClass_CreateUser s_params_CreateUser = new ActionParamsClass_CreateUser();
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
@@ -421,40 +409,6 @@ namespace OMS.Web.Controllers
             var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.CreateAdmin);
             ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "account", account);
             CreateAdminOverride(callInfo, account);
-            return callInfo;
-        }
-
-        [NonAction]
-        partial void RoleOverride(T4MVC_System_Web_Mvc_ActionResult callInfo);
-
-        [NonAction]
-        public override System.Web.Mvc.ActionResult Role()
-        {
-            var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.Role);
-            RoleOverride(callInfo);
-            return callInfo;
-        }
-
-        [NonAction]
-        partial void CreateRoleOverride(T4MVC_System_Web_Mvc_ActionResult callInfo);
-
-        [NonAction]
-        public override System.Web.Mvc.ActionResult CreateRole()
-        {
-            var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.CreateRole);
-            CreateRoleOverride(callInfo);
-            return callInfo;
-        }
-
-        [NonAction]
-        partial void CreateRoleOverride(T4MVC_System_Web_Mvc_ActionResult callInfo, OMS.Core.DTO.Role role);
-
-        [NonAction]
-        public override System.Web.Mvc.ActionResult CreateRole(OMS.Core.DTO.Role role)
-        {
-            var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.CreateRole);
-            ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "role", role);
-            CreateRoleOverride(callInfo, role);
             return callInfo;
         }
 

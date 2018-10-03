@@ -45,7 +45,7 @@
                         <ul class="dropdown-menu">
                             @*<li><a href="javascript:void(0)" data-toggle="modal" data-target="#variantModal">Variants</a></li>*@
                             <li><a href="javascript:void(0)" id="categorybtn" data-modal-url="@Url.Action(AdminController.ActionNameConstants.CreateCategory,AdminController.NameConst)">Category</a></li>
-                            <li><a href="javascript:void(0)" id="rolebtn">Roles</a></li>
+                            <li><a href="javascript:void(0)" id="rolebtn" data-modal-url="@Url.Action(RoleController.ActionNameConstants.CreateRole,RoleController.NameConst)">Roles</a></li>
                         </ul>
                     </li>
                     <li class="dropdown">
@@ -62,7 +62,7 @@
 
     <div class="container body-content">
         @RenderBody()
-        <hr />
+        <hr/>
         <div id="genericModal" class="modal fade" tabindex="-1" role="dialog">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
