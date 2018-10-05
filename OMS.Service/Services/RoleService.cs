@@ -44,14 +44,22 @@ namespace OMS.Service.Services
 
         }
 
-        public DataTableResult ListRole(int take, int skip)
+
+        public DataTableResult ListRoleByPage(int take, int skip, string search = "")
         {
             var allRoles = _roleRepo.GetAll();
+            if (!string.IsNullOrEmpty(search))
+            {
+                allRoles = allRoles.Where(i => i.Name.Contains(search) || i.Description.Contains(search)).ToList();
+            }
+
             var result = allRoles.Skip(skip).Take(take).Select(i => new DTO.Role
             {
-                ID = i.ID,
                 Name = i.Name,
-                Description = i.Description
+                Description = i.Description,
+                CreatedBy = i.CreatedBy,
+                CreatedDate = i.CreatedDate,
+                ID = i.ID
             });
             return new DataTableResult(result, allRoles.Count());
         }
@@ -63,13 +71,9 @@ namespace OMS.Service.Services
             return Mapper.Map<Entities.Role, DTO.Role>(_roleRepo.GetSingle(u => u.ID.Equals(roleID)));
         }
 
-        public IEnumerable<DTO.SelectListDto> ListRoles()
+        public IEnumerable<DTO.Role> ListRoles()
         {
-            var roles = _roleRepo.GetAll().Select(i => new DTO.SelectListDto {
-                 Text = i.Name,
-                  Value = i.ID.ToString()
-            });
-            return roles;
+            return Mapper.Map<IEnumerable<Entities.Role>, IEnumerable<DTO.Role>>(_roleRepo.GetAll());
         }
 
         public DTO.Response<DTO.Role> RemoveRole(int roleID)

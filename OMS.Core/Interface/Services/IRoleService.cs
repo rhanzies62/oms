@@ -10,12 +10,9 @@ namespace OMS.Core.Interface.Services
 {
     public interface IRoleService
     {
-        IEnumerable<DTO.SelectListDto> ListRoles();
+        IEnumerable<Role> ListRoles();
 
-        DataTableResult ListRole(int take, int skip);
-
-
-
+        DataTableResult ListRoleByPage(int take, int skip, string search = "");
 
         Response<Role> CreateRole(Role Role);
 
@@ -24,6 +21,6 @@ namespace OMS.Core.Interface.Services
         Response<Role> RemoveRole(int roleID);
 
         Role GetRoleByID(int roleID);
-
+ 
     }
 }

@@ -102,6 +102,14 @@ namespace OMS.Web.Controllers
         }
 
 
+        static readonly ActionParamsClass_ListRole s_params_ListRole = new ActionParamsClass_ListRole();
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public ActionParamsClass_ListRole ListRoleParams { get { return s_params_ListRole; } }
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public class ActionParamsClass_ListRole
+        {
+            public readonly string search = "search";
+        }
         static readonly ActionParamsClass_CreateRole s_params_CreateRole = new ActionParamsClass_CreateRole();
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
         public ActionParamsClass_CreateRole CreateRoleParams { get { return s_params_CreateRole; } }
@@ -136,7 +144,9 @@ namespace OMS.Web.Controllers
             public _ViewNamesClass ViewNames { get { return s_ViewNames; } }
             public class _ViewNamesClass
             {
+                public readonly string CreateRole = "CreateRole";
             }
+            public readonly string CreateRole = "~/Views/Role/CreateRole.cshtml";
         }
     }
 
@@ -157,13 +167,14 @@ namespace OMS.Web.Controllers
         }
 
         [NonAction]
-        partial void ListRoleOverride(T4MVC_System_Web_Mvc_ActionResult callInfo);
+        partial void ListRoleOverride(T4MVC_System_Web_Mvc_ActionResult callInfo, string search);
 
         [NonAction]
-        public override System.Web.Mvc.ActionResult ListRole()
+        public override System.Web.Mvc.ActionResult ListRole(string search)
         {
             var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.ListRole);
-            ListRoleOverride(callInfo);
+            ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "search", search);
+            ListRoleOverride(callInfo, search);
             return callInfo;
         }
 

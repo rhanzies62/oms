@@ -30,12 +30,12 @@ namespace OMS.Web.Controllers
 
 
         [HttpGet]
-        public virtual ActionResult ListRole()
+        public virtual ActionResult ListRole(string search = "")
         {
             var start = Request.Params["start"];
             var length = Request.Params["length"];
             var draw = Request.Params["draw"];
-            var result = _roleService.ListRole(int.Parse(length), int.Parse(start));
+            var result = _roleService.ListRoleByPage(int.Parse(length), int.Parse(start), search);
             result.draw = int.Parse(draw);
             return Json(result, JsonRequestBehavior.AllowGet);
         }

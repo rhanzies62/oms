@@ -3,7 +3,8 @@
         var elements = {
             $roleModal: $('#genericModal'),
             $roleList: $('#genericModal').find('#roleList'),
-            $roleForm: $('#genericModal').find('#roleForm')
+            $roleForm: $('#genericModal').find('#roleForm'),
+            $txtRoleSearch: $('#txtRoleSearch')
         };
 
         var dom = {
@@ -11,22 +12,30 @@
             roleDt: null
         };
         var methods = {
-            initializeDt: function () {
-                elements.$roleList.DataTable().clear().destroy();
-                dom.roleDt = elements.$roleList.DataTable({
+            initRoleDT: function () {
+                element.$roleList.DataTable().clear().destroy();
+                dom.roleDt = element.$roleList.DataTable({
                     "processing": true,
                     "serverSide": true,
-                    "ajax": "/role/ListRole",
+                    "ajax": {
+                        "url": "/role/ListRole",
+                        "data": function (d) {
+                            d.search = element.$txtRoleSearch.val();
+                            
+                        }
+                    },
                     "lengthChange": false,
                     "filter": false,
                     "columnDefs": [
                         {
+                         
                             "render": function (data, type, row) {
+                                 
                                 var a = $('<a></a>');
                                 a.addClass('btn btn-danger').text('Delete');
-                                return '<a class="btn btn-danger btnDeleteProduct">Delete</a>';
+                                return '<a class="btn btn-danger btnDeleteRole">Delete</a>';
                             },
-                            "targets": 3
+                            "targets": 5
                         },
                         { "visible": false, "targets": [0] }
                     ]
@@ -38,6 +47,10 @@
                 dom.roleValidator = elements.$roleForm.data('validator');
             }
         };
+
+
+
+
 
         $('#rolebtn').on('click', function () {
             methods.init();
